@@ -14,7 +14,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StudentVerse"
         android:usesCleartextTraffic="true">
-
         <activity android:name=".activity.ui.SignupActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,9 +21,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.ui.MainActivity">
-
-        </activity>
+        <activity android:name=".activity.ui.MainActivity"></activity>
     </application>
 
 </manifest>
