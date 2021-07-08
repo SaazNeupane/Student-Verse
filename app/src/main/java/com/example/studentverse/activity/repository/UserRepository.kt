@@ -7,12 +7,19 @@ import com.example.studentverse.activity.model.User
 import com.example.studentverse.activity.response.RegisterLoginResponse
 
 class UserRepository:APIRequest() {
-    private val clientAPI = ServiceBuilder.buildService(UserAPI::class.java)
+    private val userAPI = ServiceBuilder.buildService(UserAPI::class.java)
 
     //register User
     suspend fun userRegister(user: User): RegisterLoginResponse {
         return apiRequest {
-            clientAPI.userRegister(user)
+            userAPI.userRegister(user)
+        }
+    }
+
+    //login Client
+    suspend fun checkuser(username:String, password:String):RegisterLoginResponse{
+        return apiRequest {
+            userAPI.checkclient(username,password)
         }
     }
 }
