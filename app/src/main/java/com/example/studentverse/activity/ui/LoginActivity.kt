@@ -31,7 +31,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        etusername=findViewById(R.id.etusername)
+        etusername=findViewById(R.id.etlusername)
         textemail=findViewById(R.id.textemail)
         etpassword=findViewById(R.id.etlpassword)
         textpassword=findViewById(R.id.textpassword)

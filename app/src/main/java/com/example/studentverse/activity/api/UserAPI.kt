@@ -18,7 +18,7 @@ interface UserAPI {
 
     //Login Client
     @FormUrlEncoded
-    @POST("client/login")
+    @POST("login")
     suspend fun checkclient(
         @Field("username") username: String,
         @Field("password") password: String
