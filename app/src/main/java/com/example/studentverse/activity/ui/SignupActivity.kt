@@ -71,13 +71,13 @@ class SignupActivity : AppCompatActivity() {
                         withContext(Dispatchers.Main){
                             Toast.makeText(this@SignupActivity, "${response.message}", Toast.LENGTH_SHORT).show()
                             reset()
-//                            startActivity(
-//                                Intent(
-//                                    this@SignupActivity,
-//                                    LoginActivity::class.java
-//                                )
-//                            )
-//                            finish()
+                            startActivity(
+                                Intent(
+                                    this@SignupActivity,
+                                    LoginActivity::class.java
+                                )
+                            )
+                            finish()
                         }
                     }
 
