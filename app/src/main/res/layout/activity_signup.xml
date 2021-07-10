@@ -135,26 +135,6 @@
             app:boxStrokeColor="@color/white"
             android:layout_marginBottom="15dp"
             android:textColorHint="@color/white"
-            app:hintTextColor="@color/white">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etusername"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:hint="Username"
-                android:textColorHint="@color/white"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:fontFamily="@font/blinkerregular"/>
-        </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:boxBackgroundColor="@color/brandcolor"
-            app:boxStrokeColor="@color/white"
-            android:layout_marginBottom="15dp"
-            android:textColorHint="@color/white"
             app:hintTextColor="@color/white"
             app:passwordToggleEnabled="true"
             app:passwordToggleTint="@color/white">
