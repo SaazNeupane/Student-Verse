@@ -1,12 +1,10 @@
 package com.example.studentverse.activity.api
 
 import com.example.studentverse.activity.model.User
+import com.example.studentverse.activity.response.CurrentUserRespone
 import com.example.studentverse.activity.response.RegisterLoginResponse
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface UserAPI {
 
@@ -23,4 +21,10 @@ interface UserAPI {
         @Field("username") username: String,
         @Field("password") password: String
     ):Response<RegisterLoginResponse>
+
+    //current user
+    @GET("profile")
+    suspend fun profile(
+        @Header("Authorization") token : String,
+    ):Response<CurrentUserRespone>
 }
