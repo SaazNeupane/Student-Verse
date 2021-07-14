@@ -1,4 +1,4 @@
-package com.example.studentverse.activity.ui
+    package com.example.studentverse.activity.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -66,7 +66,7 @@ class LoginActivity : AppCompatActivity() {
                     startActivity(
                         Intent(
                             this@LoginActivity,
-                            MainActivity::class.java
+                            ProfileActivity::class.java
                         )
                     )
                     finish()
