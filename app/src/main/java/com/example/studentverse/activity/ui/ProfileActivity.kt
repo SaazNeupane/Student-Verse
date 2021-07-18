@@ -10,7 +10,6 @@ import com.example.studentverse.activity.api.ServiceBuilder
 import com.example.studentverse.activity.api.UserAPI
 import com.example.studentverse.activity.model.User
 import com.example.studentverse.activity.repository.UserRepository
-import com.example.studentverse.activity.response.CurrentUserRespone
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

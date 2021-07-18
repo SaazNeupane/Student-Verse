@@ -1,7 +1,8 @@
 package com.example.studentverse.activity.api
 
 import com.example.studentverse.activity.model.User
-import com.example.studentverse.activity.response.CurrentUserRespone
+import com.example.studentverse.activity.response.CurrentUserResponse
+import com.example.studentverse.activity.response.PostResponse
 import com.example.studentverse.activity.response.RegisterLoginResponse
 import retrofit2.Response
 import retrofit2.http.*
@@ -26,5 +27,13 @@ interface UserAPI {
     @GET("profile")
     suspend fun profile(
         @Header("Authorization") token : String,
-    ):Response<CurrentUserRespone>
+    ):Response<CurrentUserResponse>
+
+    //get post
+    @GET("posts")
+    suspend fun post(
+        @Header("Authorization") token : String,
+    ):Response<PostResponse>
+
+
 }
