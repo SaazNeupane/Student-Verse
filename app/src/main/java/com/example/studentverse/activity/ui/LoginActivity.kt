@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
 import android.widget.*
+import com.example.studentverse.activity.ui.DashboardActivity
 import com.example.studentverse.R
 import com.example.studentverse.activity.api.ServiceBuilder
 import com.example.studentverse.activity.repository.UserRepository
@@ -66,7 +67,7 @@ class LoginActivity : AppCompatActivity() {
                     startActivity(
                         Intent(
                             this@LoginActivity,
-                            ProfileActivity::class.java
+                            DashboardActivity::class.java
                         )
                     )
                     finish()

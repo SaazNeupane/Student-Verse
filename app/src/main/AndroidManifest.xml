@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StudentVerse"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.ui.ProfileActivity"></activity>
+        <activity android:name=".activity.ui.DashboardActivity"></activity>
+        <activity android:name=".activity.ui.ProfileActivity" />
         <activity android:name=".activity.ui.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,7 +23,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.ui.SignupActivity"></activity>
+        <activity android:name=".activity.ui.SignupActivity" />
         <activity android:name=".activity.ui.MainActivity" />
     </application>
 

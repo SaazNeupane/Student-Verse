@@ -4,7 +4,7 @@ import com.example.studentverse.activity.api.APIRequest
 import com.example.studentverse.activity.api.ServiceBuilder
 import com.example.studentverse.activity.api.UserAPI
 import com.example.studentverse.activity.model.User
-import com.example.studentverse.activity.response.CurrentUserRespone
+import com.example.studentverse.activity.response.CurrentUserResponse
 import com.example.studentverse.activity.response.RegisterLoginResponse
 
 class UserRepository:APIRequest() {
@@ -25,7 +25,7 @@ class UserRepository:APIRequest() {
     }
 
     //current user
-    suspend fun profile(): CurrentUserRespone {
+    suspend fun profile(): CurrentUserResponse {
         return apiRequest {
             userAPI.profile(ServiceBuilder.token!!)
         }
