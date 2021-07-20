@@ -20,6 +20,7 @@ import com.example.studentverse.R
 import com.example.studentverse.activity.api.ServiceBuilder
 import com.example.studentverse.activity.model.User
 import com.example.studentverse.activity.repository.UserRepository
+import com.example.studentverse.activity.ui.AskQuestionActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -28,7 +29,7 @@ import java.lang.Exception
 
 class UserFragment : Fragment() {
 
-    private lateinit var btnaddroom: Button
+    private lateinit var btnask: Button
     private lateinit var btnlogout: Button
     private lateinit var name: TextView
     private lateinit var mobile: TextView
@@ -48,19 +49,19 @@ class UserFragment : Fragment() {
         // Inflate the layout for this fragment
         val view=  inflater.inflate(R.layout.fragment_user, container, false)
 
-        btnaddroom = view.findViewById(R.id.btnaddroom)
+        btnask = view.findViewById(R.id.btnask)
         btnlogout = view.findViewById(R.id.btnlogout)
         name = view.findViewById(R.id.name)
         mobile = view.findViewById(R.id.mobile)
         email = view.findViewById(R.id.email)
         profileimage=view.findViewById(R.id.profileimage)
 
-        btnaddroom.setOnClickListener {
-//            startActivity(
-//                    Intent(
-//                            context,
-//                            AddRoomActivity::class.java)
-//            )
+        btnask.setOnClickListener {
+            startActivity(
+                    Intent(
+                            context,
+                            AskQuestionActivity::class.java)
+            )
         }
 
         btnlogout.setOnClickListener {
