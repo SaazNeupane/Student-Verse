@@ -14,7 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StudentVerse"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.ui.DashboardActivity"></activity>
+        <activity android:name=".activity.ui.ViewPostActivity"></activity>
+        <activity android:name=".activity.ui.AskQuestionActivity" />
+        <activity android:name=".activity.ui.DashboardActivity" />
         <activity android:name=".activity.ui.ProfileActivity" />
         <activity android:name=".activity.ui.LoginActivity">
             <intent-filter>

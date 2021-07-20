@@ -33,6 +33,8 @@ class HomeFragment : Fragment() {
     ): View? {
         val view= inflater.inflate(R.layout.fragment_home, container, false)
 
+        //Recyler View
+        rvques=view.findViewById(R.id.rvques)
         loadallquestion()
         return view
     }
@@ -44,15 +46,15 @@ class HomeFragment : Fragment() {
                 val response = questionRepository.allquestion()
                 if (response.success == true) {
                     val question = response.data!!
-                    withContext(Dispatchers.Main) {
-                        val adAdapter = QuestionAdapter(context!!,question)
-                        rvques.adapter = adAdapter
+                    withContext(Main) {
+                        val questionAdapter = QuestionAdapter(context!!,question)
+                        rvques.adapter = questionAdapter
                         rvques.layoutManager= LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false)
                     }
                 }
             }
             catch (ex:Exception){
-                withContext(Dispatchers.Main) {
+                withContext(Main) {
                     Toast.makeText(context,
                         ex.localizedMessage,
                         Toast.LENGTH_SHORT

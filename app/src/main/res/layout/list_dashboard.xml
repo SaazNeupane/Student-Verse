@@ -7,80 +7,66 @@
     android:layout_margin="5dp"
     android:background="@drawable/textlines">
     <LinearLayout
+        android:id="@+id/llbutton"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="8dp"
-        android:backgroundTint="@color/brandcolor">
-    <TextView
-            android:id="@+id/createdAt"
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:text="createdAt:"
-        android:textSize="15dp"
-        android:textStyle="bold"
-        android:gravity="left"
-        android:textColor="@color/white"
-        android:fontFamily="@font/blinkerregular"/>
-        <TextView
-            android:id="@+id/comment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Comment"
-            android:textSize="18dp"
-            android:textStyle="bold"
-            android:gravity="right"
-            android:textColor="@color/white"
-            android:fontFamily="@font/blinkersemibold"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Title"
-            android:textSize="23dp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:layout_margin="20dp"
-            android:textColor="@color/white"
-            android:fontFamily="@font/blinkerbold"/>
+        android:layout_height="match_parent">
+
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
             <TextView
-                android:id="@+id/tags"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:text="Tags: "
-                android:textSize="16dp"
-                android:gravity="left"
-                android:layout_marginBottom="10dp"
-                android:textColor="@color/white"/>
-            <TextView
-                android:id="@+id/views"
-                android:layout_width="232dp"
-                android:layout_height="wrap_content"
-                android:text="Views: "
-                android:textSize="16dp"
-                android:gravity="center"
-                android:layout_marginBottom="10dp"
-                android:textColor="@color/white"/>
-            <TextView
-                android:id="@+id/author"
+                android:id="@+id/answercount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Author:"
-                android:textSize="16dp"
+                android:text="0"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:fontFamily="@font/blinkerregular"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Answer"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:fontFamily="@font/blinkerregular"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Title"
+                android:textSize="23dp"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="5dp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/blinkersemibold"/>
+            <TextView
+                android:id="@+id/tags"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tags:"
+                android:textSize="13dp"
+                android:textStyle="bold"
                 android:gravity="right"
-                android:layout_marginBottom="10dp"
-                android:textColor="@color/white"/>
-    </LinearLayout>
-
-
+                android:textColor="@color/white"
+                android:fontFamily="@font/blinkerregular"/>
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

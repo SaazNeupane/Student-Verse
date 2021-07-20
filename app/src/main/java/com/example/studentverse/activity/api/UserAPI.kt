@@ -29,11 +29,7 @@ interface UserAPI {
         @Header("Authorization") token : String,
     ):Response<CurrentUserResponse>
 
-    //get post
-    @GET("posts")
-    suspend fun post(
-        @Header("Authorization") token : String,
-    ):Response<PostResponse>
+
 
 
 }
