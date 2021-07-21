@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.ui.SinglePostActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="10dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:src="@drawable/blogo"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/stitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Title"
+            android:textSize="23dp"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="5dp"
+            android:textColor="@color/grey"
+            android:fontFamily="@font/blinkersemibold"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/stime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Asked: "
+                android:textSize="13dp"
+                android:textStyle="bold"
+                android:textColor="@color/grey"
+                android:layout_margin="5dp"
+                android:fontFamily="@font/blinkerregular"/>
+
+            <TextView
+                android:id="@+id/sviews"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Views: "
+                android:textSize="13dp"
+                android:textStyle="bold"
+                android:textColor="@color/grey"
+                android:layout_margin="5dp"
+                android:fontFamily="@font/blinkerregular"/>
+
+            <TextView
+                android:id="@+id/suser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Asked by:"
+                android:textSize="13dp"
+                android:textStyle="bold"
+                android:gravity="right"
+                android:textColor="@color/grey"
+                android:layout_margin="5dp"
+                android:fontFamily="@font/blinkerregular"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/sbody"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Body"
+            android:textSize="18dp"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="5dp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/blinkerregular"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -10,7 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.studentverse.R
 import com.example.studentverse.activity.model.Post
-import com.example.studentverse.activity.ui.ViewPostActivity
+import com.example.studentverse.activity.ui.SinglePostActivity
 
 
 class QuestionAdapter(
@@ -41,7 +41,7 @@ class QuestionAdapter(
         holder.tags.text= "Tags: $tags"
 
         holder.llbutton.setOnClickListener {
-            val intent = Intent(context, ViewPostActivity::class.java)
+            val intent = Intent(context, SinglePostActivity::class.java)
                 .putExtra("post",post)
             context.startActivity(intent)
         }
