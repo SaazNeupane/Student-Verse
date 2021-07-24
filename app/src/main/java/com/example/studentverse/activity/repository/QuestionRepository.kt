@@ -4,8 +4,11 @@ import com.example.studentverse.activity.api.APIRequest
 import com.example.studentverse.activity.api.PostAPI
 import com.example.studentverse.activity.api.ServiceBuilder
 import com.example.studentverse.activity.api.UserAPI
+import com.example.studentverse.activity.model.Answer
 import com.example.studentverse.activity.model.Post
 import com.example.studentverse.activity.response.AddPostResponse
+import com.example.studentverse.activity.response.AnswerAddResponse
+import com.example.studentverse.activity.response.AnswerResponse
 import com.example.studentverse.activity.response.PostResponse
 
 class QuestionRepository:APIRequest() {
@@ -24,6 +27,22 @@ class QuestionRepository:APIRequest() {
             postAPI.addAd(
                 ServiceBuilder.token!!,post
             )
+        }
+    }
+
+    //Add Answer
+    suspend fun answeradd(answer: Answer): AnswerAddResponse {
+        return apiRequest {
+            postAPI.answeradd(
+                ServiceBuilder.token!!,answer
+            )
+        }
+    }
+
+    //Get Answer
+    suspend fun getanswer(id: String): AnswerResponse {
+        return apiRequest {
+            postAPI.getanswer(id)
         }
     }
 }
