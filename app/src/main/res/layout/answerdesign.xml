@@ -60,7 +60,7 @@
                 app:hintTextColor="@color/black"
                 android:fontFamily="@font/blinkerregular">
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etcomment"
+                    android:id="@+id/etccomment"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
@@ -72,6 +72,7 @@
                     android:fontFamily="@font/blinkerregular"/>
             </com.google.android.material.textfield.TextInputLayout>
             <ImageButton
+                android:id="@+id/btnccomment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/ic_outline_reply_24"

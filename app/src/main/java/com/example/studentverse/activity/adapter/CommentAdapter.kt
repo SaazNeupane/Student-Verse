@@ -17,8 +17,6 @@ class CommentAdapter (
     class CommentHolder(view: View) : RecyclerView.ViewHolder(view){
         val comment: TextView = view.findViewById(R.id.tvccomment)
         val user: TextView = view.findViewById(R.id.tvcuser)
-
-
     }
 
     override fun onCreateViewHolder(
@@ -32,7 +30,6 @@ class CommentAdapter (
 
     override fun onBindViewHolder(holder: CommentAdapter.CommentHolder, position: Int) {
         val cmt = listcomment[position]
-
         holder.comment.text= cmt.text
 
     }
