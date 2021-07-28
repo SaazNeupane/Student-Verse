@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/lgrey"
     android:orientation="vertical"
     android:layout_margin="10dp">
@@ -12,9 +12,81 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="Comment"
+        android:text="Answer"
         android:textSize="20sp"
         android:fontFamily="@font/blinkerregular"
         android:textColor="@color/black"/>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <TextView
+        android:id="@+id/tvcomments"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/blinkerregular"
+        android:layout_margin="10dp"
+        android:text="View replies..."
+        android:visibility="gone"/>
+    <TextView
+        android:id="@+id/tvreply"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/blinkerregular"
+        android:layout_margin="10dp"
+        android:text="Click here for reply"
+        android:textStyle="italic"
+        android:gravity="end"/>
+</LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:id="@+id/lladdcomment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="10dp"
+            android:visibility="gone">
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                app:boxBackgroundColor="@color/lgrey"
+                app:boxStrokeColor="@color/grey"
+                android:layout_marginBottom="15dp"
+                android:textColorHint="@color/grey"
+                app:hintTextColor="@color/black"
+                android:fontFamily="@font/blinkerregular">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etcomment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:hint="Comment"
+                    android:textColorHint="@color/grey"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/blinkerregular"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_outline_reply_24"
+                android:background="@color/lgrey"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/llcomments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvcomments"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"/>
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>
