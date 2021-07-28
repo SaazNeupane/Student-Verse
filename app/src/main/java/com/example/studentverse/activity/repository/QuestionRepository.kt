@@ -5,11 +5,9 @@ import com.example.studentverse.activity.api.PostAPI
 import com.example.studentverse.activity.api.ServiceBuilder
 import com.example.studentverse.activity.api.UserAPI
 import com.example.studentverse.activity.model.Answer
+import com.example.studentverse.activity.model.Comment
 import com.example.studentverse.activity.model.Post
-import com.example.studentverse.activity.response.AddPostResponse
-import com.example.studentverse.activity.response.AnswerAddResponse
-import com.example.studentverse.activity.response.AnswerResponse
-import com.example.studentverse.activity.response.PostResponse
+import com.example.studentverse.activity.response.*
 
 class QuestionRepository:APIRequest() {
     private val postAPI = ServiceBuilder.buildService(PostAPI::class.java)
@@ -43,6 +41,15 @@ class QuestionRepository:APIRequest() {
     suspend fun getanswer(id: String): AnswerResponse {
         return apiRequest {
             postAPI.getanswer(id)
+        }
+    }
+
+    //Add Comment
+    suspend fun addcomment(comment: Comment) : CommentAddResponse {
+        return apiRequest {
+            postAPI.addcomment(
+                ServiceBuilder.token!!,comment
+            )
         }
     }
 }

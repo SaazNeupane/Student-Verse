@@ -62,12 +62,13 @@ class SinglePostActivity : AppCompatActivity() {
                     val response = questionRepository.answeradd(answer)
                     if (response.success == true){
                         withContext(Dispatchers.Main){
-                            startActivity(
-                                Intent(
-                                    this@SinglePostActivity,
-                                    DashboardActivity::class.java
-                                )
-                            )
+                            Toast.makeText(this@SinglePostActivity,
+                                "Answer Added",
+                                Toast.LENGTH_SHORT)
+                                .show()
+                            val intent = Intent(this@SinglePostActivity, SinglePostActivity::class.java)
+                                .putExtra("post",intent)
+                            startActivity(intent)
                         }
                     }
                 }
@@ -89,7 +90,7 @@ class SinglePostActivity : AppCompatActivity() {
                 if (response.success == true) {
                     val comment = response.data!!
                     withContext(Dispatchers.Main) {
-                        val answerAdapter = AnswerAdapter(comment, this@SinglePostActivity)
+                        val answerAdapter = AnswerAdapter(comment,intent, this@SinglePostActivity)
                         rvanswer.adapter = answerAdapter
                         rvanswer.layoutManager= LinearLayoutManager(this@SinglePostActivity, LinearLayoutManager.VERTICAL,false)
                     }

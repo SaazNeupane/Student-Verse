@@ -14,20 +14,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StudentVerse"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.ui.SinglePostActivity"></activity>
-        <activity android:name=".activity.ui.ViewPostActivity" />
-        <activity android:name=".activity.ui.AskQuestionActivity" />
-        <activity android:name=".activity.ui.DashboardActivity" />
-        <activity android:name=".activity.ui.ProfileActivity" />
-        <activity android:name=".activity.ui.LoginActivity">
+        <activity android:name=".activity.ui.SinglePostActivity" android:launchMode="singleTask"></activity>
+        <activity android:name=".activity.ui.AskQuestionActivity" android:launchMode="singleTask"/>
+        <activity android:name=".activity.ui.DashboardActivity" android:launchMode="singleTask"/>
+        <activity android:name=".activity.ui.LoginActivity" android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.ui.SignupActivity" />
-        <activity android:name=".activity.ui.MainActivity" />
+        <activity android:name=".activity.ui.SignupActivity" android:launchMode="singleTask"/>
     </application>
 
 </manifest>
