@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StudentVerse"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.ui.SinglePostActivity" android:launchMode="singleTask"></activity>
+        <activity android:name=".activity.ui.SinglePostActivity"></activity>
         <activity android:name=".activity.ui.AskQuestionActivity" android:launchMode="singleTask"/>
         <activity android:name=".activity.ui.DashboardActivity" android:launchMode="singleTask"/>
         <activity android:name=".activity.ui.LoginActivity" android:launchMode="singleTask">
