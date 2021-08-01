@@ -24,10 +24,9 @@ class AnswerUIInstrumentedTesting {
     @Test
     fun displayQuestion(){
         ServiceBuilder.token =
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZjU5M2ZkZDY5Y2FjMzY2MDRjNmI5NyIsImlhdCI6MTYyNjg1MTY0MywiZXhwIjoxNjI5NDQzNjQzfQ.gpGsCtGZTovGQ-9nDMzxYI6x-4ITWDcCn9xf2kmoxz8"
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMDNjYjVmN2NhMTM1NDlkNGJhMjllOCIsImlhdCI6MTYyNzYzODg2MCwiZXhwIjoxNjMwMjMwODYwfQ.gR3xBHBCI4a1Banna8IlgfkS1cU1tzYHXGcD3WoUksc"
 
-        val post = Post("6103b66f0624ab17145fc4a7","I HAVE A QUERY","My Science text is not happening")
-
+        val post = Post("6103b66f0624ab17145fc4a7","I HAVE A QUERY","My Science text is not happening", listOf("name","science"))
         Intent().putExtra("post",post)
 
         Thread.sleep(2000)
