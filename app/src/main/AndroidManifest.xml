@@ -8,23 +8,35 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/clogo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/clogo"
         android:supportsRtl="true"
         android:theme="@style/Theme.StudentVerse"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.ui.SinglePostActivity"></activity>
-        <activity android:name=".activity.ui.AskQuestionActivity" android:launchMode="singleTask"/>
-        <activity android:name=".activity.ui.DashboardActivity" android:launchMode="singleTask"/>
-        <activity android:name=".activity.ui.LoginActivity" android:launchMode="singleTask">
+        <activity
+            android:name=".activity.ui.SplashActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.ui.SignupActivity" android:launchMode="singleTask"/>
+        <activity android:name=".activity.ui.SinglePostActivity" />
+        <activity
+            android:name=".activity.ui.AskQuestionActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".activity.ui.DashboardActivity"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".activity.ui.LoginActivity"
+            android:launchMode="singleTask">
+        </activity>
+        <activity
+            android:name=".activity.ui.SignupActivity"
+            android:launchMode="singleTask" />
     </application>
 
 </manifest>

@@ -2,14 +2,18 @@ package com.example.studentverse.activity.ui
 
 import android.R.attr.y
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import com.example.studentverse.R
 import com.example.studentverse.activity.model.Post
+import com.example.studentverse.activity.notification.NotificationChannels
 import com.example.studentverse.activity.repository.QuestionRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -53,7 +57,7 @@ class AskQuestionActivity : AppCompatActivity() {
                 val response = questionRepository.addpost(post)
                 if (response.success == true){
                         withContext(Dispatchers.Main){
-                            Toast.makeText(this@AskQuestionActivity, "${response.message}", Toast.LENGTH_SHORT).show()
+                            showNotification("${response.message}")
                             startActivity(
                                 Intent(
                                     this@AskQuestionActivity,
@@ -93,5 +97,23 @@ class AskQuestionActivity : AppCompatActivity() {
             flag = false
         }
         return flag
+    }
+
+    private fun showNotification(message: String) {
+
+        val notificationManager = NotificationManagerCompat.from(this)
+
+        val notificationChannels = NotificationChannels(this)
+        notificationChannels.createNotificationChannels()
+
+        val notification = NotificationCompat.Builder(this, notificationChannels.CHANNEL_1)
+            .setSmallIcon(R.drawable.notification)
+            .setContentTitle("Student-Verse")
+            .setContentText("$message")
+            .setColor(Color.BLUE)
+            .build()
+
+        notificationManager.notify(1, notification)
+
     }
 }
