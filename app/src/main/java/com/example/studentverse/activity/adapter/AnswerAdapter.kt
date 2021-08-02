@@ -2,12 +2,13 @@ package com.example.studentverse.activity.adapter
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.LightingColorFilter
-import android.graphics.PorterDuff
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.graphics.drawable.DrawableCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.studentverse.R
@@ -35,6 +36,7 @@ class AnswerAdapter(
         val llcomments: LinearLayout = view.findViewById(R.id.llcomments)
         val lladdcomments: LinearLayout = view.findViewById(R.id.lladdcomment)
         val tvreply: TextView = view.findViewById(R.id.tvreply)
+        val tvscore: TextView = view.findViewById(R.id.score)
         val etccomment: EditText = view.findViewById(R.id.etccomment)
         val btnccomment: ImageButton = view.findViewById(R.id.btnccomment)
         val upvote: ImageButton = view.findViewById(R.id.upvote)
@@ -49,7 +51,7 @@ class AnswerAdapter(
     override fun onBindViewHolder(holder: AnswerAdapter.AnswerHolder, position: Int) {
         val answer = listanswer[position]
         holder.answer.text=answer.text
-        holder
+        holder.tvscore.text = answer.score.toString()
         val comments = answer.comment
         if (comments != null) {
             holder.tvcomments.setVisibility(View.VISIBLE)
@@ -76,26 +78,14 @@ class AnswerAdapter(
                 try{
                     val questionRepository = QuestionRepository()
                     val response = questionRepository.upvote(vote)
-                    if (response.data==1){
-                        val respons = questionRepository.unvote(vote)
-                        if (respons.success == true){
-                            withContext(Dispatchers.Main){
-                                Toast.makeText(context, "${respons.message}", Toast.LENGTH_SHORT).show()
-                                val intent = Intent(context, SinglePostActivity::class.java)
-                                context.startActivity(intent)
-                            }
-                        }
-                    }
-                    else{
                         if (response.success == true){
                             withContext(Dispatchers.Main){
-                                Toast.makeText(context, "${response.data}", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(context, "${response.message}", Toast.LENGTH_SHORT).show()
                                 val intent = Intent(context, SinglePostActivity::class.java)
+                                    .putExtra("post",question)
                                 context.startActivity(intent)
                             }
                         }
-                    }
-
                 }
                 catch (ex: Exception){
                     withContext(Dispatchers.Main){
@@ -119,8 +109,9 @@ class AnswerAdapter(
                     val response = questionRepository.downvote(vote)
                     if (response.success == true){
                         withContext(Dispatchers.Main){
-                            Toast.makeText(context, "${response.data}", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(context, "${response.message}", Toast.LENGTH_SHORT).show()
                             val intent = Intent(context, SinglePostActivity::class.java)
+                                .putExtra("post",question)
                             context.startActivity(intent)
                         }
                     }
