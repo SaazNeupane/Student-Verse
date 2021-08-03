@@ -3,8 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/drawable/border.xml" value="0.2703125" />
         <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/activity_splash.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/activity_update_profile.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/answerdesign.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/fragment_others.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>
