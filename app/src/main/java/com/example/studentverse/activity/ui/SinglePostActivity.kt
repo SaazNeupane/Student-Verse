@@ -13,7 +13,9 @@ import com.example.studentverse.R
 import com.example.studentverse.activity.adapter.AnswerAdapter
 import com.example.studentverse.activity.model.Answer
 import com.example.studentverse.activity.model.Post
+import com.example.studentverse.activity.model.User
 import com.example.studentverse.activity.repository.QuestionRepository
+import com.example.studentverse.activity.repository.UserRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -29,6 +31,7 @@ class SinglePostActivity : AppCompatActivity() {
     private lateinit var etanswer: EditText
     private lateinit var btnanswer: Button
     private lateinit var rvanswer: RecyclerView
+    private var userDetails: User? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_single_post)
@@ -82,6 +85,24 @@ class SinglePostActivity : AppCompatActivity() {
                 }
             }
         }
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val userRepository = UserRepository()
+                val response = userRepository.profile()
+
+                if (response.success == true) {
+                    userDetails = response.data!!
+                    println(userDetails?._id)
+                }
+            } catch (ex: Exception) {
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(
+                        this@SinglePostActivity,
+                        "Error : $ex", Toast.LENGTH_LONG
+                    ).show()
+                }
+            }
+        }
 
         CoroutineScope(Dispatchers.IO).launch {
             try {
@@ -90,7 +111,7 @@ class SinglePostActivity : AppCompatActivity() {
                 if (response.success == true) {
                     val comment = response.data!!
                     withContext(Dispatchers.Main) {
-                        val answerAdapter = AnswerAdapter(comment,intent, this@SinglePostActivity)
+                        val answerAdapter = AnswerAdapter(comment,intent,userDetails?._id!!, this@SinglePostActivity)
                         rvanswer.adapter = answerAdapter
                         rvanswer.layoutManager= LinearLayoutManager(this@SinglePostActivity, LinearLayoutManager.VERTICAL,false)
                     }

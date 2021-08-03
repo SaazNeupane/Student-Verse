@@ -27,7 +27,8 @@ import kotlinx.coroutines.withContext
 class AnswerAdapter(
     private val listanswer: ArrayList<Answer>,
     private val question: Post,
-    private val context: Context
+    private val userid: String,
+    private val context: Context,
 ): RecyclerView.Adapter<AnswerAdapter.AnswerHolder>() {
     class AnswerHolder(view: View) : RecyclerView.ViewHolder(view) {
         val answer: TextView = view.findViewById(R.id.answer)
@@ -42,6 +43,7 @@ class AnswerAdapter(
         val upvote: ImageButton = view.findViewById(R.id.upvote)
         val downvote: ImageButton = view.findViewById(R.id.downvote)
     }
+    private var clicked : Boolean? = null
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AnswerAdapter.AnswerHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.answerdesign, parent, false)
@@ -69,15 +71,76 @@ class AnswerAdapter(
         holder.rvcomments.adapter = commentAdapter
         holder.rvcomments.layoutManager= LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false)
 
+        val votes = answer.votes
+        val size = votes?.size
 
+        for (i in 0 until size!!){
+            if(votes[i].user == userid){
+                clicked = false
+            }
+        }
         holder.upvote.setOnClickListener {
-
-            val vote = Vote(answer = answer._id, post = question._id)
-
-            CoroutineScope(Dispatchers.IO).launch {
-                try{
-                    val questionRepository = QuestionRepository()
-                    val response = questionRepository.upvote(vote)
+            if (clicked!!){
+                clicked = false;
+                val vote = Vote(answer = answer._id, post = question._id)
+                CoroutineScope(Dispatchers.IO).launch {
+                    try{
+                        val questionRepository = QuestionRepository()
+                        val response = questionRepository.upvote(vote)
+                        if (response.success == true){
+                            withContext(Dispatchers.Main){
+                                Toast.makeText(context, "${response.message}", Toast.LENGTH_SHORT).show()
+                                val intent = Intent(context, SinglePostActivity::class.java)
+                                context.startActivity(intent)
+                            }
+                        }
+                    }
+                    catch (ex: Exception){
+                        withContext(Dispatchers.Main){
+                            Toast.makeText(context,
+                                ex.toString(),
+                                Toast.LENGTH_SHORT)
+                                .show()
+                        }
+                    }
+                }
+            }
+            else{
+                clicked = true;
+                val vote = Vote(answer = answer._id, post = question._id)
+                CoroutineScope(Dispatchers.IO).launch {
+                    try {
+                        val questionRepository = QuestionRepository()
+                        val response = questionRepository.unvote(vote)
+                        if (response.success == true) {
+                            withContext(Dispatchers.Main) {
+                                Toast.makeText(context, "${response.message}", Toast.LENGTH_SHORT)
+                                    .show()
+                                val intent = Intent(context, SinglePostActivity::class.java)
+                                context.startActivity(intent)
+                            }
+                        }
+                    } catch (ex: Exception) {
+                        withContext(Dispatchers.Main) {
+                            Toast.makeText(
+                                context,
+                                ex.toString(),
+                                Toast.LENGTH_SHORT
+                            )
+                                .show()
+                        }
+                    }
+                }
+            }
+        }
+        holder.downvote.setOnClickListener {
+            if (clicked!!){
+                clicked = false;
+                val vote = Vote(answer = answer._id, post = question._id)
+                CoroutineScope(Dispatchers.IO).launch {
+                    try{
+                        val questionRepository = QuestionRepository()
+                        val response = questionRepository.downvote(vote)
                         if (response.success == true){
                             withContext(Dispatchers.Main){
                                 Toast.makeText(context, "${response.message}", Toast.LENGTH_SHORT).show()
@@ -86,17 +149,44 @@ class AnswerAdapter(
                                 context.startActivity(intent)
                             }
                         }
-                }
-                catch (ex: Exception){
-                    withContext(Dispatchers.Main){
-                        Toast.makeText(context,
-                            ex.toString(),
-                            Toast.LENGTH_SHORT)
-                            .show()
+                    }
+                    catch (ex: Exception){
+                        withContext(Dispatchers.Main){
+                            Toast.makeText(context,
+                                ex.toString(),
+                                Toast.LENGTH_SHORT)
+                                .show()
+                        }
                     }
                 }
             }
-
+            else{
+                clicked = true;
+                val vote = Vote(answer = answer._id, post = question._id)
+                CoroutineScope(Dispatchers.IO).launch {
+                    try {
+                        val questionRepository = QuestionRepository()
+                        val response = questionRepository.unvote(vote)
+                        if (response.success == true) {
+                            withContext(Dispatchers.Main) {
+                                Toast.makeText(context, "${response.message}", Toast.LENGTH_SHORT)
+                                    .show()
+                                val intent = Intent(context, SinglePostActivity::class.java)
+                                context.startActivity(intent)
+                            }
+                        }
+                    } catch (ex: Exception) {
+                        withContext(Dispatchers.Main) {
+                            Toast.makeText(
+                                context,
+                                ex.toString(),
+                                Toast.LENGTH_SHORT
+                            )
+                                .show()
+                        }
+                    }
+                }
+            }
         }
 
         holder.downvote.setOnClickListener {
