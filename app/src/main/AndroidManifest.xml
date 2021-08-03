@@ -26,7 +26,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.ui.SinglePostActivity" />
+        <activity android:name=".activity.ui.SinglePostActivity"
+            android:launchMode="singleTask" />
         <activity
             android:name=".activity.ui.AskQuestionActivity"
             android:launchMode="singleTask" />

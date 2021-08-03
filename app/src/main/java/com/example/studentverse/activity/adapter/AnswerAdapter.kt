@@ -43,7 +43,8 @@ class AnswerAdapter(
         val upvote: ImageButton = view.findViewById(R.id.upvote)
         val downvote: ImageButton = view.findViewById(R.id.downvote)
     }
-    private var clicked : Boolean? = null
+    private var upclicked : Boolean? = null
+    private var downclicked : Boolean? = null
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AnswerAdapter.AnswerHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.answerdesign, parent, false)
@@ -75,13 +76,26 @@ class AnswerAdapter(
         val size = votes?.size
 
         for (i in 0 until size!!){
-            if(votes[i].user == userid){
-                clicked = false
+            if(votes[i].user == userid && votes[i].vote == 1){
+                print(votes[i])
+                upclicked = false
+                downclicked = true
             }
+            else if (votes[i].user == userid && votes[i].vote == -1){
+                upclicked = true
+                downclicked = false
+            }
+            else{
+                upclicked = true;
+                downclicked = true;
+            }
+            println(upclicked)
+            println(downclicked)
         }
         holder.upvote.setOnClickListener {
-            if (clicked!!){
-                clicked = false;
+            if (upclicked!!){
+                upclicked = false;
+                downclicked = true;
                 val vote = Vote(answer = answer._id, post = question._id)
                 CoroutineScope(Dispatchers.IO).launch {
                     try{
@@ -106,7 +120,7 @@ class AnswerAdapter(
                 }
             }
             else{
-                clicked = true;
+                upclicked = true;
                 val vote = Vote(answer = answer._id, post = question._id)
                 CoroutineScope(Dispatchers.IO).launch {
                     try {
@@ -134,8 +148,9 @@ class AnswerAdapter(
             }
         }
         holder.downvote.setOnClickListener {
-            if (clicked!!){
-                clicked = false;
+            if (downclicked!!){
+                downclicked = false;
+                upclicked = true;
                 val vote = Vote(answer = answer._id, post = question._id)
                 CoroutineScope(Dispatchers.IO).launch {
                     try{
@@ -161,7 +176,7 @@ class AnswerAdapter(
                 }
             }
             else{
-                clicked = true;
+                downclicked = true;
                 val vote = Vote(answer = answer._id, post = question._id)
                 CoroutineScope(Dispatchers.IO).launch {
                     try {
