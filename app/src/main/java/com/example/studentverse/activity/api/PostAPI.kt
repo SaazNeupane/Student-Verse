@@ -3,6 +3,7 @@ package com.example.studentverse.activity.api
 import com.example.studentverse.activity.model.Answer
 import com.example.studentverse.activity.model.Comment
 import com.example.studentverse.activity.model.Post
+import com.example.studentverse.activity.model.Vote
 import com.example.studentverse.activity.response.*
 import retrofit2.Response
 import retrofit2.http.*
@@ -41,4 +42,23 @@ interface PostAPI {
         @Header("Authorization") token : String,
         @Body comment: Comment
     ): Response<CommentAddResponse>
+
+    //Voting
+    @POST("upvote")
+    suspend fun upvote(
+        @Header("Authorization") token : String,
+        @Body vote: Vote
+    ): Response<VoteResponse>
+
+    @POST("downvote")
+    suspend fun downvote(
+        @Header("Authorization") token : String,
+        @Body vote: Vote
+    ): Response<VoteResponse>
+
+    @POST("unvote")
+    suspend fun unvote(
+        @Header("Authorization") token : String,
+        @Body vote: Vote
+    ): Response<VoteResponse>
 }

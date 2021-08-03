@@ -7,6 +7,7 @@ import com.example.studentverse.activity.api.UserAPI
 import com.example.studentverse.activity.model.Answer
 import com.example.studentverse.activity.model.Comment
 import com.example.studentverse.activity.model.Post
+import com.example.studentverse.activity.model.Vote
 import com.example.studentverse.activity.response.*
 
 class QuestionRepository:APIRequest() {
@@ -49,6 +50,31 @@ class QuestionRepository:APIRequest() {
         return apiRequest {
             postAPI.addcomment(
                 ServiceBuilder.token!!,comment
+            )
+        }
+    }
+
+    //Voting
+    suspend fun upvote(vote : Vote) : VoteResponse {
+        return apiRequest {
+            postAPI.upvote(
+                ServiceBuilder.token!!,vote
+            )
+        }
+    }
+
+    suspend fun downvote(vote: Vote) : VoteResponse {
+        return apiRequest {
+            postAPI.downvote(
+                ServiceBuilder.token!!,vote
+            )
+        }
+    }
+
+    suspend fun unvote(vote: Vote) : VoteResponse {
+        return apiRequest {
+            postAPI.unvote(
+                ServiceBuilder.token!!,vote
             )
         }
     }

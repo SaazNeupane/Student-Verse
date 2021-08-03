@@ -9,5 +9,7 @@ data class Answer (
     val createdAt: String? =null,
     val post: String? =null,
     val text: String? =null,
-    val comment: ArrayList<Comment>? =null
+    val comment: ArrayList<Comment>? =null,
+    val score: Int? = null,
+    val votes: ArrayList<Votes>? = null
         )
