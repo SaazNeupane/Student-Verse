@@ -110,7 +110,9 @@ class SinglePostActivity : AppCompatActivity() {
                 val response = questionRepository.getanswer(intent._id!!)
                 if (response.success == true) {
                     val comment = response.data!!
+                    println(comment)
                     withContext(Dispatchers.Main) {
+                        println("it is here")
                         val answerAdapter = AnswerAdapter(comment,intent,userDetails?._id!!, this@SinglePostActivity)
                         rvanswer.adapter = answerAdapter
                         rvanswer.layoutManager= LinearLayoutManager(this@SinglePostActivity, LinearLayoutManager.VERTICAL,false)
@@ -121,7 +123,7 @@ class SinglePostActivity : AppCompatActivity() {
             catch (ex:Exception){
                 withContext(Dispatchers.Main) {
                     Toast.makeText(this@SinglePostActivity,
-                        ex.localizedMessage,
+                        "$ex",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
