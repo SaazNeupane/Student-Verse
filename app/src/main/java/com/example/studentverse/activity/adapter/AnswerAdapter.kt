@@ -189,36 +189,6 @@ class AnswerAdapter(
             }
         }
 
-        holder.downvote.setOnClickListener {
-
-            val vote = Vote(answer = answer._id, post = question._id)
-
-            CoroutineScope(Dispatchers.IO).launch {
-                try{
-                    val questionRepository = QuestionRepository()
-                    val response = questionRepository.downvote(vote)
-                    if (response.success == true){
-                        withContext(Dispatchers.Main){
-                            Toast.makeText(context, "${response.message}", Toast.LENGTH_SHORT).show()
-                            val intent = Intent(context, SinglePostActivity::class.java)
-                                .putExtra("post",question)
-                            context.startActivity(intent)
-                        }
-                    }
-                }
-                catch (ex: Exception){
-                    withContext(Dispatchers.Main){
-                        Toast.makeText(context,
-                            ex.toString(),
-                            Toast.LENGTH_SHORT)
-                            .show()
-                    }
-                }
-            }
-
-        }
-
-
         holder.btnccomment.setOnClickListener {
             val comt = holder.etccomment.text.toString()
 
