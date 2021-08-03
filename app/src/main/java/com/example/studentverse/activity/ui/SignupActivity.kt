@@ -1,14 +1,18 @@
 package com.example.studentverse.activity.ui
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import com.example.studentverse.R
 import com.example.studentverse.activity.model.User
+import com.example.studentverse.activity.notification.NotificationChannels
 import com.example.studentverse.activity.repository.UserRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -66,7 +70,7 @@ class SignupActivity : AppCompatActivity() {
                     val response = userRepository.userRegister(user)
                     if (response.success == true){
                         withContext(Dispatchers.Main){
-                            Toast.makeText(this@SignupActivity, "${response.message}", Toast.LENGTH_SHORT).show()
+                            showNotification("${response.message}")
                             reset()
                             startActivity(
                                 Intent(
@@ -132,5 +136,23 @@ class SignupActivity : AppCompatActivity() {
         etemail.text.clear()
         etpassword.text.clear()
         etrepassword.text.clear()
+    }
+
+    private fun showNotification(message: String) {
+
+        val notificationManager = NotificationManagerCompat.from(this)
+
+        val notificationChannels = NotificationChannels(this)
+        notificationChannels.createNotificationChannels()
+
+        val notification = NotificationCompat.Builder(this, notificationChannels.CHANNEL_1)
+            .setSmallIcon(R.drawable.notification)
+            .setContentTitle("Student-Verse")
+            .setContentText("$message")
+            .setColor(Color.BLUE)
+            .build()
+
+        notificationManager.notify(1, notification)
+
     }
 }
