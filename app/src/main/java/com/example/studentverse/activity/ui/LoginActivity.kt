@@ -1,14 +1,18 @@
 package com.example.studentverse.activity.ui
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
 import android.widget.*
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import com.example.studentverse.activity.ui.DashboardActivity
 import com.example.studentverse.R
 import com.example.studentverse.activity.api.ServiceBuilder
+import com.example.studentverse.activity.notification.NotificationChannels
 import com.example.studentverse.activity.repository.UserRepository
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputLayout
@@ -64,6 +68,7 @@ class LoginActivity : AppCompatActivity() {
                 if (response.success == true) {
                     ServiceBuilder.token = "Bearer " + response.token
                     saveSharedPref()
+                    showNotification("${response.message}")
                     startActivity(
                         Intent(
                             this@LoginActivity,
@@ -115,7 +120,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun saveSharedPref() {
-        val email = etusername.text.toString()
+        val username = etusername.text.toString()
         val password = etpassword.text.toString()
         var remember = false
         if (cbremember.isChecked){
@@ -123,9 +128,27 @@ class LoginActivity : AppCompatActivity() {
         }
         val sharedPref = getSharedPreferences("Preferences", MODE_PRIVATE)
         val editor = sharedPref.edit()
-        editor.putString("email", email)
+        editor.putString("username", username)
         editor.putString("password", password)
         editor.putBoolean("remember", remember)
         editor.apply()
+    }
+
+    private fun showNotification(message: String) {
+
+        val notificationManager = NotificationManagerCompat.from(this)
+
+        val notificationChannels = NotificationChannels(this)
+        notificationChannels.createNotificationChannels()
+
+        val notification = NotificationCompat.Builder(this, notificationChannels.CHANNEL_1)
+            .setSmallIcon(R.drawable.notification)
+            .setContentTitle("Student-Verse")
+            .setContentText("$message")
+            .setColor(Color.BLUE)
+            .build()
+
+        notificationManager.notify(1, notification)
+
     }
 }

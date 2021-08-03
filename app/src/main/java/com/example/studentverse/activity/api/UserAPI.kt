@@ -4,6 +4,7 @@ import com.example.studentverse.activity.model.User
 import com.example.studentverse.activity.response.CurrentUserResponse
 import com.example.studentverse.activity.response.PostResponse
 import com.example.studentverse.activity.response.RegisterLoginResponse
+import com.example.studentverse.activity.response.UpdateResponse
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -28,6 +29,13 @@ interface UserAPI {
     suspend fun profile(
         @Header("Authorization") token : String,
     ):Response<CurrentUserResponse>
+
+    //Update Client Details
+    @PUT("user/update")
+    suspend fun update(
+        @Header("Authorization") token: String,
+        @Body user: User
+    ): Response<UpdateResponse>
 
 
 
