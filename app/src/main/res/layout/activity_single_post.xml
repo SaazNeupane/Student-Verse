@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.ui.SinglePostActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="10dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:src="@drawable/blogo"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/stitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Title"
+            android:textSize="23dp"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="5dp"
+            android:textColor="@color/grey"
+            android:fontFamily="@font/blinkersemibold"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/stime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Asked: "
+                android:textSize="13dp"
+                android:textStyle="bold"
+                android:textColor="@color/grey"
+                android:layout_margin="5dp"
+                android:fontFamily="@font/blinkerregular"/>
+
+            <TextView
+                android:id="@+id/sviews"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Views: "
+                android:textSize="13dp"
+                android:textStyle="bold"
+                android:textColor="@color/grey"
+                android:layout_margin="5dp"
+                android:fontFamily="@font/blinkerregular"/>
+
+            <TextView
+                android:id="@+id/suser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Asked by:"
+                android:textSize="13dp"
+                android:textStyle="bold"
+                android:gravity="right"
+                android:textColor="@color/grey"
+                android:layout_margin="5dp"
+                android:fontFamily="@font/blinkerregular"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/sbody"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Body"
+            android:textSize="18dp"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="5dp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/blinkerregular"/>
+
+        //Comment
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxBackgroundColor="@color/white"
+            app:boxStrokeColor="@color/brandcolor"
+            android:layout_marginBottom="15dp"
+            android:textColorHint="@color/grey"
+            app:hintTextColor="@color/grey"
+            android:layout_marginTop="25dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etanswer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:hint="Answer"
+                android:textColorHint="@color/grey"
+                android:textColor="@color/grey"
+                android:textSize="18sp"
+                android:fontFamily="@font/blinkersemibold"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        //Button
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnanswer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Answer"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:background="@drawable/buttoncornerbrand"
+            android:fontFamily="@font/blinkerbold"
+            android:layout_marginBottom="15dp"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Answers"
+            android:textSize="23dp"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="5dp"
+            android:textColor="@color/grey"
+            android:fontFamily="@font/blinkerbold"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvanswer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

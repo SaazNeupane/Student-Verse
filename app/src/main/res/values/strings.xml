@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">StudentVerse</string>
+    <string name="create"> <u> Create Account</u></string>
 </resources>
