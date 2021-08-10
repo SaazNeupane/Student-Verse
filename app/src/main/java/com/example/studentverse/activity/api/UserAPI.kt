@@ -30,6 +30,12 @@ interface UserAPI {
         @Header("Authorization") token : String,
     ):Response<CurrentUserResponse>
 
+    //current user
+    @GET("user/{id}")
+    suspend fun finduser(
+        @Path("id") uid: String,
+    ):Response<CurrentUserResponse>
+
     //Update Client Details
     @PUT("user/update")
     suspend fun update(

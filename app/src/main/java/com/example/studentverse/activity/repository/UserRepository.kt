@@ -32,6 +32,13 @@ class UserRepository:APIRequest() {
         }
     }
 
+    //find user
+    suspend fun finduser(uid:String): CurrentUserResponse {
+        return apiRequest {
+            userAPI.finduser(uid)
+        }
+    }
+
     //Update
     //Update
     suspend fun update(user:User): UpdateResponse {

@@ -27,7 +27,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.ui.SinglePostActivity"
-            android:launchMode="singleTask" />
+            android:noHistory="true" />
         <activity
             android:name=".activity.ui.AskQuestionActivity"
             android:launchMode="singleTask" />

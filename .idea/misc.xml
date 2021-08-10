@@ -4,10 +4,16 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/drawable/border.xml" value="0.2703125" />
+        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/drawable/ic_baseline_arrow_circle_down_24.xml" value="0.2703125" />
         <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/activity_splash.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/activity_update_profile.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/answerdesign.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/fragment_others.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/fragment_search.xml" value="0.20854700854700856" />
+        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/fragment_study_material.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/fragment_user.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/menu/option.xml" value="0.26145833333333335" />
       </map>
     </option>
   </component>

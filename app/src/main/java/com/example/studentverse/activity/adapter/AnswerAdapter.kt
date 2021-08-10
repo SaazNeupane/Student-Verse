@@ -12,11 +12,9 @@ import androidx.core.graphics.drawable.DrawableCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.studentverse.R
-import com.example.studentverse.activity.model.Answer
-import com.example.studentverse.activity.model.Comment
-import com.example.studentverse.activity.model.Post
-import com.example.studentverse.activity.model.Vote
+import com.example.studentverse.activity.model.*
 import com.example.studentverse.activity.repository.QuestionRepository
+import com.example.studentverse.activity.repository.UserRepository
 import com.example.studentverse.activity.ui.SinglePostActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -27,13 +25,13 @@ import kotlinx.coroutines.withContext
 class AnswerAdapter(
     private val listanswer: ArrayList<Answer>,
     private val question: Post,
-    private val userid: String,
     private val context: Context,
 ): RecyclerView.Adapter<AnswerAdapter.AnswerHolder>() {
     class AnswerHolder(view: View) : RecyclerView.ViewHolder(view) {
         val answer: TextView = view.findViewById(R.id.answer)
         val rvcomments: RecyclerView = view.findViewById(R.id.rvcomments)
         val tvcomments: TextView = view.findViewById(R.id.tvcomments)
+        val tvausername: TextView = view.findViewById(R.id.tvausername)
         val llcomments: LinearLayout = view.findViewById(R.id.llcomments)
         val lladdcomments: LinearLayout = view.findViewById(R.id.lladdcomment)
         val tvreply: TextView = view.findViewById(R.id.tvreply)
@@ -45,6 +43,8 @@ class AnswerAdapter(
     }
     private var upclicked : Boolean? = null
     private var downclicked : Boolean? = null
+    private var userid: String = ""
+    private var userDetails: User? = null
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AnswerAdapter.AnswerHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.answerdesign, parent, false)
@@ -56,7 +56,7 @@ class AnswerAdapter(
         holder.answer.text=answer.text
         holder.tvscore.text = answer.score.toString()
         val comments = answer.comment
-        if (comments != null) {
+        if (comments?.size !== 0) {
             holder.tvcomments.setVisibility(View.VISIBLE)
             holder.tvcomments.setOnClickListener {
                 holder.llcomments.visibility = View.VISIBLE
@@ -74,6 +74,49 @@ class AnswerAdapter(
 
         val votes = answer.votes
         val size = votes?.size
+
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val userRepository = UserRepository()
+                val response = userRepository.finduser(answer.author!!)
+
+                if (response.success == true) {
+                    userDetails = response.data!!
+                    withContext(Dispatchers.Main) {
+                    }
+                }
+            } catch (ex: java.lang.Exception) {
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(
+                        context,
+                        "Error : $ex", Toast.LENGTH_LONG
+                    ).show()
+                }
+            }
+        }
+
+
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val userRepository = UserRepository()
+                val response = userRepository.profile()
+
+                if (response.success == true) {
+                    userDetails = response.data!!
+                    userid= userDetails!!._id.toString()
+                    withContext(Dispatchers.Main){
+                        Toast.makeText(context, "${userid}", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            } catch (ex: java.lang.Exception) {
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(
+                        context,
+                        "Error : $ex", Toast.LENGTH_LONG
+                    ).show()
+                }
+            }
+        }
 
         for (i in 0 until size!!){
             if(votes[i].user == userid && votes[i].vote == 1){
@@ -105,6 +148,7 @@ class AnswerAdapter(
                             withContext(Dispatchers.Main){
                                 Toast.makeText(context, "${response.message}", Toast.LENGTH_SHORT).show()
                                 val intent = Intent(context, SinglePostActivity::class.java)
+                                    .putExtra("post",question)
                                 context.startActivity(intent)
                             }
                         }
@@ -131,6 +175,7 @@ class AnswerAdapter(
                                 Toast.makeText(context, "${response.message}", Toast.LENGTH_SHORT)
                                     .show()
                                 val intent = Intent(context, SinglePostActivity::class.java)
+                                    .putExtra("post",question)
                                 context.startActivity(intent)
                             }
                         }
@@ -187,6 +232,7 @@ class AnswerAdapter(
                                 Toast.makeText(context, "${response.message}", Toast.LENGTH_SHORT)
                                     .show()
                                 val intent = Intent(context, SinglePostActivity::class.java)
+                                    .putExtra("post",question)
                                 context.startActivity(intent)
                             }
                         }

@@ -56,7 +56,7 @@ class HomeFragment : Fragment() {
             catch (ex:Exception){
                 withContext(Main) {
                     Toast.makeText(context,
-                        ex.localizedMessage,
+                        "$ex .toString()",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
