@@ -21,6 +21,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.lang.Exception
+import java.text.SimpleDateFormat
+import java.util.*
 
 class SinglePostActivity : AppCompatActivity() {
     private lateinit var stitle: TextView
@@ -47,11 +49,34 @@ class SinglePostActivity : AppCompatActivity() {
         val intent = intent.getParcelableExtra<Post>("post")!!
 
         if(intent !=null){
-            stitle.setText("${intent.title}")
-//            stime.setText("${intent.time}")
-//            sviews.setText("${intent.sviews}")
-            sbody.setText("${intent.body}")
+            stitle.text = "${intent.title}"
+            val time = intent.createdAt
+            val dateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+            val parsedDate: Date = dateFormat.parse(time)
+            val print = SimpleDateFormat("MMM d, yyyy HH:mm")
+            stime.text = "${print.format(parsedDate)}"
+            sbody.text = "${intent.body}"
 
+        }
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val userRepository = UserRepository()
+                val response = userRepository.finduser(intent.author!!)
+
+                if (response.success == true) {
+                    val userDetails = response.data!!
+                    withContext(Dispatchers.Main) {
+                        suser.text = "Asked by: ${userDetails!!.username.toString()}"
+                    }
+                }
+            } catch (ex: java.lang.Exception) {
+                withContext(Dispatchers.Main){
+                    Toast.makeText(this@SinglePostActivity,
+                        ex.toString(),
+                        Toast.LENGTH_SHORT)
+                        .show()
+                }
+            }
         }
 
         btnanswer.setOnClickListener {

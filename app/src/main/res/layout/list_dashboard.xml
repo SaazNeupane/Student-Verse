@@ -18,29 +18,27 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:gravity="center">
             <TextView
                 android:id="@+id/answercount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="0"
-                android:textSize="18dp"
+                android:textSize="16dp"
                 android:textStyle="bold"
                 android:gravity="center"
                 android:textColor="@color/white"
-                android:layout_gravity="center"
-                android:fontFamily="@font/blinkerregular"/>
+                android:fontFamily="@font/opensansregular"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Answer"
-                android:textSize="15dp"
+                android:textSize="13dp"
                 android:textStyle="bold"
                 android:gravity="center"
                 android:textColor="@color/white"
-                android:layout_gravity="center"
-                android:fontFamily="@font/blinkerregular"/>
+                android:fontFamily="@font/opensansregular"/>
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
@@ -52,21 +50,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Title"
-                android:textSize="23dp"
+                android:textSize="16dp"
                 android:layout_gravity="center_vertical"
                 android:layout_margin="5dp"
                 android:textColor="@color/white"
-                android:fontFamily="@font/blinkersemibold"/>
+                android:fontFamily="@font/opensanssemibold"
+                android:justificationMode="inter_word"/>
             <TextView
                 android:id="@+id/tags"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Tags:"
-                android:textSize="13dp"
+                android:textSize="12dp"
                 android:textStyle="bold"
                 android:gravity="right"
                 android:textColor="@color/white"
-                android:fontFamily="@font/blinkerregular"/>
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/opensansregular"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

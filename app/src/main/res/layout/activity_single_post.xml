@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.ui.SinglePostActivity">
+    tools:context=".activity.ui.SinglePostActivity"
+    android:overScrollMode="never">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,11 +25,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Title"
-            android:textSize="23dp"
+            android:textSize="20dp"
             android:layout_gravity="center_vertical"
             android:layout_margin="5dp"
             android:textColor="@color/grey"
-            android:fontFamily="@font/blinkersemibold"/>
+            android:fontFamily="@font/opensanssemibold"
+            android:justificationMode="inter_word"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -38,34 +40,34 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Asked: "
-                android:textSize="13dp"
+                android:textSize="11dp"
                 android:textStyle="bold"
                 android:textColor="@color/grey"
                 android:layout_margin="5dp"
-                android:fontFamily="@font/blinkerregular"/>
+                android:fontFamily="@font/opensanssemibolditalic"/>
 
             <TextView
                 android:id="@+id/sviews"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Views: "
-                android:textSize="13dp"
+                android:textSize="11dp"
                 android:textStyle="bold"
                 android:textColor="@color/grey"
                 android:layout_margin="5dp"
-                android:fontFamily="@font/blinkerregular"/>
+                android:fontFamily="@font/opensanssemibolditalic"/>
 
             <TextView
                 android:id="@+id/suser"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Asked by:"
-                android:textSize="13dp"
+                android:textSize="12dp"
                 android:textStyle="bold"
                 android:gravity="right"
                 android:textColor="@color/grey"
                 android:layout_margin="5dp"
-                android:fontFamily="@font/blinkerregular"/>
+                android:fontFamily="@font/opensanssemibold"/>
 
         </LinearLayout>
 
@@ -74,13 +76,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Body"
-            android:textSize="18dp"
+            android:textSize="15dp"
             android:layout_gravity="center_vertical"
-            android:layout_margin="5dp"
+            android:layout_margin="10dp"
             android:textColor="@color/black"
-            android:fontFamily="@font/blinkerregular"/>
+            android:fontFamily="@font/opensansregular"
+            android:justificationMode="inter_word"/>
 
-        //Comment
+
+        //Answer
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -89,7 +93,7 @@
             android:layout_marginBottom="15dp"
             android:textColorHint="@color/grey"
             app:hintTextColor="@color/grey"
-            android:layout_marginTop="25dp">
+            android:layout_marginTop="15dp">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etanswer"
                 android:layout_width="match_parent"
@@ -130,9 +134,12 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvanswer"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:overScrollMode="never"
+            android:isScrollContainer="false"/>
 
     </LinearLayout>
 
 
-</LinearLayout>
+</androidx.core.widget.NestedScrollView>

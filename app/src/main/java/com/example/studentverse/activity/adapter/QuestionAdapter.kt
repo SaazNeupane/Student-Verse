@@ -23,6 +23,7 @@ class QuestionAdapter(
         val comment: TextView = view.findViewById(R.id.answercount)
         val title: TextView = view.findViewById(R.id.title)
         val tags: TextView = view.findViewById(R.id.tags)
+        val answercount: TextView = view.findViewById(R.id.answercount)
         val llbutton: LinearLayout = view.findViewById(R.id.llbutton)
     }
 
@@ -45,6 +46,7 @@ class QuestionAdapter(
                 .putExtra("post",post)
             context.startActivity(intent)
         }
+        holder.answercount.text = post.answer?.size.toString()
 
     }
 
