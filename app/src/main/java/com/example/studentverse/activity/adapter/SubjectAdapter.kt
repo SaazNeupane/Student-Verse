@@ -43,7 +43,8 @@ class SubjectAdapter (
 
     override fun onBindViewHolder(holder: SubjectAdapter.SubjectViewHolder, position: Int) {
         val subject = listsubject[position]
-        val imagepath= ServiceBuilder.loadImagepath()+subject.pictureName
+        val imagepath = "https://student-verse.herokuapp.com/subject/${subject.pictureName}"
+
         Glide.with(context)
             .load(imagepath)
             .apply( RequestOptions()
@@ -53,34 +54,8 @@ class SubjectAdapter (
 
         holder.llsubject.setOnClickListener {
             val intent = Intent(context, TopicActivity::class.java)
-                .putExtra("topic",subject)
+                .putExtra("subject",subject)
             context.startActivity(intent)
-        }
-
-        CoroutineScope(Dispatchers.IO).launch {
-            try {
-                val subjectRepository = SubjectRepository()
-                val response = subjectRepository.subjectsimage(subject.pictureName!!)
-
-                if (response.success == true) {
-                    withContext(Dispatchers.Main) {
-                        Glide.with(context)
-                            .load(imagepath)
-                            .apply( RequestOptions()
-                                .placeholder(R.drawable.blogo)
-                                .fitCenter())
-                            .into(holder.subjectimage)
-
-                    }
-                }
-            } catch (ex: java.lang.Exception) {
-                withContext(Dispatchers.Main) {
-                    Toast.makeText(
-                        context,
-                        "Error : $ex", Toast.LENGTH_LONG
-                    ).show()
-                }
-            }
         }
     }
 

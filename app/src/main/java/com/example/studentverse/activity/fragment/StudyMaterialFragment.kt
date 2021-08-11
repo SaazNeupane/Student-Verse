@@ -43,10 +43,10 @@ class StudyMaterialFragment : Fragment() {
                 val subjectRepository = SubjectRepository()
                 val response = subjectRepository.allsubjects()
                 if (response.success == true) {
-                    val question = response.data!!
+                    val subject = response.data!!
                     withContext(Dispatchers.Main) {
-                        val questionAdapter = SubjectAdapter(question,context!!)
-                        rvsubjects.adapter = questionAdapter
+                        val subjectAdapter = SubjectAdapter(subject,context!!)
+                        rvsubjects.adapter = subjectAdapter
                         rvsubjects.layoutManager= LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false)
                     }
                 }

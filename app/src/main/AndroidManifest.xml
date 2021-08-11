@@ -15,11 +15,16 @@
         android:theme="@style/Theme.StudentVerse"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".activity.ui.TopicActivity"
+            android:name=".activity.ui.ChapterActivity"
             android:exported="true" />
         <activity
+            android:name=".activity.ui.TopicActivity"
+            android:exported="true"
+            android:launchMode="singleTask" />
+        <activity
             android:name=".activity.ui.UpdateProfileActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:launchMode="singleTask" />
         <activity
             android:name=".activity.ui.SplashActivity"
             android:exported="true">

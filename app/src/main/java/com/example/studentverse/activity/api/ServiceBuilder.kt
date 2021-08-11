@@ -3,6 +3,12 @@ package com.example.studentverse.activity.api
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import com.google.gson.GsonBuilder
+
+import com.google.gson.Gson
+
+
+
 
 object ServiceBuilder {
         private const val BASE_URL =
@@ -14,9 +20,13 @@ object ServiceBuilder {
 
     var token: String? = null
     private val okHttp = OkHttpClient.Builder()
+    var gson = GsonBuilder()
+        .setLenient()
+        .create()
+
     private val retrofitBuilder = Retrofit.Builder()
         .baseUrl(BASE_URL)
-        .addConverterFactory(GsonConverterFactory.create())
+        .addConverterFactory(GsonConverterFactory.create(gson))
         .client(okHttp.build())
 
     //Create retrofit instance

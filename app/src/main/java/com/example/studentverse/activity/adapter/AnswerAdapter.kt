@@ -63,6 +63,7 @@ class AnswerAdapter(
         val comments = answer.comment
         if (comments != null) {
             holder.tvcomments.visibility = View.VISIBLE
+            holder.tvcomments.text = "${answer.comment.size.toString()} replies......."
             holder.tvcomments.setOnClickListener {
                 if (holder.llcomments.visibility == View.VISIBLE){
                     holder.llcomments.visibility = View.GONE

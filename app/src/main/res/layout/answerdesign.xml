@@ -48,7 +48,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
         <TextView
             android:id="@+id/tvatime"
             android:layout_width="wrap_content"
@@ -114,7 +116,7 @@
                 android:layout_marginBottom="15dp"
                 android:textColorHint="@color/grey"
                 app:hintTextColor="@color/black"
-                android:fontFamily="@font/blinkerregular">
+                android:fontFamily="@font/opensansregular">
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etccomment"
                     android:layout_width="match_parent"
@@ -124,8 +126,8 @@
                     android:hint="Comment"
                     android:textColorHint="@color/grey"
                     android:textColor="@color/black"
-                    android:textSize="18sp"
-                    android:fontFamily="@font/blinkerregular"/>
+                    android:textSize="15sp"
+                    android:fontFamily="@font/opensansregular"/>
             </com.google.android.material.textfield.TextInputLayout>
             <ImageButton
                 android:id="@+id/btnccomment"
