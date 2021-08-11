@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/lltopic"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bottomline"
+    android:layout_margin="5dp">
+
+    <TextView
+        android:id="@+id/tvtopicname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="123"
+        android:textSize="17sp"
+        android:fontFamily="@font/opensansbold"
+        android:textColor="@color/black"/>
+    <TextView
+        android:id="@+id/tvtopicdesp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="123"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="5dp"
+        android:textSize="13sp"
+        android:fontFamily="@font/opensansregular"
+        android:textColor="@color/black"/>
+
+</LinearLayout>

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".activity.fragments.HomeFragment">
-    <LinearLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -14,26 +14,54 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Ask queries:"
-                android:background="@drawable/bottomline"
-                android:layout_gravity="center"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="All Questions"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textColor="@color/brandcolor"
+                    android:textSize="28sp"
+                    android:fontFamily="@font/blinkerbold"
+                    />
+                <Button
+                    android:id="@+id/btnhask"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ask Question"
+                    android:fontFamily="@font/blinkersemibold"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/brandcolor"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="75dp"/>
+            </LinearLayout>
+            <TextView
+                android:id="@+id/tvqcount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="123 Questions"
+                android:layout_gravity="left"
                 android:gravity="center"
                 android:textColor="@color/brandcolor"
-                android:textStyle="bold"
-                android:textSize="26sp"
-                android:layout_marginBottom="20dp"
-                android:layout_marginTop="0dp"
+                android:textSize="14sp"
+                android:layout_margin="8dp"
+                android:fontFamily="@font/blinkerregular"
                 />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvques"
+                android:layout_margin="2dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:overScrollMode="never"
+                android:isScrollContainer="false">
             </androidx.recyclerview.widget.RecyclerView>
         </LinearLayout>
-    </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 </FrameLayout>

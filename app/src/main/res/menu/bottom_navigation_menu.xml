@@ -16,8 +16,8 @@
         android:icon="@drawable/user"
         android:title="User"/>
     <item
-        android:id="@+id/others"
+        android:id="@+id/studymaterials"
         android:enabled="true"
-        android:icon="@drawable/more"
-        android:title="Others"/>
+        android:icon="@drawable/studymaterials"
+        android:title="Materials"/>
 </menu>

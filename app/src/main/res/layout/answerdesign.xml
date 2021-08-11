@@ -41,9 +41,37 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:text="Answer"
-        android:textSize="20sp"
-        android:fontFamily="@font/blinkerregular"
-        android:textColor="@color/black"/>
+        android:textSize="14sp"
+        android:fontFamily="@font/opensansregular"
+        android:textColor="@color/black"
+        android:justificationMode="inter_word"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+        <TextView
+            android:id="@+id/tvatime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/opensanssemibolditalic"
+            android:layout_margin="5dp"
+            android:text="Time"
+            android:textColor="@color/black"
+            android:textSize="12sp"/>
+        <TextView
+            android:id="@+id/tvausername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/opensanssemibold"
+            android:layout_margin="5dp"
+            android:text="Username"
+            android:gravity="end"
+            android:textColor="@color/black"
+            android:textSize="13sp"/>
+
+    </LinearLayout>
     <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -52,19 +80,21 @@
         android:id="@+id/tvcomments"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/blinkerregular"
+        android:fontFamily="@font/opensansregular"
         android:layout_margin="10dp"
         android:text="View replies..."
-        android:visibility="gone"/>
+        android:visibility="gone"
+        android:textSize="12sp"/>
     <TextView
         android:id="@+id/tvreply"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/blinkerregular"
+        android:fontFamily="@font/opensansregular"
         android:layout_margin="10dp"
         android:text="Click here for reply"
         android:textStyle="italic"
-        android:gravity="end"/>
+        android:gravity="end"
+        android:textSize="12sp"/>
 </LinearLayout>
 
     <LinearLayout
@@ -86,7 +116,7 @@
                 android:layout_marginBottom="15dp"
                 android:textColorHint="@color/grey"
                 app:hintTextColor="@color/black"
-                android:fontFamily="@font/blinkerregular">
+                android:fontFamily="@font/opensansregular">
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etccomment"
                     android:layout_width="match_parent"
@@ -96,8 +126,8 @@
                     android:hint="Comment"
                     android:textColorHint="@color/grey"
                     android:textColor="@color/black"
-                    android:textSize="18sp"
-                    android:fontFamily="@font/blinkerregular"/>
+                    android:textSize="15sp"
+                    android:fontFamily="@font/opensansregular"/>
             </com.google.android.material.textfield.TextInputLayout>
             <ImageButton
                 android:id="@+id/btnccomment"
