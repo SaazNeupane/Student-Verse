@@ -15,6 +15,9 @@
         android:theme="@style/Theme.StudentVerse"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".activity.ui.TopicActivity"
+            android:exported="true" />
+        <activity
             android:name=".activity.ui.UpdateProfileActivity"
             android:exported="true" />
         <activity
@@ -26,7 +29,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.ui.SinglePostActivity"
+        <activity
+            android:name=".activity.ui.SinglePostActivity"
             android:noHistory="true" />
         <activity
             android:name=".activity.ui.AskQuestionActivity"
@@ -36,7 +40,7 @@
             android:launchMode="singleTask" />
         <activity
             android:name=".activity.ui.LoginActivity"
-            android:launchMode="singleTask"></activity>
+            android:launchMode="singleTask" />
         <activity
             android:name=".activity.ui.SignupActivity"
             android:launchMode="singleTask" />

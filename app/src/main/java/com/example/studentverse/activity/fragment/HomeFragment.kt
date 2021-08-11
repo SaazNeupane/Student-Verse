@@ -1,9 +1,11 @@
 package com.example.studentverse.activity.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -13,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.studentverse.R
 import com.example.studentverse.activity.adapter.QuestionAdapter
 import com.example.studentverse.activity.repository.QuestionRepository
+import com.example.studentverse.activity.ui.AskQuestionActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Dispatchers.Main
@@ -22,6 +25,8 @@ import kotlinx.coroutines.withContext
 class HomeFragment : Fragment() {
 
     private lateinit var rvques: RecyclerView
+    private lateinit var tvqcount: TextView
+    private lateinit var btnhask: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +40,17 @@ class HomeFragment : Fragment() {
 
         //Recyler View
         rvques=view.findViewById(R.id.rvques)
+        tvqcount=view.findViewById(R.id.tvqcount)
+        btnhask=view.findViewById(R.id.btnhask)
         loadallquestion()
+
+        btnhask.setOnClickListener {
+            startActivity(
+                Intent(
+                    context,
+                    AskQuestionActivity::class.java)
+            )
+        }
         return view
     }
 
@@ -47,6 +62,7 @@ class HomeFragment : Fragment() {
                 if (response.success == true) {
                     val question = response.data!!
                     withContext(Main) {
+                        tvqcount.text = "${question.size} questions"
                         val questionAdapter = QuestionAdapter(context!!,question)
                         rvques.adapter = questionAdapter
                         rvques.layoutManager= LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false)

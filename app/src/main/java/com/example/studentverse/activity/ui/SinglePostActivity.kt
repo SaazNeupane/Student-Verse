@@ -115,9 +115,9 @@ class SinglePostActivity : AppCompatActivity() {
                 val questionRepository = QuestionRepository()
                 val response = questionRepository.getanswer(intent._id!!)
                 if (response.success == true) {
-                    val comment = response.data!!
+                    val answer = response.data!!
                     withContext(Dispatchers.Main) {
-                        val answerAdapter = AnswerAdapter(comment,intent, this@SinglePostActivity)
+                        val answerAdapter = AnswerAdapter(answer,intent, this@SinglePostActivity)
                         rvanswer.adapter = answerAdapter
                         rvanswer.layoutManager= LinearLayoutManager(this@SinglePostActivity, LinearLayoutManager.VERTICAL,false)
                     }

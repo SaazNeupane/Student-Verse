@@ -9,4 +9,4 @@ data class Answer (
     val score: Int? = null,
     val votes: ArrayList<Votes>? = null,
     val author:String? =null
-        )
+)

@@ -59,5 +59,10 @@ dependencies {
     //Circle Image
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
+    //Glide
+    def glide_version = "4.8.0"
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+    annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
+
 
 }

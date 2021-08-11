@@ -5,7 +5,8 @@
     android:orientation="vertical"
     android:padding="10dp"
     android:layout_margin="5dp"
-    android:background="@drawable/textlines">
+    android:background="@drawable/textlines"
+    android:backgroundTint="@color/brandcolor">
     <LinearLayout
         android:id="@+id/llbutton"
         android:layout_width="match_parent"

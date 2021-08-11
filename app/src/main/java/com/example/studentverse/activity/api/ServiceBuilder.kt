@@ -9,6 +9,8 @@ object ServiceBuilder {
         "http://10.0.2.2:5000/"
 //        private const val BASE_URL =
 //        "http://localhost:5000/"
+//        private const val BASE_URL =
+//        "https://student-verse.herokuapp.com/"
 
     var token: String? = null
     private val okHttp = OkHttpClient.Builder()
@@ -23,5 +25,10 @@ object ServiceBuilder {
     //Generic function
     fun <T> buildService(serviceType: Class<T>): T {
         return retrofit.create(serviceType)
+    }
+
+    fun loadImagepath():String{
+        val arr = BASE_URL.split("/").toTypedArray()
+        return arr[0] + "/" + arr[1] + arr[2] + "picture/"
     }
 }
