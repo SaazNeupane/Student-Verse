@@ -76,6 +76,14 @@
             android:gravity="center_horizontal"
             android:layout_marginBottom="50dp"/>
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvsearch"
+            android:layout_margin="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:overScrollMode="never"
+            android:isScrollContainer="false"/>
+
     </LinearLayout>
 
 </FrameLayout>

@@ -26,9 +26,9 @@ class SubjectRepository:APIRequest() {
     }
 
     //Get Topic
-    suspend fun getchapter(id: String): ChapterResponse {
+    suspend fun getchapter(sid:String,tid: String): ChapterResponse {
         return apiRequest {
-            subjectAPI.getchapter(id)
+            subjectAPI.getchapter(sid,tid)
         }
     }
 }

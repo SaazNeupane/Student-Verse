@@ -21,8 +21,9 @@ interface SubjectAPI {
     ):Response<TopicResponse>
 
     //Get Answer
-    @GET("chapter")
+    @GET("chapter/{subject}/{topic}")
     suspend fun getchapter(
-        @Body subject: String
+        @Path("subject") sid: String,
+        @Path("topic") tid: String,
     ):Response<ChapterResponse>
 }

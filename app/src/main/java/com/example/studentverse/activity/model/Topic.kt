@@ -7,6 +7,7 @@ data class Topic (
     val _id: String? =null,
     val name: String? = null,
     val description: String? = null,
+    val chapter: ArrayList<Chapter>? = null
 ):Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString(),

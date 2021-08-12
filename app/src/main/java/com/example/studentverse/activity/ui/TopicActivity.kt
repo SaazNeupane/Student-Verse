@@ -42,7 +42,7 @@ class TopicActivity : AppCompatActivity() {
                 if (response.success == true) {
                     val topic = response.data!!
                     withContext(Dispatchers.Main) {
-                        val topicAdapter = TopicAdapter(topic,this@TopicActivity)
+                        val topicAdapter = TopicAdapter(topic,intent._id,this@TopicActivity)
                         rvtopic.adapter = topicAdapter
                         rvtopic.layoutManager= LinearLayoutManager(this@TopicActivity, LinearLayoutManager.VERTICAL,false)
                     }
