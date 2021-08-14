@@ -3,10 +3,7 @@ package com.example.studentverse.activity.repository
 import com.example.studentverse.activity.api.APIRequest
 import com.example.studentverse.activity.api.ServiceBuilder
 import com.example.studentverse.activity.api.SubjectAPI
-import com.example.studentverse.activity.response.AnswerResponse
-import com.example.studentverse.activity.response.ChapterResponse
-import com.example.studentverse.activity.response.SubjectResponse
-import com.example.studentverse.activity.response.TopicResponse
+import com.example.studentverse.activity.response.*
 
 class SubjectRepository:APIRequest() {
     private val subjectAPI = ServiceBuilder.buildService(SubjectAPI::class.java)
@@ -29,6 +26,20 @@ class SubjectRepository:APIRequest() {
     suspend fun getchapter(sid:String,tid: String): ChapterResponse {
         return apiRequest {
             subjectAPI.getchapter(sid,tid)
+        }
+    }
+
+    //Seacrh Question
+    suspend fun searchquestion(text:String): PostResponse {
+        return apiRequest {
+            subjectAPI.searchquestion(text)
+        }
+    }
+
+    //Seacrh Tags
+    suspend fun searchtag(text:String): PostResponse {
+        return apiRequest {
+            subjectAPI.searchtag(text)
         }
     }
 }

@@ -4,9 +4,7 @@ import com.example.studentverse.activity.api.APIRequest
 import com.example.studentverse.activity.api.ServiceBuilder
 import com.example.studentverse.activity.api.UserAPI
 import com.example.studentverse.activity.model.User
-import com.example.studentverse.activity.response.CurrentUserResponse
-import com.example.studentverse.activity.response.RegisterLoginResponse
-import com.example.studentverse.activity.response.UpdateResponse
+import com.example.studentverse.activity.response.*
 
 class UserRepository:APIRequest() {
     private val userAPI = ServiceBuilder.buildService(UserAPI::class.java)
@@ -40,12 +38,18 @@ class UserRepository:APIRequest() {
     }
 
     //Update
-    //Update
     suspend fun update(user:User): UpdateResponse {
         return apiRequest {
             userAPI.update(
                 ServiceBuilder.token!!,user
             )
+        }
+    }
+
+    //Seacrh User
+    suspend fun searchuser(text:String): SearchUserResponse {
+        return apiRequest {
+            userAPI.searchtag(text)
         }
     }
 
