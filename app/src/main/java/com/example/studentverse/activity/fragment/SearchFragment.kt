@@ -50,7 +50,7 @@ class SearchFragment : Fragment() {
         btnsearch = view.findViewById(R.id.btnsearch)
         loadallquestion()
         spoptions.adapter = ArrayAdapter(
-            context!!,
+            requireContext(),
             R.layout.support_simple_spinner_dropdown_item,options
         )
 
@@ -92,7 +92,7 @@ class SearchFragment : Fragment() {
                             rvsearch.visibility = View.VISIBLE
                             tvscount.visibility = View.VISIBLE
                             tvscount.text = "Found ${question.size} questions"
-                            val questionAdapter = QuestionAdapter(context!!,question)
+                            val questionAdapter = QuestionAdapter(requireContext(),question)
                             rvsearch.adapter = questionAdapter
                             rvsearch.layoutManager= LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false)
                         }
@@ -120,7 +120,7 @@ class SearchFragment : Fragment() {
                                 rvsearch.visibility = View.VISIBLE
                                 tvscount.visibility = View.VISIBLE
                                 tvscount.text = "Found ${question.size} questions"
-                                val questionAdapter = QuestionAdapter(context!!,question)
+                                val questionAdapter = QuestionAdapter(requireContext(),question)
                                 rvsearch.adapter = questionAdapter
                                 rvsearch.layoutManager= LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false)
                             }
@@ -148,7 +148,7 @@ class SearchFragment : Fragment() {
                                 rvsearch.visibility = View.VISIBLE
                                 tvscount.visibility = View.VISIBLE
                                 tvscount.text = "Found ${user.size} Users"
-                                val userAdapter = UserAdapter(user,context!!)
+                                val userAdapter = UserAdapter(user,requireContext())
                                 rvsearch.adapter = userAdapter
                                 rvsearch.layoutManager= LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false)
 
@@ -175,7 +175,7 @@ class SearchFragment : Fragment() {
                 if (response.success == true) {
                     val question = response.data!!
                     withContext(Dispatchers.Main) {
-                        val questionAdapter = QuestionAdapter(context!!,question)
+                        val questionAdapter = QuestionAdapter(requireContext(),question)
                         rvsearch.adapter = questionAdapter
                         rvsearch.layoutManager= LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false)
                     }

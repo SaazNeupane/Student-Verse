@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.studentverse.R
 import com.example.studentverse.activity.adapter.QuestionAdapter
 import com.example.studentverse.activity.repository.QuestionRepository
@@ -27,6 +28,7 @@ class HomeFragment : Fragment() {
     private lateinit var rvques: RecyclerView
     private lateinit var tvqcount: TextView
     private lateinit var btnhask: Button
+    private lateinit var swipe: SwipeRefreshLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,7 +44,18 @@ class HomeFragment : Fragment() {
         rvques=view.findViewById(R.id.rvques)
         tvqcount=view.findViewById(R.id.tvqcount)
         btnhask=view.findViewById(R.id.btnhask)
+        swipe=view.findViewById(R.id.swipetorefresh)
         loadallquestion()
+
+        swipe.setOnRefreshListener {
+
+            swipe.postDelayed( Runnable {
+                swipe()
+                if (swipe.isRefreshing){
+                    swipe.isRefreshing = false
+                }
+            },500)
+        }
 
         btnhask.setOnClickListener {
             startActivity(
@@ -63,7 +76,33 @@ class HomeFragment : Fragment() {
                     val question = response.data!!
                     withContext(Main) {
                         tvqcount.text = "${question.size} questions"
-                        val questionAdapter = QuestionAdapter(context!!,question)
+                        val questionAdapter = QuestionAdapter(requireContext(),question)
+                        rvques.adapter = questionAdapter
+                        rvques.layoutManager= LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false)
+                    }
+                }
+            }
+            catch (ex:Exception){
+                withContext(Main) {
+                    Toast.makeText(context,
+                        "$ex .toString()",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+        }
+    }
+
+    private fun swipe(){
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val questionRepository = QuestionRepository()
+                val response = questionRepository.allquestion()
+                if (response.success == true) {
+                    val question = response.data!!
+                    withContext(Main) {
+                        tvqcount.text = "${question.size} questions"
+                        val questionAdapter = QuestionAdapter(requireContext(),question)
                         rvques.adapter = questionAdapter
                         rvques.layoutManager= LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false)
                     }

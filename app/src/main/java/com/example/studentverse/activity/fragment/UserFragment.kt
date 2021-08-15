@@ -106,7 +106,7 @@ class UserFragment : Fragment() {
 
     //Option Load
     private fun loadoption(){
-        val popupMenu = PopupMenu(context!!, btnmore)
+        val popupMenu = PopupMenu(requireContext(), btnmore)
         popupMenu.menuInflater.inflate(R.menu.option, popupMenu.menu)
         popupMenu.setOnMenuItemClickListener { item ->
             when (item.itemId) {

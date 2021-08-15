@@ -42,8 +42,7 @@
             android:launchMode="singleTask" />
         <activity
             android:name=".activity.ui.DashboardActivity"
-            android:launchMode="singleTask"
-            android:noHistory="true" />
+            android:launchMode="singleTask"/>
         <activity
             android:name=".activity.ui.LoginActivity"
             android:launchMode="singleTask" />
