@@ -116,7 +116,6 @@
             android:textColor="@color/grey"/>
 
         //Button
-        //Button
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnpost"
             android:layout_width="match_parent"
