@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.studentverse.R
 import com.example.studentverse.activity.adapter.ChapterAdapter
-import com.example.studentverse.activity.adapter.TopicAdapter
-import com.example.studentverse.activity.model.Subject
+import com.example.studentverse.activity.adapter.QuizAdapter
+import com.example.studentverse.activity.model.Chapter
 import com.example.studentverse.activity.model.Topic
 import com.example.studentverse.activity.repository.SubjectRepository
 import kotlinx.coroutines.CoroutineScope
@@ -18,46 +18,45 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.lang.Exception
 
-class ChapterActivity : AppCompatActivity() {
+class QuizActivity : AppCompatActivity() {
 
-    private lateinit var rvchapter: RecyclerView
-    private lateinit var tvchapter: TextView
-
+    private lateinit var rvquiz: RecyclerView
+    private lateinit var tvquiztopic: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_chapter)
+        setContentView(R.layout.activity_quiz)
 
-        rvchapter=findViewById(R.id.rvchapter)
-        tvchapter=findViewById(R.id.tvchapter)
+        rvquiz=findViewById(R.id.rvquiz)
+        tvquiztopic=findViewById(R.id.quiztopic)
 
-        val topic = intent.getParcelableExtra<Topic>("topic")!!
-        tvchapter.text = "${topic.name}"
-        val subjectid = intent.getStringExtra("subjectid")!!
+        val chapter = intent.getParcelableExtra<Chapter>("chapter")!!
 
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 val subjectRepository = SubjectRepository()
-                val response = subjectRepository.getchapter(subjectid,topic._id!!)
+                val response = subjectRepository.getquiz(chapter._id!!)
                 if (response.success == true) {
-                    val chapter = response.data!!
+                    val quiz = response.data!!
                     withContext(Dispatchers.Main) {
-                        val chapterAdapter = ChapterAdapter(chapter,this@ChapterActivity)
-                        rvchapter.adapter = chapterAdapter
-                        rvchapter.layoutManager= LinearLayoutManager(this@ChapterActivity, LinearLayoutManager.VERTICAL,false)
+                        val quizAdapter = QuizAdapter(quiz,this@QuizActivity)
+                        rvquiz.adapter = quizAdapter
+                        rvquiz.layoutManager= LinearLayoutManager(this@QuizActivity, LinearLayoutManager.VERTICAL,false)
                     }
                 }
 
             }
             catch (ex: Exception){
                 withContext(Dispatchers.Main) {
-                    Toast.makeText(this@ChapterActivity,
+                    Toast.makeText(this@QuizActivity,
                         "$ex",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
             }
         }
+
+
 
     }
 }

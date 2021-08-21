@@ -4,9 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.studentverse.R
 import com.example.studentverse.activity.fragment.StudyMaterialFragment
-import com.example.studentverse.activity.fragments.HomeFragment
-import com.example.studentverse.activity.fragments.SearchFragment
-import com.example.studentverse.activity.fragments.UserFragment
+import com.example.studentverse.activity.fragment.HomeFragment
+import com.example.studentverse.activity.fragment.SearchFragment
+import com.example.studentverse.activity.fragment.UserFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class DashboardActivity : AppCompatActivity(){

@@ -29,17 +29,10 @@ class SubjectRepository:APIRequest() {
         }
     }
 
-    //Seacrh Question
-    suspend fun searchquestion(text:String): PostResponse {
+    //Get Quiz
+    suspend fun getquiz(id:String): QuizResponse {
         return apiRequest {
-            subjectAPI.searchquestion(text)
-        }
-    }
-
-    //Seacrh Tags
-    suspend fun searchtag(text:String): PostResponse {
-        return apiRequest {
-            subjectAPI.searchtag(text)
+            subjectAPI.getquiz(id)
         }
     }
 }

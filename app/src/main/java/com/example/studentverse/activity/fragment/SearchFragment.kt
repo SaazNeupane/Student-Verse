@@ -1,4 +1,4 @@
-package com.example.studentverse.activity.fragments
+package com.example.studentverse.activity.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -83,8 +83,8 @@ class SearchFragment : Fragment() {
         if(category == "Questions"){
             CoroutineScope(Dispatchers.IO).launch {
                 try {
-                    val subjectRepository = SubjectRepository()
-                    val response = subjectRepository.searchquestion(searchtext)
+                    val questionRepository = QuestionRepository()
+                    val response = questionRepository.searchquestion(searchtext)
                     if (response.success == true) {
                         val question = response.data!!
                         withContext(Dispatchers.Main) {
@@ -111,8 +111,8 @@ class SearchFragment : Fragment() {
         else if(category == "Tags"){
             CoroutineScope(Dispatchers.IO).launch {
                 try {
-                    val subjectRepository = SubjectRepository()
-                    val response = subjectRepository.searchtag(searchtext)
+                    val questionRepository = QuestionRepository()
+                    val response = questionRepository.searchtag(searchtext)
                     if (response.success == true) {
                         val question = response.data!!
                             withContext(Dispatchers.Main) {

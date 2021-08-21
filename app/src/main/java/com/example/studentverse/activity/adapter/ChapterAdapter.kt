@@ -5,12 +5,15 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.studentverse.R
 import com.example.studentverse.activity.model.Chapter
 import com.example.studentverse.activity.ui.ChapterActivity
+import com.example.studentverse.activity.ui.QuizActivity
+import com.example.studentverse.activity.ui.SinglePostActivity
 
 class ChapterAdapter (
     private val listchapter: ArrayList<Chapter>,
@@ -18,6 +21,9 @@ class ChapterAdapter (
 ): RecyclerView.Adapter<ChapterAdapter.ChapterHolder>(){
     class ChapterHolder(view: View): RecyclerView.ViewHolder(view){
         val tvchaptername: TextView = view.findViewById(R.id.tvchaptername)
+        val ivcontent: ImageView = view.findViewById(R.id.ivreadcontent)
+        val ivquiz: ImageView = view.findViewById(R.id.ivtakequiz)
+        val ivpast: ImageView = view.findViewById(R.id.ivpastpaper)
         val llchapter: LinearLayout = view.findViewById(R.id.llchapter)
         val llccontent: LinearLayout = view.findViewById(R.id.llccontent)
     }
@@ -41,6 +47,11 @@ class ChapterAdapter (
             }
             else{
                 holder.llccontent.visibility = View.VISIBLE
+                holder.ivquiz.setOnClickListener {
+                    val intent = Intent(context, QuizActivity::class.java)
+                        .putExtra("chapter",chapter)
+                    context.startActivity(intent)
+                }
             }
         }
     }

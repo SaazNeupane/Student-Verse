@@ -78,4 +78,18 @@ class QuestionRepository:APIRequest() {
             )
         }
     }
+
+    //Seacrh Question
+    suspend fun searchquestion(text:String): PostResponse {
+        return apiRequest {
+            postAPI.searchquestion(text)
+        }
+    }
+
+    //Seacrh Tags
+    suspend fun searchtag(text:String): PostResponse {
+        return apiRequest {
+            postAPI.searchtag(text)
+        }
+    }
 }

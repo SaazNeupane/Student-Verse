@@ -17,6 +17,7 @@
             android:layout_marginTop="10dp"/>
 
         <TextView
+            android:id="@+id/tvchapter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Chapters"
@@ -25,7 +26,7 @@
             android:gravity="center"
             android:layout_margin="5dp"
             android:textColor="@color/grey"
-            android:fontFamily="@font/opensansextrabolditalic"/>
+            android:fontFamily="@font/opensansextrabold"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvchapter"

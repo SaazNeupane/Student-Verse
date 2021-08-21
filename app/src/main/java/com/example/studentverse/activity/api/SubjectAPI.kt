@@ -1,9 +1,6 @@
 package com.example.studentverse.activity.api
 
-import com.example.studentverse.activity.response.ChapterResponse
-import com.example.studentverse.activity.response.PostResponse
-import com.example.studentverse.activity.response.SubjectResponse
-import com.example.studentverse.activity.response.TopicResponse
+import com.example.studentverse.activity.response.*
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -21,22 +18,18 @@ interface SubjectAPI {
         @Query("subjectID") studentID:String
     ):Response<TopicResponse>
 
-    //Get Answer
+    //Get Chapter
     @GET("chapter/{subject}/{topic}")
     suspend fun getchapter(
         @Path("subject") sid: String,
         @Path("topic") tid: String,
     ):Response<ChapterResponse>
 
-    //Search Question
-    @GET("searchPost")
-    suspend fun searchquestion(
-        @Query("question") text:String
-    ):Response<PostResponse>
+    //Get Quiz
+    @GET("quiz/{chapterid}")
+    suspend fun getquiz(
+        @Path("chapterid") id: String,
+    ):Response<QuizResponse>
 
-    //Search Tags
-    @GET("searchTag")
-    suspend fun searchtag(
-        @Query("tags") text:String
-    ):Response<PostResponse>
+
 }

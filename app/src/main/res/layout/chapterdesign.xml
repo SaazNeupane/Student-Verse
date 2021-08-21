@@ -33,7 +33,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <TextView
-                android:id="@+id/tvreadcontent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="- Read Content"
@@ -49,6 +48,7 @@
                 android:layout_height="match_parent">
 
                 <ImageView
+                    android:id="@+id/ivreadcontent"
                     android:layout_width="50dp"
                     android:layout_height="16dp"
                     android:layout_alignParentRight="true"
@@ -63,7 +63,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <TextView
-                android:id="@+id/tvtakequiz"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="- Take Quiz"
@@ -79,6 +78,7 @@
                 android:layout_height="match_parent">
 
                 <ImageView
+                    android:id="@+id/ivtakequiz"
                     android:layout_width="50dp"
                     android:layout_height="16dp"
                     android:layout_alignParentRight="true"
@@ -93,7 +93,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <TextView
-                android:id="@+id/tvpastpaper"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="- Available Past Paper"
@@ -109,6 +108,7 @@
                 android:layout_height="match_parent">
 
                 <ImageView
+                    android:id="@+id/ivpastpaper"
                     android:layout_width="50dp"
                     android:layout_height="16dp"
                     android:layout_alignParentRight="true"

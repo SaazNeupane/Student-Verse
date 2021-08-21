@@ -156,8 +156,6 @@ class AnswerAdapter(
                 holder.tvscore.text = (holder.tvscore.text.toString().toInt() + 1).toString()
                 upclicked = false;
                 downclicked = true;
-                println("it is here 1")
-                println(answer._id)
                 val vote = Vote(answer = answer._id, post = question._id)
                 CoroutineScope(Dispatchers.IO).launch {
                     try{
@@ -187,8 +185,6 @@ class AnswerAdapter(
                 holder.tvscore.text = (holder.tvscore.text.toString().toInt() - 1).toString()
                 upclicked = true;
                 downclicked = true;
-                println("it is here 2")
-                println(answer._id)
                 val vote = Vote(answer = answer._id, post = question._id)
                 CoroutineScope(Dispatchers.IO).launch {
                     try {
@@ -231,9 +227,9 @@ class AnswerAdapter(
                         if (response.success == true){
                             withContext(Dispatchers.Main){
                                 Toast.makeText(context, "${response.message}", Toast.LENGTH_SHORT).show()
-                                val intent = Intent(context, SinglePostActivity::class.java)
-                                    .putExtra("post",question)
-                                context.startActivity(intent)
+//                                val intent = Intent(context, SinglePostActivity::class.java)
+//                                    .putExtra("post",question)
+//                                context.startActivity(intent)
                             }
                         }
                     }
@@ -261,9 +257,9 @@ class AnswerAdapter(
                             withContext(Dispatchers.Main) {
                                 Toast.makeText(context, "${response.message}", Toast.LENGTH_SHORT)
                                     .show()
-                                val intent = Intent(context, SinglePostActivity::class.java)
-                                    .putExtra("post",question)
-                                context.startActivity(intent)
+//                                val intent = Intent(context, SinglePostActivity::class.java)
+//                                    .putExtra("post",question)
+//                                context.startActivity(intent)
                             }
                         }
                     } catch (ex: Exception) {

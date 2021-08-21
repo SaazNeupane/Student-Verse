@@ -61,4 +61,16 @@ interface PostAPI {
         @Header("Authorization") token : String,
         @Body vote: Vote
     ): Response<VoteResponse>
+
+    //Search Question
+    @GET("searchPost")
+    suspend fun searchquestion(
+        @Query("question") text:String
+    ):Response<PostResponse>
+
+    //Search Tags
+    @GET("searchTag")
+    suspend fun searchtag(
+        @Query("tags") text:String
+    ):Response<PostResponse>
 }

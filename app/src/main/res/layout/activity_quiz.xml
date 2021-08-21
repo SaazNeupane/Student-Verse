@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.ui.TopicActivity">
-
+    tools:context=".activity.ui.QuizActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -17,10 +16,10 @@
             android:layout_marginTop="10dp"/>
 
         <TextView
-            android:id="@+id/topic"
+            android:id="@+id/quiztopic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Topic"
+            android:text="Quiz"
             android:textSize="32dp"
             android:layout_gravity="center_vertical"
             android:gravity="center"
@@ -29,12 +28,25 @@
             android:fontFamily="@font/opensansextrabold"/>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvtopic"
+            android:id="@+id/rvquiz"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="5dp"
             android:overScrollMode="never"
             android:isScrollContainer="false"/>
+        //Button
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnquiz"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:background="@drawable/buttoncornerbrand"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/blinkerbold"
+            android:layout_margin="15dp"/>
     </LinearLayout>
 
 </androidx.core.widget.NestedScrollView>
