@@ -3,23 +3,50 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/lgrey"
-    android:orientation="vertical"
-    android:layout_margin="10dp">
+    android:background="@drawable/topbottomline"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tvccomment"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Comment"
-        android:textSize="18sp"
-        android:fontFamily="@font/blinkerregular"
-        android:textColor="@color/black"/>
+        android:orientation="vertical"
+        android:layout_margin="6dp">
+        <TextView
+            android:id="@+id/tvccomment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Comment"
+            android:textSize="14sp"
+            android:fontFamily="@font/opensansregular"
+            android:textColor="@color/black"/>
 
-    <TextView
-        android:id="@+id/tvcuser"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="right"
-        android:text="Username"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="5dp">
+            <TextView
+                android:id="@+id/ctime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Asked: "
+                android:textSize="10dp"
+                android:textStyle="bold"
+                android:textColor="@color/grey"
+                android:layout_margin="5dp"
+                android:fontFamily="@font/opensansregular"/>
+
+            <TextView
+                android:id="@+id/tvcuser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/opensansregular"
+                android:layout_margin="5dp"
+                android:text="Username"
+                android:gravity="end"
+                android:textColor="@color/black"
+                android:textSize="10sp"/>
+        </LinearLayout>
+
+    </LinearLayout>
 </LinearLayout>

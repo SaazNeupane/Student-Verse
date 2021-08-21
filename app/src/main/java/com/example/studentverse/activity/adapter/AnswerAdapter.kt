@@ -2,49 +2,50 @@ package com.example.studentverse.activity.adapter
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.appcompat.content.res.AppCompatResources
-import androidx.core.graphics.drawable.DrawableCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.studentverse.R
-import com.example.studentverse.activity.model.Answer
-import com.example.studentverse.activity.model.Comment
-import com.example.studentverse.activity.model.Post
-import com.example.studentverse.activity.model.Vote
+import com.example.studentverse.activity.model.*
 import com.example.studentverse.activity.repository.QuestionRepository
+import com.example.studentverse.activity.repository.UserRepository
 import com.example.studentverse.activity.ui.SinglePostActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class AnswerAdapter(
     private val listanswer: ArrayList<Answer>,
     private val question: Post,
-    private val userid: String,
     private val context: Context,
 ): RecyclerView.Adapter<AnswerAdapter.AnswerHolder>() {
     class AnswerHolder(view: View) : RecyclerView.ViewHolder(view) {
         val answer: TextView = view.findViewById(R.id.answer)
         val rvcomments: RecyclerView = view.findViewById(R.id.rvcomments)
         val tvcomments: TextView = view.findViewById(R.id.tvcomments)
+        val tvausername: TextView = view.findViewById(R.id.tvausername)
         val llcomments: LinearLayout = view.findViewById(R.id.llcomments)
         val lladdcomments: LinearLayout = view.findViewById(R.id.lladdcomment)
         val tvreply: TextView = view.findViewById(R.id.tvreply)
+        val tvatime: TextView = view.findViewById(R.id.tvatime)
         val tvscore: TextView = view.findViewById(R.id.score)
         val etccomment: EditText = view.findViewById(R.id.etccomment)
         val btnccomment: ImageButton = view.findViewById(R.id.btnccomment)
         val upvote: ImageButton = view.findViewById(R.id.upvote)
         val downvote: ImageButton = view.findViewById(R.id.downvote)
     }
-    private var upclicked : Boolean? = null
-    private var downclicked : Boolean? = null
+    private var upclicked : Boolean = true
+    private var downclicked : Boolean = true
+    private var userid: String = ""
+    private var userDetails: User? = null
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AnswerAdapter.AnswerHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.answerdesign, parent, false)
@@ -55,17 +56,32 @@ class AnswerAdapter(
         val answer = listanswer[position]
         holder.answer.text=answer.text
         holder.tvscore.text = answer.score.toString()
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+        val parsedDate: Date = dateFormat.parse(answer.createdAt)
+        val print = SimpleDateFormat("MMM d, yyyy HH:mm")
+        holder.tvatime.text = "${print.format(parsedDate)}"
         val comments = answer.comment
         if (comments != null) {
-            holder.tvcomments.setVisibility(View.VISIBLE)
+            holder.tvcomments.visibility = View.VISIBLE
+            holder.tvcomments.text = "${answer.comment.size.toString()} replies......."
             holder.tvcomments.setOnClickListener {
-                holder.llcomments.visibility = View.VISIBLE
-                holder.lladdcomments.visibility = View.GONE
+                if (holder.llcomments.visibility == View.VISIBLE){
+                    holder.llcomments.visibility = View.GONE
+                }
+                else{
+                    holder.llcomments.visibility = View.VISIBLE
+                    holder.lladdcomments.visibility = View.GONE
+                }
             }
 
             holder.tvreply.setOnClickListener {
-                holder.llcomments.visibility = View.GONE
-                holder.lladdcomments.visibility = View.VISIBLE
+                if (holder.lladdcomments.visibility == View.VISIBLE){
+                    holder.lladdcomments.visibility = View.GONE
+                }
+                else {
+                    holder.llcomments.visibility = View.GONE
+                    holder.lladdcomments.visibility = View.VISIBLE
+                }
             }
         }
         val commentAdapter = comments?.let { CommentAdapter(it, context) }
@@ -75,27 +91,73 @@ class AnswerAdapter(
         val votes = answer.votes
         val size = votes?.size
 
-        for (i in 0 until size!!){
-            if(votes[i].user == userid && votes[i].vote == 1){
-                print(votes[i])
-                upclicked = false
-                downclicked = true
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val userRepository = UserRepository()
+                val response = userRepository.finduser(answer.author!!)
+
+                if (response.success == true) {
+                    userDetails = response.data!!
+                    withContext(Dispatchers.Main) {
+                        holder.tvausername.text = "- ${userDetails!!.username.toString()}"
+                    }
+                }
+            } catch (ex: java.lang.Exception) {
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(
+                        context,
+                        "Error : $ex", Toast.LENGTH_LONG
+                    ).show()
+                }
             }
-            else if (votes[i].user == userid && votes[i].vote == -1){
-                upclicked = true
-                downclicked = false
-            }
-            else{
-                upclicked = true;
-                downclicked = true;
-            }
-            println(upclicked)
-            println(downclicked)
         }
+
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val userRepository = UserRepository()
+                val response = userRepository.profile()
+
+                if (response.success == true) {
+                    userDetails = response.data!!
+                    userid= userDetails!!._id.toString()
+                    withContext(Dispatchers.Main) {
+                        for (i in 0 until size!!){
+                            if(votes[i].user == userid && votes[i].vote == 1){
+                                holder.upvote.setImageResource(R.drawable.after_upvote);
+                                upclicked = false
+                                downclicked = true
+                            }
+                            else if (votes[i].user == userid && votes[i].vote == -1){
+                                holder.downvote.setImageResource(R.drawable.after_downvote)
+                                upclicked = true
+                                downclicked = false
+                            }
+                            else{
+                                upclicked = true;
+                                downclicked = true;
+                            }
+                        }
+                    }
+                }
+            } catch (ex: java.lang.Exception) {
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(
+                        context,
+                        "Error : $ex", Toast.LENGTH_LONG
+                    ).show()
+                }
+            }
+        }
+
         holder.upvote.setOnClickListener {
             if (upclicked!!){
+                holder.upvote.setImageResource(R.drawable.after_upvote);
+                holder.downvote.setImageResource(R.drawable.ic_baseline_arrow_circle_down_24)
+                holder.tvscore.text = (holder.tvscore.text.toString().toInt() + 1).toString()
                 upclicked = false;
                 downclicked = true;
+                println("it is here 1")
+                println(answer._id)
                 val vote = Vote(answer = answer._id, post = question._id)
                 CoroutineScope(Dispatchers.IO).launch {
                     try{
@@ -104,8 +166,9 @@ class AnswerAdapter(
                         if (response.success == true){
                             withContext(Dispatchers.Main){
                                 Toast.makeText(context, "${response.message}", Toast.LENGTH_SHORT).show()
-                                val intent = Intent(context, SinglePostActivity::class.java)
-                                context.startActivity(intent)
+//                                val intent = Intent(context, SinglePostActivity::class.java)
+//                                    .putExtra("post",question)
+//                                context.startActivity(intent)
                             }
                         }
                     }
@@ -120,7 +183,12 @@ class AnswerAdapter(
                 }
             }
             else{
+                holder.upvote.setImageResource(R.drawable.ic_outline_arrow_circle_up_24)
+                holder.tvscore.text = (holder.tvscore.text.toString().toInt() - 1).toString()
                 upclicked = true;
+                downclicked = true;
+                println("it is here 2")
+                println(answer._id)
                 val vote = Vote(answer = answer._id, post = question._id)
                 CoroutineScope(Dispatchers.IO).launch {
                     try {
@@ -130,8 +198,9 @@ class AnswerAdapter(
                             withContext(Dispatchers.Main) {
                                 Toast.makeText(context, "${response.message}", Toast.LENGTH_SHORT)
                                     .show()
-                                val intent = Intent(context, SinglePostActivity::class.java)
-                                context.startActivity(intent)
+//                                val intent = Intent(context, SinglePostActivity::class.java)
+//                                    .putExtra("post",question)
+//                                context.startActivity(intent)
                             }
                         }
                     } catch (ex: Exception) {
@@ -149,6 +218,9 @@ class AnswerAdapter(
         }
         holder.downvote.setOnClickListener {
             if (downclicked!!){
+                holder.downvote.setImageResource(R.drawable.after_downvote)
+                holder.upvote.setImageResource(R.drawable.ic_outline_arrow_circle_up_24)
+                holder.tvscore.text = (holder.tvscore.text.toString().toInt() - 1).toString()
                 downclicked = false;
                 upclicked = true;
                 val vote = Vote(answer = answer._id, post = question._id)
@@ -176,7 +248,10 @@ class AnswerAdapter(
                 }
             }
             else{
+                holder.downvote.setImageResource(R.drawable.ic_baseline_arrow_circle_down_24)
+                holder.tvscore.text = (holder.tvscore.text.toString().toInt() + 1).toString()
                 downclicked = true;
+                upclicked = true;
                 val vote = Vote(answer = answer._id, post = question._id)
                 CoroutineScope(Dispatchers.IO).launch {
                     try {
@@ -187,6 +262,7 @@ class AnswerAdapter(
                                 Toast.makeText(context, "${response.message}", Toast.LENGTH_SHORT)
                                     .show()
                                 val intent = Intent(context, SinglePostActivity::class.java)
+                                    .putExtra("post",question)
                                 context.startActivity(intent)
                             }
                         }

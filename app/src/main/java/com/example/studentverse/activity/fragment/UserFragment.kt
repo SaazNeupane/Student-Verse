@@ -7,10 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
@@ -21,6 +18,7 @@ import com.example.studentverse.activity.api.ServiceBuilder
 import com.example.studentverse.activity.model.User
 import com.example.studentverse.activity.repository.UserRepository
 import com.example.studentverse.activity.ui.AskQuestionActivity
+import com.example.studentverse.activity.ui.UpdateProfileActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -31,6 +29,7 @@ class UserFragment : Fragment() {
 
     private lateinit var btnask: Button
     private lateinit var btnlogout: Button
+    private lateinit var btnmore: ImageButton
     private lateinit var name: TextView
     private lateinit var mobile: TextView
     private lateinit var email: TextView
@@ -51,6 +50,7 @@ class UserFragment : Fragment() {
 
         btnask = view.findViewById(R.id.btnask)
         btnlogout = view.findViewById(R.id.btnlogout)
+        btnmore = view.findViewById(R.id.btnmore)
         name = view.findViewById(R.id.name)
         mobile = view.findViewById(R.id.mobile)
         email = view.findViewById(R.id.email)
@@ -70,13 +70,10 @@ class UserFragment : Fragment() {
             editor?.clear()
             editor?.apply()
             ServiceBuilder.token.equals("")
-//            startActivity(
-//                    Intent(
-//                            context,
-//                            LoginActivity::class.java
-//                    )
-//            )
             activity?.finish()
+        }
+        btnmore.setOnClickListener{
+            loadoption()
         }
         loadclient()
 
@@ -107,5 +104,22 @@ class UserFragment : Fragment() {
         }
     }
 
+    //Option Load
+    private fun loadoption(){
+        val popupMenu = PopupMenu(requireContext(), btnmore)
+        popupMenu.menuInflater.inflate(R.menu.option, popupMenu.menu)
+        popupMenu.setOnMenuItemClickListener { item ->
+            when (item.itemId) {
+                R.id.updateprofile ->
+                    startActivity(
+                        Intent(
+                            context,
+                            UpdateProfileActivity::class.java)
+                    )
+            }
+            true
+        }
+        popupMenu.show()
+    }
 
 }

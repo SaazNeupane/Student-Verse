@@ -12,9 +12,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
             <TextView
                 android:id="@+id/name"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
+                android:layout_weight="10"
                 android:layout_height="wrap_content"
                 android:textColor="@color/brandcolor"
                 android:text="Welcome, User"
@@ -22,6 +26,15 @@
                 android:fontFamily="@font/blinkerbold"
                 android:textSize="30sp"
                 android:layout_margin="15dp"/>
+            <ImageButton
+                android:id="@+id/btnmore"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_outline_more_vert_24"
+                android:backgroundTint="@color/white"
+                android:layout_margin="5dp"/>
+        </LinearLayout>
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/profileimage"
                 android:layout_width="match_parent"

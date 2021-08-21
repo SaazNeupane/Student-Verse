@@ -7,9 +7,14 @@ data class Post(
     val _id: String? = null,
     val title: String? = null,
     val body: String? = null,
-    val tags: List<String>? = null
-):Parcelable {
+    val author: String? = null,
+    val createdAt: String? = null,
+    val tags: List<String>? = null,
+    val answer: ArrayList<Answer>? =null,
+    ):Parcelable {
     constructor(parcel: Parcel) : this(
+        parcel.readString(),
+        parcel.readString(),
         parcel.readString(),
         parcel.readString(),
         parcel.readString(),
@@ -21,6 +26,8 @@ data class Post(
         parcel.writeString(_id)
         parcel.writeString(title)
         parcel.writeString(body)
+        parcel.writeString(author)
+        parcel.writeString(createdAt)
         parcel.writeStringList(tags)
     }
 

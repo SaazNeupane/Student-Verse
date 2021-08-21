@@ -22,7 +22,9 @@ class QuestionAdapter(
     class QuestionViewHolder(view: View):RecyclerView.ViewHolder(view) {
         val comment: TextView = view.findViewById(R.id.answercount)
         val title: TextView = view.findViewById(R.id.title)
+        val body: TextView = view.findViewById(R.id.body)
         val tags: TextView = view.findViewById(R.id.tags)
+        val answercount: TextView = view.findViewById(R.id.answercount)
         val llbutton: LinearLayout = view.findViewById(R.id.llbutton)
     }
 
@@ -35,6 +37,7 @@ class QuestionAdapter(
     override fun onBindViewHolder(holder: QuestionViewHolder, position: Int) {
         val post = PostList[position]
         holder.title.text=post.title
+        holder.body.text=post.body
         val tags = post.tags.toString()
             .replace("[", "")
             .replace("]", "")
@@ -45,6 +48,7 @@ class QuestionAdapter(
                 .putExtra("post",post)
             context.startActivity(intent)
         }
+        holder.answercount.text = post.answer?.size.toString()
 
     }
 

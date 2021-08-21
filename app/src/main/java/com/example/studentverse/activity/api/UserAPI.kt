@@ -1,10 +1,7 @@
 package com.example.studentverse.activity.api
 
 import com.example.studentverse.activity.model.User
-import com.example.studentverse.activity.response.CurrentUserResponse
-import com.example.studentverse.activity.response.PostResponse
-import com.example.studentverse.activity.response.RegisterLoginResponse
-import com.example.studentverse.activity.response.UpdateResponse
+import com.example.studentverse.activity.response.*
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -30,12 +27,24 @@ interface UserAPI {
         @Header("Authorization") token : String,
     ):Response<CurrentUserResponse>
 
+    //current user
+    @GET("user/{id}")
+    suspend fun finduser(
+        @Path("id") uid: String,
+    ):Response<CurrentUserResponse>
+
     //Update Client Details
     @PUT("user/update")
     suspend fun update(
         @Header("Authorization") token: String,
         @Body user: User
     ): Response<UpdateResponse>
+
+    //Search User
+    @GET("searchUser")
+    suspend fun searchtag(
+        @Query("name") text:String
+    ):Response<SearchUserResponse>
 
 
 

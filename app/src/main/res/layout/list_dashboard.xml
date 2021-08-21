@@ -5,7 +5,8 @@
     android:orientation="vertical"
     android:padding="10dp"
     android:layout_margin="5dp"
-    android:background="@drawable/textlines">
+    android:background="@drawable/textlines"
+    android:backgroundTint="@color/brandcolor">
     <LinearLayout
         android:id="@+id/llbutton"
         android:layout_width="match_parent"
@@ -17,31 +18,55 @@
             android:orientation="vertical">
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:orientation="vertical">
-            <TextView
-                android:id="@+id/answercount"
-                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="0"
-                android:textSize="18dp"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:textColor="@color/white"
-                android:layout_gravity="center"
-                android:fontFamily="@font/blinkerregular"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Answer"
-                android:textSize="15dp"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:textColor="@color/white"
-                android:layout_gravity="center"
-                android:fontFamily="@font/blinkerregular"/>
+                android:orientation="vertical"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/answercount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/opensansregular"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Answer"
+                    android:textSize="13dp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/opensansregular"/>
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/viewscount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/opensansregular"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Views"
+                    android:textSize="13dp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/opensansregular"/>
+            </LinearLayout>
+
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -52,21 +77,37 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Title"
-                android:textSize="23dp"
+                android:textSize="15dp"
                 android:layout_gravity="center_vertical"
                 android:layout_margin="5dp"
                 android:textColor="@color/white"
-                android:fontFamily="@font/blinkersemibold"/>
+                android:fontFamily="@font/opensanssemibold"
+                android:justificationMode="inter_word"/>
+            <TextView
+                android:id="@+id/body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Body"
+                android:textSize="12dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginBottom="8dp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/opensanslight"
+                android:justificationMode="inter_word"
+                android:singleLine="true" />
             <TextView
                 android:id="@+id/tags"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Tags:"
-                android:textSize="13dp"
+                android:textSize="12dp"
                 android:textStyle="bold"
                 android:gravity="right"
                 android:textColor="@color/white"
-                android:fontFamily="@font/blinkerregular"/>
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/opensansregular"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

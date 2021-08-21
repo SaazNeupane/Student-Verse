@@ -6,6 +6,7 @@ import com.example.studentverse.activity.model.Comment
 import com.example.studentverse.activity.model.Post
 import com.example.studentverse.activity.model.User
 import com.example.studentverse.activity.repository.QuestionRepository
+import com.example.studentverse.activity.repository.SubjectRepository
 import com.example.studentverse.activity.repository.UserRepository
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert
@@ -14,6 +15,7 @@ import org.junit.Test
 class StudentVerseTest {
     private lateinit var userRepository: UserRepository
     private lateinit var questionRepository: QuestionRepository
+    private lateinit var subjectRepository: SubjectRepository
 
     @Test
     fun registerUser() = runBlocking {
@@ -97,6 +99,16 @@ class StudentVerseTest {
         questionRepository = QuestionRepository()
         ServiceBuilder.token ="Bearer "+ userRepository.checkuser("saazneu789","12345").token
         val response = questionRepository.getanswer(id = "6103b66f0624ab17145fc4a7")
+        val expectedResult = true
+        val actualResult = response.success
+        Assert.assertEquals(expectedResult,actualResult)
+    }
+
+    @Test
+    fun searchPost() = runBlocking {
+        subjectRepository = SubjectRepository()
+        val searchText = "java"
+        val response = subjectRepository.searchquestion(searchText)
         val expectedResult = true
         val actualResult = response.success
         Assert.assertEquals(expectedResult,actualResult)

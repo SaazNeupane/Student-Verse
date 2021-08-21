@@ -21,6 +21,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.lang.Exception
+import java.text.SimpleDateFormat
+import java.util.*
 
 class SinglePostActivity : AppCompatActivity() {
     private lateinit var stitle: TextView
@@ -31,7 +33,6 @@ class SinglePostActivity : AppCompatActivity() {
     private lateinit var etanswer: EditText
     private lateinit var btnanswer: Button
     private lateinit var rvanswer: RecyclerView
-    private var userDetails: User? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_single_post)
@@ -48,11 +49,34 @@ class SinglePostActivity : AppCompatActivity() {
         val intent = intent.getParcelableExtra<Post>("post")!!
 
         if(intent !=null){
-            stitle.setText("${intent.title}")
-//            stime.setText("${intent.time}")
-//            sviews.setText("${intent.sviews}")
-            sbody.setText("${intent.body}")
+            stitle.text = "${intent.title}"
+            val time = intent.createdAt
+            val dateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+            val parsedDate: Date = dateFormat.parse(time)
+            val print = SimpleDateFormat("MMM d, yyyy HH:mm")
+            stime.text = "${print.format(parsedDate)}"
+            sbody.text = "${intent.body}"
 
+        }
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val userRepository = UserRepository()
+                val response = userRepository.finduser(intent.author!!)
+
+                if (response.success == true) {
+                    val userDetails = response.data!!
+                    withContext(Dispatchers.Main) {
+                        suser.text = "Asked by: ${userDetails!!.username.toString()}"
+                    }
+                }
+            } catch (ex: java.lang.Exception) {
+                withContext(Dispatchers.Main){
+                    Toast.makeText(this@SinglePostActivity,
+                        ex.toString(),
+                        Toast.LENGTH_SHORT)
+                        .show()
+                }
+            }
         }
 
         btnanswer.setOnClickListener {
@@ -85,35 +109,15 @@ class SinglePostActivity : AppCompatActivity() {
                 }
             }
         }
-        CoroutineScope(Dispatchers.IO).launch {
-            try {
-                val userRepository = UserRepository()
-                val response = userRepository.profile()
-
-                if (response.success == true) {
-                    userDetails = response.data!!
-                    println(userDetails?._id)
-                }
-            } catch (ex: Exception) {
-                withContext(Dispatchers.Main) {
-                    Toast.makeText(
-                        this@SinglePostActivity,
-                        "Error : $ex", Toast.LENGTH_LONG
-                    ).show()
-                }
-            }
-        }
 
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 val questionRepository = QuestionRepository()
                 val response = questionRepository.getanswer(intent._id!!)
                 if (response.success == true) {
-                    val comment = response.data!!
-                    println(comment)
+                    val answer = response.data!!
                     withContext(Dispatchers.Main) {
-                        println("it is here")
-                        val answerAdapter = AnswerAdapter(comment,intent,userDetails?._id!!, this@SinglePostActivity)
+                        val answerAdapter = AnswerAdapter(answer,intent, this@SinglePostActivity)
                         rvanswer.adapter = answerAdapter
                         rvanswer.layoutManager= LinearLayoutManager(this@SinglePostActivity, LinearLayoutManager.VERTICAL,false)
                     }
@@ -123,7 +127,7 @@ class SinglePostActivity : AppCompatActivity() {
             catch (ex:Exception){
                 withContext(Dispatchers.Main) {
                     Toast.makeText(this@SinglePostActivity,
-                        "$ex",
+                        "$ex , Here",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
