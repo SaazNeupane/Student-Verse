@@ -81,7 +81,8 @@
             android:layout_margin="10dp"
             android:textColor="@color/black"
             android:fontFamily="@font/opensansregular"
-            android:justificationMode="inter_word"/>
+            android:justificationMode="inter_word"
+            android:lineSpacingMultiplier="1.2"/>
 
 
         //Answer

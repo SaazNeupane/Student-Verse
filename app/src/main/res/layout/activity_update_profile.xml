@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,121 +9,147 @@
     android:orientation="vertical"
     android:layout_margin="10dp"
     android:gravity="center_vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        android:gravity="center_vertical">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:src="@drawable/blogo"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Update your Details"
-        android:textColor="@color/brandcolor"
-        android:fontFamily="@font/blinkerbold"
-        android:textSize="30sp"
-        android:gravity="center"
-        android:layout_marginBottom="15dp"
-        android:layout_marginTop="10dp"/>
-
-    //FName
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:boxBackgroundColor="@color/white"
-        app:boxStrokeColor="@color/brandcolor"
-        android:layout_marginBottom="15dp"
-        android:textColorHint="@color/brandcolor"
-        app:hintTextColor="@color/brandcolor">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etufname"
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@drawable/blogo"/>
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:hint="First Name"
-            android:textColorHint="@color/brandcolor"
+            android:text="Update your Details"
             android:textColor="@color/brandcolor"
-            android:textSize="18sp"
-            android:fontFamily="@font/blinkersemibold"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:fontFamily="@font/blinkerbold"
+            android:textSize="30sp"
+            android:gravity="center"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="10dp"/>
 
-    //LName
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:boxBackgroundColor="@color/white"
-        app:boxStrokeColor="@color/brandcolor"
-        android:layout_marginBottom="15dp"
-        android:textColorHint="@color/brandcolor"
-        app:hintTextColor="@color/brandcolor">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etulname"
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/changepp"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@drawable/profileicon"
+            android:layout_gravity="center_horizontal"
+            app:civ_border_width="2dp"
+            app:civ_border_color="@color/black"/>
+
+        //FName
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:hint="Last Name"
+            app:boxBackgroundColor="@color/white"
+            app:boxStrokeColor="@color/brandcolor"
+            android:layout_marginBottom="15dp"
             android:textColorHint="@color/brandcolor"
-            android:textColor="@color/brandcolor"
-            android:textSize="18sp"
-            android:fontFamily="@font/blinkersemibold"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            app:hintTextColor="@color/brandcolor">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etufname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:hint="First Name"
+                android:textColorHint="@color/brandcolor"
+                android:textColor="@color/brandcolor"
+                android:textSize="18sp"
+                android:fontFamily="@font/blinkersemibold"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-    //Address
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:boxBackgroundColor="@color/white"
-        app:boxStrokeColor="@color/brandcolor"
-        android:layout_marginBottom="15dp"
-        android:textColorHint="@color/brandcolor"
-        app:hintTextColor="@color/brandcolor">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etuaddress"
+        //LName
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:hint="Address"
+            app:boxBackgroundColor="@color/white"
+            app:boxStrokeColor="@color/brandcolor"
+            android:layout_marginBottom="15dp"
             android:textColorHint="@color/brandcolor"
-            android:textColor="@color/brandcolor"
-            android:textSize="18sp"
-            android:fontFamily="@font/blinkersemibold"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            app:hintTextColor="@color/brandcolor">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etulname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:hint="Last Name"
+                android:textColorHint="@color/brandcolor"
+                android:textColor="@color/brandcolor"
+                android:textSize="18sp"
+                android:fontFamily="@font/blinkersemibold"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-    //Mobile
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:boxBackgroundColor="@color/white"
-        app:boxStrokeColor="@color/brandcolor"
-        android:layout_marginBottom="15dp"
-        android:textColorHint="@color/brandcolor"
-        app:hintTextColor="@color/brandcolor">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etumobile"
+        //Address
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:hint="Mobile"
+            app:boxBackgroundColor="@color/white"
+            app:boxStrokeColor="@color/brandcolor"
+            android:layout_marginBottom="15dp"
             android:textColorHint="@color/brandcolor"
-            android:textColor="@color/brandcolor"
-            android:textSize="18sp"
-            android:fontFamily="@font/blinkersemibold"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            app:hintTextColor="@color/brandcolor">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etuaddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:hint="Address"
+                android:textColorHint="@color/brandcolor"
+                android:textColor="@color/brandcolor"
+                android:textSize="18sp"
+                android:fontFamily="@font/blinkersemibold"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-    //Button
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnupdatedetails"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Update"
-        android:textSize="20sp"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:background="@drawable/buttoncornerbrand"
-        android:layout_marginTop="15dp"
-        android:fontFamily="@font/blinkerbold"
-        android:layout_marginBottom="15dp"/>
-</LinearLayout>
+        //Mobile
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxBackgroundColor="@color/white"
+            app:boxStrokeColor="@color/brandcolor"
+            android:layout_marginBottom="15dp"
+            android:textColorHint="@color/brandcolor"
+            app:hintTextColor="@color/brandcolor">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etumobile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:hint="Mobile"
+                android:textColorHint="@color/brandcolor"
+                android:textColor="@color/brandcolor"
+                android:textSize="18sp"
+                android:fontFamily="@font/blinkersemibold"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        //Button
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnupdatedetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Update"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:background="@drawable/buttoncornerbrand"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/blinkerbold"
+            android:layout_marginBottom="15dp"/>
+        <TextView
+            android:id="@+id/changepassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/change"
+            android:textColor="@color/brandcolor"
+            android:fontFamily="@font/blinkerbold"
+            android:textSize="18sp"
+            android:gravity="center"/>
+
+    </LinearLayout>
+</ScrollView>

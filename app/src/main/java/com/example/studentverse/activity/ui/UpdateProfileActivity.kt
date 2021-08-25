@@ -4,15 +4,15 @@ import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
+import android.provider.MediaStore
+import android.widget.*
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import com.example.studentverse.R
 import com.example.studentverse.activity.model.User
 import com.example.studentverse.activity.notification.NotificationChannels
 import com.example.studentverse.activity.repository.UserRepository
+import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -25,6 +25,8 @@ class UpdateProfileActivity : AppCompatActivity() {
     private lateinit var etmobile: EditText
     private lateinit var etaddress: EditText
     private lateinit var btnupdate: Button
+    private lateinit var change: TextView
+    private lateinit var changepp: CircleImageView
 
     private var userDetails: User? = null
 
@@ -38,8 +40,24 @@ class UpdateProfileActivity : AppCompatActivity() {
         etmobile=findViewById(R.id.etumobile)
         etaddress=findViewById(R.id.etuaddress)
         btnupdate=findViewById(R.id.btnupdatedetails)
+        change=findViewById(R.id.changepassword)
+        changepp=findViewById(R.id.changepp)
+
+        change.setOnClickListener {
+            startActivity(
+                Intent(
+                    this@UpdateProfileActivity,
+                    ChangePasswordActivity::class.java
+                )
+            )
+        }
 
         loaduser()
+
+        //Image
+        changepp.setOnClickListener {
+            loadpopup()
+        }
 
         //button
         btnupdate.setOnClickListener {
@@ -57,8 +75,7 @@ class UpdateProfileActivity : AppCompatActivity() {
                     userDetails = response.data!!
                     withContext(Dispatchers.Main) {
                         etfname.setText( "${userDetails!!.fname}")
-                        etfname.setText( "${userDetails!!.lname}")
-                        etaddress.setText( "${userDetails!!.address}")
+                        etlname.setText( "${userDetails!!.lname}")
                         etmobile.setText( "${userDetails!!.mobile}")
                     }
                 }
@@ -106,6 +123,37 @@ class UpdateProfileActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    //Image Load
+    private fun loadpopup(){
+        val popupMenu = PopupMenu(this, changepp)
+        popupMenu.menuInflater.inflate(R.menu.gallery_camera, popupMenu.menu)
+        popupMenu.setOnMenuItemClickListener { item ->
+            when (item.itemId) {
+                R.id.menuCamera ->
+                    openCamera()
+                R.id.menuGallery ->
+                    openGallery()
+            }
+            true
+        }
+        popupMenu.show()
+    }
+
+    private var REQUEST_GALLERY_CODE = 0
+    private var REQUEST_CAMERA_CODE = 1
+    private var imageUrl: String? = null
+
+    private fun openGallery() {
+        val intent = Intent(Intent.ACTION_PICK)
+        intent.type = "image/*"
+        startActivityForResult(intent, REQUEST_GALLERY_CODE)
+    }
+
+    private fun openCamera() {
+        val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        startActivityForResult(cameraIntent, REQUEST_CAMERA_CODE)
     }
 
     private fun showNotification(message: String) {
