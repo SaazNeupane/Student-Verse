@@ -31,5 +31,12 @@ interface SubjectAPI {
         @Path("chapterid") id: String,
     ):Response<QuizResponse>
 
-
+    //Add Score
+    @FormUrlEncoded
+    @POST("score")
+    suspend fun checkclient(
+        @Field("score") score: String,
+        @Field("time") time: String,
+        @Field("quizname") quizname: String
+    ):Response<ScoreResponse>
 }

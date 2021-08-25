@@ -35,4 +35,11 @@ class SubjectRepository:APIRequest() {
             subjectAPI.getquiz(id)
         }
     }
+
+    //Add quiz score
+    suspend fun addscore(score:String, time:String,quizname: String):ScoreResponse{
+        return apiRequest {
+            subjectAPI.checkclient(score,time,quizname)
+        }
+    }
 }
