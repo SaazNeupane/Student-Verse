@@ -35,8 +35,9 @@ interface SubjectAPI {
     @FormUrlEncoded
     @POST("score")
     suspend fun checkclient(
+        @Header("Authorization") token : String,
         @Field("score") score: String,
-        @Field("time") time: String,
-        @Field("quizname") quizname: String
+        @Field("quizname") quizname: String,
+        @Field("time") time: String
     ):Response<ScoreResponse>
 }

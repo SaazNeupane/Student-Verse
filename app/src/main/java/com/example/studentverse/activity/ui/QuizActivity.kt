@@ -23,6 +23,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.lang.Exception
+import java.util.*
 
 class QuizActivity : AppCompatActivity() {
 
@@ -53,6 +54,7 @@ class QuizActivity : AppCompatActivity() {
                 val response = subjectRepository.getquiz(chapter._id!!)
                 if (response.success == true) {
                     val quiz = response.data!!
+                    quiz.shuffle()
                     withContext(Dispatchers.Main) {
                         val quizAdapter = QuizAdapter(quiz,this@QuizActivity,btnquiz, timer)
                         rvquiz.adapter = quizAdapter

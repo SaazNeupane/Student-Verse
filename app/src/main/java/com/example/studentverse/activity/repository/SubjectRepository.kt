@@ -37,9 +37,9 @@ class SubjectRepository:APIRequest() {
     }
 
     //Add quiz score
-    suspend fun addscore(score:String, time:String,quizname: String):ScoreResponse{
+    suspend fun addscore(score:String, quizname:String,time: String):ScoreResponse{
         return apiRequest {
-            subjectAPI.checkclient(score,time,quizname)
+            subjectAPI.checkclient(ServiceBuilder.token!!,score,quizname,time)
         }
     }
 }

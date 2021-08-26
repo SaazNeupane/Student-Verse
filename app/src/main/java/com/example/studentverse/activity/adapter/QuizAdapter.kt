@@ -55,25 +55,21 @@ class QuizAdapter (
         holder.rbopt1.setOnClickListener {
             if (holder.rbopt1.text == quiz.answer.toString()){
                 correct = correct?.plus(1)
-                Toast.makeText(context, "$correct", Toast.LENGTH_SHORT).show()
             }
         }
         holder.rbopt2.setOnClickListener {
             if (holder.rbopt2.text == quiz.answer.toString()){
                 correct = correct?.plus(1)
-                Toast.makeText(context, "$correct", Toast.LENGTH_SHORT).show()
             }
         }
         holder.rbopt3.setOnClickListener {
             if (holder.rbopt3.text == quiz.answer.toString()){
                 correct = correct?.plus(1)
-                Toast.makeText(context, "$correct", Toast.LENGTH_SHORT).show()
             }
         }
         holder.rbopt4.setOnClickListener {
             if (holder.rbopt4.text == quiz.answer.toString()){
                 correct = correct?.plus(1)
-                Toast.makeText(context, "$correct", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -86,12 +82,10 @@ class QuizAdapter (
 
             //performing positive action
             builder.setPositiveButton("Yes"){ _, _ ->
-                Toast.makeText(context, "$correct, ${timer.text}, ${quiz.name}", Toast.LENGTH_SHORT).show()
                 CoroutineScope(Dispatchers.IO).launch {
                     try {
                         val subjectRepository = SubjectRepository()
-                        val response = subjectRepository.addscore(correct.toString(), timer.text.toString(), quiz.name!!)
-
+                        val response = subjectRepository.addscore(correct.toString(), quiz.name!!,timer.text.toString())
                         if (response.success == true) {
                             withContext(Dispatchers.Main) {
                                 val intent = Intent(context, DashboardActivity::class.java)
