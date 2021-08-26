@@ -8,9 +8,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.example.studentverse.R
+import com.example.studentverse.activity.adapter.MyQuestionAdapter
+import com.example.studentverse.activity.adapter.QuestionAdapter
 import com.example.studentverse.activity.api.ServiceBuilder
 import com.example.studentverse.activity.model.User
+import com.example.studentverse.activity.repository.QuestionRepository
 import com.example.studentverse.activity.repository.UserRepository
 import com.example.studentverse.activity.ui.AskQuestionActivity
 import com.example.studentverse.activity.ui.UpdateProfileActivity
@@ -29,6 +36,7 @@ class UserFragment : Fragment() {
     private lateinit var mobile: TextView
     private lateinit var email: TextView
     private lateinit var profileimage: ImageView
+    private lateinit var rvmyques: RecyclerView
 
     private var userDetails: User? = null
 
@@ -50,6 +58,7 @@ class UserFragment : Fragment() {
         mobile = view.findViewById(R.id.mobile)
         email = view.findViewById(R.id.email)
         profileimage=view.findViewById(R.id.profileimage)
+        rvmyques=view.findViewById(R.id.rvmyques)
 
         btnask.setOnClickListener {
             startActivity(
@@ -57,6 +66,29 @@ class UserFragment : Fragment() {
                             context,
                             AskQuestionActivity::class.java)
             )
+        }
+
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val questionRepository = QuestionRepository()
+                val response = questionRepository.myquestions()
+                if (response.success == true) {
+                    val question = response.data!!
+                    withContext(Dispatchers.Main) {
+                        val questionAdapter = MyQuestionAdapter(requireContext(),question)
+                        rvmyques.adapter = questionAdapter
+                        rvmyques.layoutManager= LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false)
+                    }
+                }
+            }
+            catch (ex:Exception){
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(
+                        context,
+                        "Error : $ex", Toast.LENGTH_LONG
+                    ).show()
+                }
+            }
         }
 
         btnlogout.setOnClickListener {
@@ -83,9 +115,16 @@ class UserFragment : Fragment() {
                 if (response.success == true) {
                     userDetails = response.data!!
                     withContext(Dispatchers.Main) {
-                        name.text = "Welcome, ${userDetails!!.fname}"
+                        name.text = "Welcome, ${userDetails!!.username}"
                         mobile.text = "Mobile: ${userDetails!!.mobile}"
                         email.text = "Email: ${userDetails!!.email}"
+                        val imagepath = "https://student-verse.herokuapp.com/userprofile/${userDetails!!.profilename}"
+                        Glide.with(requireContext())
+                            .load(imagepath)
+                            .apply( RequestOptions()
+                                .placeholder(R.drawable.profileicon)
+                                .fitCenter())
+                            .into(profileimage)
                     }
                 }
             } catch (ex: Exception) {

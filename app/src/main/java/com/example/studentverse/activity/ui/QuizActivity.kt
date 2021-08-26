@@ -48,6 +48,8 @@ class QuizActivity : AppCompatActivity() {
 
         val chapter = intent.getParcelableExtra<Chapter>("chapter")!!
 
+        tvquiztopic.text = chapter.name
+
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 val subjectRepository = SubjectRepository()
@@ -66,7 +68,7 @@ class QuizActivity : AppCompatActivity() {
             catch (ex: Exception){
                 withContext(Dispatchers.Main) {
                     Toast.makeText(this@QuizActivity,
-                        "$ex",
+                        "$ex, activity here",
                         Toast.LENGTH_SHORT
                     ).show()
                 }

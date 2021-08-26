@@ -22,7 +22,7 @@
                 android:orientation="vertical"
                 android:gravity="center">
                 <TextView
-                    android:id="@+id/answercount"
+                    android:id="@+id/myanswercount"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="0"
@@ -47,7 +47,7 @@
                 android:orientation="vertical"
                 android:gravity="center">
                 <TextView
-                    android:id="@+id/viewscount"
+                    android:id="@+id/myviewscount"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="0"
@@ -73,7 +73,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
             <TextView
-                android:id="@+id/title"
+                android:id="@+id/edittitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Title"
@@ -89,6 +89,29 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
                 <LinearLayout
+                    android:id="@+id/llview"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center_horizontal">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/view"
+                        android:layout_gravity="center"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="View"
+                        android:textSize="16dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:fontFamily="@font/opensansregular"/>
+                </LinearLayout>
+                <LinearLayout
                     android:id="@+id/lledit"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -101,15 +124,14 @@
                         android:src="@drawable/edit"
                         android:layout_gravity="center"/>
                     <TextView
-                        android:id="@+id/editquestion"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Edit"
-                        android:textSize="20dp"
+                        android:textSize="16dp"
                         android:textStyle="bold"
                         android:textColor="@color/white"
                         android:layout_marginTop="10dp"
-                        android:gravity="left"
+                        android:gravity="center"
                         android:fontFamily="@font/opensansregular"/>
                 </LinearLayout>
                 <LinearLayout
@@ -125,15 +147,14 @@
                         android:src="@drawable/delete"
                         android:layout_gravity="center"/>
                     <TextView
-                        android:id="@+id/deletequestion"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Delete"
-                        android:textSize="20dp"
+                        android:textSize="16dp"
                         android:textStyle="bold"
                         android:textColor="@color/white"
                         android:layout_marginTop="10dp"
-                        android:gravity="left"
+                        android:gravity="center"
                         android:fontFamily="@font/opensansregular"/>
                 </LinearLayout>
             </LinearLayout>

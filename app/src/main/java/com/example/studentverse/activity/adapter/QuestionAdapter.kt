@@ -20,7 +20,6 @@ class QuestionAdapter(
 ):
     RecyclerView.Adapter<QuestionAdapter.QuestionViewHolder>(){
     class QuestionViewHolder(view: View):RecyclerView.ViewHolder(view) {
-        val comment: TextView = view.findViewById(R.id.answercount)
         val title: TextView = view.findViewById(R.id.title)
         val body: TextView = view.findViewById(R.id.body)
         val tags: TextView = view.findViewById(R.id.tags)

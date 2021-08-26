@@ -54,39 +54,4 @@
             android:textSize="16sp" />
 
     </RadioGroup>
-
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:orientation="horizontal">-->
-
-
-<!--        //Button Submit-->
-<!--        <androidx.appcompat.widget.AppCompatButton-->
-<!--            android:id="@+id/btnqcheck"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_weight="1"-->
-<!--            android:text="Submit"-->
-<!--            android:textSize="20sp"-->
-<!--            android:textColor="@color/white"-->
-<!--            android:textStyle="bold"-->
-<!--            android:background="@drawable/buttoncornerbrand"-->
-<!--            android:fontFamily="@font/blinkerbold"-->
-<!--            android:layout_margin="15dp"/>-->
-
-<!--        //Button Next-->
-<!--        <androidx.appcompat.widget.AppCompatButton-->
-<!--            android:id="@+id/btnquiz"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_weight="1"-->
-<!--            android:text="Next"-->
-<!--            android:textSize="20sp"-->
-<!--            android:textColor="@color/white"-->
-<!--            android:textStyle="bold"-->
-<!--            android:background="@drawable/buttoncornerbrand"-->
-<!--            android:fontFamily="@font/blinkerbold"-->
-<!--            android:layout_margin="15dp"/>-->
-<!--    </LinearLayout>-->
 </LinearLayout>

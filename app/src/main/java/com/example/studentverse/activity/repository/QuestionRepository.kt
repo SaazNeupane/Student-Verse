@@ -29,6 +29,15 @@ class QuestionRepository:APIRequest() {
         }
     }
 
+    //Add Ad
+    suspend fun updatepost(id:String, title:String, body:String, tags:List<String> ):PostResponse{
+        return apiRequest {
+            postAPI.updatepost(
+                ServiceBuilder.token!!,id,title,body,tags
+            )
+        }
+    }
+
     //Add Answer
     suspend fun answeradd(answer: Answer): AnswerAddResponse {
         return apiRequest {
@@ -90,6 +99,13 @@ class QuestionRepository:APIRequest() {
     suspend fun searchtag(text:String): PostResponse {
         return apiRequest {
             postAPI.searchtag(text)
+        }
+    }
+
+    //Seacrh Question
+    suspend fun myquestions(): PostResponse {
+        return apiRequest {
+            postAPI.myquestions(ServiceBuilder.token!!)
         }
     }
 }

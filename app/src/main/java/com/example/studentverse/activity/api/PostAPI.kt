@@ -10,12 +10,23 @@ import retrofit2.http.*
 
 interface PostAPI {
 
-    //Add Ad
+    //Add Question
     @POST("addQuestion")
     suspend fun addAd(
         @Header("Authorization") token : String,
         @Body post : Post
     ): Response<AddPostResponse>
+
+    //Add Answer
+    @FormUrlEncoded
+    @PUT("post/update")
+    suspend fun updatepost(
+        @Header("Authorization") token : String,
+        @Field("id") id: String,
+        @Field("title") title: String,
+        @Field("body") body: String,
+        @Field("tags") tags: List<String>,
+    ): Response<PostResponse>
 
     //get post
     @GET("posts")
@@ -36,7 +47,7 @@ interface PostAPI {
         @Path("id") id: String
     ):Response<AnswerResponse>
 
-    //Add Answer
+    //Add Comment
     @POST("addComment")
     suspend fun addcomment(
         @Header("Authorization") token : String,
@@ -72,5 +83,11 @@ interface PostAPI {
     @GET("searchTag")
     suspend fun searchtag(
         @Query("tags") text:String
+    ):Response<PostResponse>
+
+    //My Question
+    @GET("userPost")
+    suspend fun myquestions(
+        @Header("Authorization") token : String,
     ):Response<PostResponse>
 }

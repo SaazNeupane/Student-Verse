@@ -7,8 +7,9 @@
     android:layout_height="match_parent"
     tools:context=".activity.ui.UpdateProfileActivity"
     android:orientation="vertical"
-    android:layout_margin="10dp"
-    android:gravity="center_vertical">
+    android:gravity="center_vertical"
+    android:overScrollMode="never"
+    android:isScrollContainer="false">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -128,6 +129,30 @@
                 android:fontFamily="@font/blinkersemibold"/>
         </com.google.android.material.textfield.TextInputLayout>
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxBackgroundColor="@color/white"
+            app:boxStrokeColor="@color/white"
+            android:layout_marginBottom="15dp"
+            android:textColorHint="@color/brandcolor"
+            app:hintTextColor="@color/brandcolor"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/brandcolor">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etupassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:hint="Password"
+                android:textColorHint="@color/brandcolor"
+                android:textColor="@color/brandcolor"
+                android:textSize="18sp"
+                android:inputType="textPassword"
+                android:fontFamily="@font/blinkersemibold"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
         //Button
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnupdatedetails"
@@ -149,7 +174,8 @@
             android:textColor="@color/brandcolor"
             android:fontFamily="@font/blinkerbold"
             android:textSize="18sp"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:layout_marginBottom="15dp"/>
 
     </LinearLayout>
 </ScrollView>
