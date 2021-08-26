@@ -31,6 +31,7 @@ RecyclerView.Adapter<MyQuestionAdapter.MyQuestionViewHolder>(){
     class MyQuestionViewHolder(view: View): RecyclerView.ViewHolder(view) {
         val title: TextView = view.findViewById(R.id.edittitle)
         val answercount: TextView = view.findViewById(R.id.myanswercount)
+        val myviewcount: TextView = view.findViewById(R.id.myviewscount)
         val lledit: LinearLayout = view.findViewById(R.id.lledit)
         val lldelete: LinearLayout = view.findViewById(R.id.lldelete)
         val llview: LinearLayout = view.findViewById(R.id.llview)
@@ -45,6 +46,8 @@ RecyclerView.Adapter<MyQuestionAdapter.MyQuestionViewHolder>(){
     override fun onBindViewHolder(holder: MyQuestionViewHolder, position: Int) {
         val post = PostList[position]
         holder.title.text=post.title
+        holder.answercount.text = post.answer?.size.toString()
+        holder.myviewcount.text = post.views
 
         holder.lledit.setOnClickListener {
             val intent = Intent(context, EditQuestionActivity::class.java)
@@ -55,7 +58,7 @@ RecyclerView.Adapter<MyQuestionAdapter.MyQuestionViewHolder>(){
             val builder = AlertDialog.Builder(context)
             builder.setTitle("Are you Sure?")
             //set message for alert dialog
-            builder.setMessage("You wanna submit the quiz?")
+            builder.setMessage("You want to delete the question??")
             builder.setIcon(R.drawable.alert)
 
             //performing positive action
@@ -63,13 +66,14 @@ RecyclerView.Adapter<MyQuestionAdapter.MyQuestionViewHolder>(){
                 CoroutineScope(Dispatchers.IO).launch {
                     try {
                         val questionRepository = QuestionRepository()
-                        val response = questionRepository
-//                        if (response.success == true) {
-//                            withContext(Dispatchers.Main) {
-//                                val intent = Intent(context, DashboardActivity::class.java)
-//                                context.startActivity(intent)
-//                            }
-//                        }
+                        val response = questionRepository.deletepost(post._id!!)
+                        if (response.success == true) {
+                            withContext(Dispatchers.Main) {
+                                Toast.makeText(context, "${response.message}", Toast.LENGTH_SHORT).show()
+                                val intent = Intent(context, DashboardActivity::class.java)
+                                context.startActivity(intent)
+                            }
+                        }
                     } catch (ex: java.lang.Exception) {
                         withContext(Dispatchers.Main) {
                             Toast.makeText(

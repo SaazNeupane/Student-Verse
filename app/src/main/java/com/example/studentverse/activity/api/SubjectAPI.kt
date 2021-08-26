@@ -12,7 +12,7 @@ interface SubjectAPI {
         @Header("Authorization") token : String,
     ): Response<SubjectResponse>
 
-    //Get Answer
+    //Get Topic
     @GET("topic")
     suspend fun gettopic(
         @Query("subjectID") studentID:String

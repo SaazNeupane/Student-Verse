@@ -1,5 +1,6 @@
 package com.example.studentverse.activity.api
 
+import android.view.View
 import com.example.studentverse.activity.model.Answer
 import com.example.studentverse.activity.model.Comment
 import com.example.studentverse.activity.model.Post
@@ -17,7 +18,7 @@ interface PostAPI {
         @Body post : Post
     ): Response<AddPostResponse>
 
-    //Add Answer
+    //Update Post
     @FormUrlEncoded
     @PUT("post/update")
     suspend fun updatepost(
@@ -28,11 +29,24 @@ interface PostAPI {
         @Field("tags") tags: List<String>,
     ): Response<PostResponse>
 
+    //delete post
+    @DELETE("post/{id}")
+    suspend fun deletepost(
+        @Header("Authorization") token : String,
+        @Path("id") id: String
+    ):Response<PostResponse>
+
     //get post
     @GET("posts")
     suspend fun post(
         @Header("Authorization") token : String,
     ):Response<PostResponse>
+
+    //get single post
+    @GET("post/{id}")
+    suspend fun singlepost(
+        @Path("id") id: String,
+    ):Response<ViewResponse>
 
     //Add Answer
     @POST("addAnswer")
@@ -54,19 +68,21 @@ interface PostAPI {
         @Body comment: Comment
     ): Response<CommentAddResponse>
 
-    //Voting
+    //Up Voting
     @POST("upvote")
     suspend fun upvote(
         @Header("Authorization") token : String,
         @Body vote: Vote
     ): Response<VoteResponse>
 
+    //DownVote
     @POST("downvote")
     suspend fun downvote(
         @Header("Authorization") token : String,
         @Body vote: Vote
     ): Response<VoteResponse>
 
+    //Unvote
     @POST("unvote")
     suspend fun unvote(
         @Header("Authorization") token : String,
@@ -89,5 +105,12 @@ interface PostAPI {
     @GET("userPost")
     suspend fun myquestions(
         @Header("Authorization") token : String,
+    ):Response<PostResponse>
+
+    //get other post
+    @GET("/otheruser/post/{id}")
+    suspend fun otherpost(
+        @Header("Authorization") token : String,
+        @Path("id") id: String,
     ):Response<PostResponse>
 }

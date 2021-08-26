@@ -53,6 +53,7 @@ class UserRepository:APIRequest() {
             userAPI.searchtag(text)
         }
     }
+
     //Upload Photo
     suspend fun uploadImage(body: MultipartBody.Part)
             : ImageResponse {
@@ -60,6 +61,7 @@ class UserRepository:APIRequest() {
             userAPI.uploadImage(ServiceBuilder.token!!, body)
         }
     }
+
     //Update Password
     suspend fun changepassword(password:String, newPassword:String):UpdateResponse{
         return apiRequest {

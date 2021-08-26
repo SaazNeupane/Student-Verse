@@ -20,33 +20,39 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".activity.ui.PermissionActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:launchMode="singleTask" />
         <activity
             android:name=".activity.ui.UserProfileActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:launchMode="singleTask" />
         <activity
             android:name=".activity.ui.EditQuestionActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:launchMode="singleTask" />
         <activity
             android:name=".activity.ui.ChapterContentActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:launchMode="singleTask" />
         <activity
             android:name=".activity.ui.ChangePasswordActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:launchMode="singleTask" />
         <activity
             android:name=".activity.ui.QuizActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:launchMode="singleTask" />
         <activity
             android:name=".activity.ui.ChapterActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:launchMode="singleTask" />
         <activity
             android:name=".activity.ui.TopicActivity"
             android:exported="true"
             android:launchMode="singleTask" />
         <activity
             android:name=".activity.ui.UpdateProfileActivity"
-            android:exported="true"
-            android:launchMode="singleTask" />
+            android:exported="true" />
         <activity
             android:name=".activity.ui.SplashActivity"
             android:exported="true">

@@ -25,11 +25,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Title"
-            android:textSize="20dp"
+            android:textSize="17dp"
             android:layout_gravity="center_vertical"
             android:layout_margin="5dp"
             android:textColor="@color/grey"
-            android:fontFamily="@font/opensanssemibold"
+            android:fontFamily="@font/opensansbold"
             android:justificationMode="inter_word"/>
 
         <LinearLayout
@@ -83,6 +83,20 @@
             android:fontFamily="@font/opensansregular"
             android:justificationMode="inter_word"
             android:lineSpacingMultiplier="1.2"/>
+
+        <TextView
+            android:id="@+id/stags"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tags"
+            android:textSize="12dp"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="5dp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/opensanssemibold"
+            android:justificationMode="inter_word"
+            android:gravity="right"
+            android:background="@drawable/bottomline"/>
 
 
         //Answer

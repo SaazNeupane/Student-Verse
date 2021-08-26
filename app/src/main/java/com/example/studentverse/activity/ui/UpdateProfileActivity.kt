@@ -70,12 +70,12 @@ class UpdateProfileActivity : AppCompatActivity() {
             )
         }
 
-        loaduser()
-
         //Image
         changepp.setOnClickListener {
             loadpopup()
         }
+
+        loaduser()
 
         //button
         btnupdate.setOnClickListener {

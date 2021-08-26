@@ -35,6 +35,7 @@ class UserFragment : Fragment() {
     private lateinit var name: TextView
     private lateinit var mobile: TextView
     private lateinit var email: TextView
+    private lateinit var ntf: TextView
     private lateinit var profileimage: ImageView
     private lateinit var rvmyques: RecyclerView
 
@@ -55,6 +56,7 @@ class UserFragment : Fragment() {
         btnlogout = view.findViewById(R.id.btnlogout)
         btnmore = view.findViewById(R.id.btnmore)
         name = view.findViewById(R.id.name)
+        ntf = view.findViewById(R.id.ntf)
         mobile = view.findViewById(R.id.mobile)
         email = view.findViewById(R.id.email)
         profileimage=view.findViewById(R.id.profileimage)
@@ -73,6 +75,8 @@ class UserFragment : Fragment() {
                 val questionRepository = QuestionRepository()
                 val response = questionRepository.myquestions()
                 if (response.success == true) {
+                    ntf.visibility = View.GONE
+                    rvmyques.visibility = View.VISIBLE
                     val question = response.data!!
                     withContext(Dispatchers.Main) {
                         val questionAdapter = MyQuestionAdapter(requireContext(),question)
@@ -83,10 +87,8 @@ class UserFragment : Fragment() {
             }
             catch (ex:Exception){
                 withContext(Dispatchers.Main) {
-                    Toast.makeText(
-                        context,
-                        "Error : $ex", Toast.LENGTH_LONG
-                    ).show()
+                    rvmyques.visibility = View.GONE
+                    ntf.visibility = View.VISIBLE
                 }
             }
         }

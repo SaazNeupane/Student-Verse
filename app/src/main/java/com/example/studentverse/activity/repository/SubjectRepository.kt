@@ -8,7 +8,7 @@ import com.example.studentverse.activity.response.*
 class SubjectRepository:APIRequest() {
     private val subjectAPI = ServiceBuilder.buildService(SubjectAPI::class.java)
 
-    //Subjects
+    //All Subjects
     suspend fun allsubjects(): SubjectResponse {
         return apiRequest {
             subjectAPI.subject(ServiceBuilder.token!!)
@@ -22,7 +22,7 @@ class SubjectRepository:APIRequest() {
         }
     }
 
-    //Get Topic
+    //Get Chapter
     suspend fun getchapter(sid:String,tid: String): ChapterResponse {
         return apiRequest {
             subjectAPI.getchapter(sid,tid)

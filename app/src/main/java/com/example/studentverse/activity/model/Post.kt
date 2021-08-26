@@ -10,6 +10,7 @@ data class Post(
     val author: String? = null,
     val createdAt: String? = null,
     val tags: List<String>? = null,
+    val views: String? = null,
     val answer: ArrayList<Answer>? =null,
     ):Parcelable {
     constructor(parcel: Parcel) : this(
@@ -18,8 +19,9 @@ data class Post(
         parcel.readString(),
         parcel.readString(),
         parcel.readString(),
-        parcel.createStringArrayList()
-    ) {
+        parcel.createStringArrayList(),
+        parcel.readString(),
+        ) {
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
@@ -29,6 +31,7 @@ data class Post(
         parcel.writeString(author)
         parcel.writeString(createdAt)
         parcel.writeStringList(tags)
+        parcel.writeString(views)
     }
 
     override fun describeContents(): Int {

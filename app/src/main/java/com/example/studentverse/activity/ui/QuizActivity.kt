@@ -1,5 +1,7 @@
 package com.example.studentverse.activity.ui
 
+import android.app.AlertDialog
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -74,5 +76,27 @@ class QuizActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    override fun onBackPressed() {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Are you Sure?")
+        //set message for alert dialog
+        builder.setMessage("You wanna quit the quiz?")
+        builder.setIcon(R.drawable.alert)
+
+        //performing positive action
+        builder.setPositiveButton("Yes"){ _, _ ->
+            val intent = Intent(this, DashboardActivity::class.java)
+            startActivity(intent)
+        }
+        //performing negative action
+        builder.setNegativeButton("No"){ _, _ ->
+        }
+        // Create the AlertDialog
+        val alertDialog: AlertDialog = builder.create()
+        // Set other dialog properties
+        alertDialog.setCancelable(false)
+        alertDialog.show()
     }
 }

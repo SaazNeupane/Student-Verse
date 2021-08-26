@@ -28,6 +28,7 @@ class SinglePostActivity : AppCompatActivity() {
     private lateinit var stitle: TextView
     private lateinit var stime: TextView
     private lateinit var sviews: TextView
+    private lateinit var stags: TextView
     private lateinit var suser: TextView
     private lateinit var sbody: TextView
     private lateinit var etanswer: EditText
@@ -40,6 +41,7 @@ class SinglePostActivity : AppCompatActivity() {
         stitle=findViewById(R.id.stitle)
         stime=findViewById(R.id.stime)
         sviews=findViewById(R.id.sviews)
+        stags=findViewById(R.id.stags)
         suser=findViewById(R.id.suser)
         sbody=findViewById(R.id.sbody)
         etanswer=findViewById(R.id.etanswer)
@@ -47,6 +49,14 @@ class SinglePostActivity : AppCompatActivity() {
         rvanswer=findViewById(R.id.rvanswer)
 
         val intent = intent.getParcelableExtra<Post>("post")!!
+
+        sviews.text = "Views: ${intent.views}"
+
+        val tags = intent.tags.toString()
+            .replace("[", "")
+            .replace("]", "")
+
+        stags.text = "Tags: $tags"
 
         if(intent !=null){
             stitle.text = "${intent.title}"

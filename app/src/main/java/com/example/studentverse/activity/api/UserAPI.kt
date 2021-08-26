@@ -14,7 +14,7 @@ interface UserAPI {
         @Body user: User
     ): Response<RegisterLoginResponse>
 
-    //Login Client
+    //Login User
     @FormUrlEncoded
     @POST("login")
     suspend fun checkclient(
@@ -28,7 +28,7 @@ interface UserAPI {
         @Header("Authorization") token : String,
     ):Response<CurrentUserResponse>
 
-    //current user
+    //Single User
     @GET("user/{id}")
     suspend fun finduser(
         @Path("id") uid: String,
