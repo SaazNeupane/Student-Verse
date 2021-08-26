@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.ui.ReadQuizActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:src="@drawable/blogo"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/studytopic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Quiz"
+            android:textSize="27dp"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:layout_margin="5dp"
+            android:textColor="@color/grey"
+            android:fontFamily="@font/opensansextrabold"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvstudyquiz"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:overScrollMode="never"
+            android:isScrollContainer="false"/>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

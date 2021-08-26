@@ -26,6 +26,15 @@
             android:layout_margin="5dp"
             android:textColor="@color/grey"
             android:fontFamily="@font/opensansextrabold"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="*Attempt all question. It's a one time attempt you cannot change the answer or do anything once you have submitted. You can compare your answer with Study Quiz Page and view score from your dashboard. GOOD LUCK!!"
+            android:textSize="13dp"
+            android:layout_margin="5dp"
+            android:textColor="@color/grey"
+            android:fontFamily="@font/opensansregular"
+            android:justificationMode="inter_word"/>
 
         <Chronometer
             android:id="@+id/timer"

@@ -113,4 +113,10 @@ interface PostAPI {
         @Header("Authorization") token : String,
         @Path("id") id: String,
     ):Response<PostResponse>
+
+    //get my score
+    @GET("/score")
+    suspend fun myscore(
+        @Header("Authorization") token : String
+    ):Response<FetchScoreResponse>
 }

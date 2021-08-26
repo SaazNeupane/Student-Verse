@@ -1,6 +1,6 @@
 package com.example.studentverse.activity.model
 
-class Quiz (
+data class Quiz (
     val _id: String? =null,
     val name: String? = null,
     val question: String? = null,

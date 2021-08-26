@@ -133,4 +133,11 @@ class QuestionRepository:APIRequest() {
             postAPI.otherpost(ServiceBuilder.token!!,id)
         }
     }
+
+    //User Score
+    suspend fun myscore(): FetchScoreResponse {
+        return apiRequest {
+            postAPI.myscore(ServiceBuilder.token!!)
+        }
+    }
 }

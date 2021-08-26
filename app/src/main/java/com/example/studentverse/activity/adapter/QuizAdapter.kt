@@ -30,7 +30,6 @@ class QuizAdapter (
 ):RecyclerView.Adapter<QuizAdapter.QuizHolder>() {
     class QuizHolder(view: View): RecyclerView.ViewHolder(view){
         val tvquizquestion: TextView = view.findViewById(R.id.tvquizquestion)
-        val rgoptions: RadioGroup = view.findViewById(R.id.rgoption)
         val rbopt1: RadioButton = view.findViewById(R.id.rb1)
         val rbopt2: RadioButton = view.findViewById(R.id.rb2)
         val rbopt3: RadioButton = view.findViewById(R.id.rb3)

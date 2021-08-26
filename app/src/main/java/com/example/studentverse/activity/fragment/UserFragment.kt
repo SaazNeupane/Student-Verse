@@ -15,6 +15,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.example.studentverse.R
 import com.example.studentverse.activity.adapter.MyQuestionAdapter
 import com.example.studentverse.activity.adapter.QuestionAdapter
+import com.example.studentverse.activity.adapter.ScoreAdapter
 import com.example.studentverse.activity.api.ServiceBuilder
 import com.example.studentverse.activity.model.User
 import com.example.studentverse.activity.repository.QuestionRepository
@@ -36,10 +37,12 @@ class UserFragment : Fragment() {
     private lateinit var mobile: TextView
     private lateinit var email: TextView
     private lateinit var ntf: TextView
+    private lateinit var ntf2: TextView
     private lateinit var profileimage: ImageView
     private lateinit var rvmyques: RecyclerView
+    private lateinit var rvquizscore: RecyclerView
 
-    private var userDetails: User? = null
+    var userDetails: User? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,10 +60,13 @@ class UserFragment : Fragment() {
         btnmore = view.findViewById(R.id.btnmore)
         name = view.findViewById(R.id.name)
         ntf = view.findViewById(R.id.ntf)
+        ntf2 = view.findViewById(R.id.ntf2)
         mobile = view.findViewById(R.id.mobile)
         email = view.findViewById(R.id.email)
         profileimage=view.findViewById(R.id.profileimage)
         rvmyques=view.findViewById(R.id.rvmyques)
+        rvquizscore=view.findViewById(R.id.rvquizscore)
+        loadclient()
 
         btnask.setOnClickListener {
             startActivity(
@@ -92,6 +98,28 @@ class UserFragment : Fragment() {
                 }
             }
         }
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val questionRepository = QuestionRepository()
+                val response = questionRepository.myscore()
+                    if (response.success == true) {
+                        ntf2.visibility = View.GONE
+                        rvquizscore.visibility = View.VISIBLE
+                        val score = response.data!!
+                        withContext(Dispatchers.Main) {
+                            val questionAdapter = ScoreAdapter(score,requireContext())
+                            rvquizscore.adapter = questionAdapter
+                            rvquizscore.layoutManager= LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false)
+                        }
+                    }
+            }
+            catch (ex:Exception){
+                withContext(Dispatchers.Main) {
+                    rvquizscore.visibility = View.GONE
+                    ntf2.visibility = View.VISIBLE
+                }
+            }
+        }
 
         btnlogout.setOnClickListener {
             val sharedPref = activity?.getSharedPreferences("Preferences", AppCompatActivity.MODE_PRIVATE)
@@ -104,7 +132,6 @@ class UserFragment : Fragment() {
         btnmore.setOnClickListener{
             loadoption()
         }
-        loadclient()
 
         return view
     }

@@ -13,6 +13,7 @@ import com.example.studentverse.R
 import com.example.studentverse.activity.model.Chapter
 import com.example.studentverse.activity.ui.ChapterActivity
 import com.example.studentverse.activity.ui.QuizActivity
+import com.example.studentverse.activity.ui.ReadQuizActivity
 import com.example.studentverse.activity.ui.SinglePostActivity
 
 class ChapterAdapter (
@@ -23,6 +24,7 @@ class ChapterAdapter (
         val tvchaptername: TextView = view.findViewById(R.id.tvchaptername)
         val ivcontent: ImageView = view.findViewById(R.id.ivreadcontent)
         val ivquiz: ImageView = view.findViewById(R.id.ivtakequiz)
+        val ivstudyquiz: ImageView = view.findViewById(R.id.ivstudyquiz)
         val ivpast: ImageView = view.findViewById(R.id.ivpastpaper)
         val llchapter: LinearLayout = view.findViewById(R.id.llchapter)
         val llccontent: LinearLayout = view.findViewById(R.id.llccontent)
@@ -49,6 +51,11 @@ class ChapterAdapter (
                 holder.llccontent.visibility = View.VISIBLE
                 holder.ivquiz.setOnClickListener {
                     val intent = Intent(context, QuizActivity::class.java)
+                        .putExtra("chapter",chapter)
+                    context.startActivity(intent)
+                }
+                holder.ivstudyquiz.setOnClickListener {
+                    val intent = Intent(context, ReadQuizActivity::class.java)
                         .putExtra("chapter",chapter)
                     context.startActivity(intent)
                 }

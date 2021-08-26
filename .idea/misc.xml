@@ -12,6 +12,7 @@
         <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/activity_edit_question.xml" value="0.20854700854700856" />
         <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/activity_quiz.xml" value="0.20854700854700856" />
+        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/activity_read_quiz.xml" value="0.20854700854700856" />
         <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/activity_signup.xml" value="0.20854700854700856" />
         <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/activity_single_post.xml" value="0.20854700854700856" />
         <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/activity_splash.xml" value="0.25416666666666665" />
@@ -19,7 +20,7 @@
         <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/activity_update_profile.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/activity_user_profile.xml" value="0.20854700854700856" />
         <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/answerdesign.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/chapterdesign.xml" value="0.4" />
+        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/chapterdesign.xml" value="0.264" />
         <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/fragment_home.xml" value="0.2059071729957806" />
         <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/fragment_others.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/fragment_search.xml" value="0.2" />
@@ -28,6 +29,8 @@
         <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/list_dashboard.xml" value="0.20854700854700856" />
         <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/questiondesign.xml" value="0.20854700854700856" />
         <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/quizdesign.xml" value="0.20854700854700856" />
+        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/scoredesign.xml" value="0.20854700854700856" />
+        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/studyquizdesign.xml" value="0.20854700854700856" />
         <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/topicdesign.xml" value="0.20854700854700856" />
         <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/userdesign.xml" value="0.20854700854700856" />
         <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/menu/gallery_camera.xml" value="0.20854700854700856" />

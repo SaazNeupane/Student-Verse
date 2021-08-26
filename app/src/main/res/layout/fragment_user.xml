@@ -93,7 +93,6 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/myads"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/brandcolor"
@@ -117,6 +116,35 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvmyques"
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:overScrollMode="never"
+                android:isScrollContainer="false"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/brandcolor"
+                android:text="My Quiz Score"
+                android:fontFamily="@font/blinkerbold"
+                android:textSize="25sp"
+                android:layout_margin="10dp"/>
+            <TextView
+                android:id="@+id/ntf2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="Nothing Found!!!"
+                android:textColor="@color/black"
+                android:fontFamily="@font/opensansextrabolditalic"
+                android:textSize="27sp"
+                android:gravity="center_horizontal"
+                android:layout_marginBottom="50dp"
+                android:visibility="gone"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvquizscore"
                 android:layout_margin="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
