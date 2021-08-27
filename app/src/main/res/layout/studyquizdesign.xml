@@ -15,7 +15,8 @@
         android:textSize="18sp"
         android:fontFamily="@font/opensansbold"
         android:textColor="@color/black"
-        android:layout_margin="5dp"/>
+        android:layout_margin="5dp"
+        android:justificationMode="inter_word"/>
 
     <TextView
         android:id="@+id/tvsquizopt1"

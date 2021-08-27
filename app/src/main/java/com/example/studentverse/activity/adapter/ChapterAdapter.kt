@@ -11,10 +11,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.studentverse.R
 import com.example.studentverse.activity.model.Chapter
-import com.example.studentverse.activity.ui.ChapterActivity
-import com.example.studentverse.activity.ui.QuizActivity
-import com.example.studentverse.activity.ui.ReadQuizActivity
-import com.example.studentverse.activity.ui.SinglePostActivity
+import com.example.studentverse.activity.ui.*
 
 class ChapterAdapter (
     private val listchapter: ArrayList<Chapter>,
@@ -57,6 +54,11 @@ class ChapterAdapter (
                 holder.ivstudyquiz.setOnClickListener {
                     val intent = Intent(context, ReadQuizActivity::class.java)
                         .putExtra("chapter",chapter)
+                    context.startActivity(intent)
+                }
+                holder.ivpast.setOnClickListener {
+                    val intent = Intent(context, PastPaperActivity::class.java)
+                        .putExtra("pchapter",chapter)
                     context.startActivity(intent)
                 }
             }

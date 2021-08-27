@@ -117,6 +117,7 @@ class UserFragment : Fragment() {
                 withContext(Dispatchers.Main) {
                     rvquizscore.visibility = View.GONE
                     ntf2.visibility = View.VISIBLE
+                    Toast.makeText(context, "$ex", Toast.LENGTH_SHORT).show()
                 }
             }
         }

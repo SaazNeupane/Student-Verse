@@ -40,9 +40,6 @@ class ScoreAdapter (
         holder.tvscoresubject.text = "Chapter: ${score.quizname}"
         holder.myscore.text = "${score.score}/10"
         holder.mytime.text = score.time
-
-
-
     }
 
     override fun getItemCount(): Int {

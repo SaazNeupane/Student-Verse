@@ -40,4 +40,11 @@ interface SubjectAPI {
         @Field("quizname") quizname: String,
         @Field("time") time: String
     ):Response<ScoreResponse>
+
+    //Get Past Paper
+    @GET("paper/{chapterid}")
+    suspend fun getpastpaper(
+        @Header("Authorization") token : String,
+        @Path("chapterid") id: String,
+    ):Response<PastPaperResponse>
 }

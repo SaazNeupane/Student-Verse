@@ -42,4 +42,11 @@ class SubjectRepository:APIRequest() {
             subjectAPI.checkclient(ServiceBuilder.token!!,score,quizname,time)
         }
     }
+
+    //Get Past Paper
+    suspend fun getpastpaper(id:String): PastPaperResponse {
+        return apiRequest {
+            subjectAPI.getpastpaper(ServiceBuilder.token!!,id)
+        }
+    }
 }
