@@ -36,11 +36,6 @@ class RegisterUIInstrumentedTesting {
 
         Espresso.closeSoftKeyboard()
 
-        Espresso.onView(ViewMatchers.withId(R.id.etaddress))
-            .perform(ViewActions.typeText("Magnelium"))
-
-        Espresso.closeSoftKeyboard()
-
         Espresso.onView(ViewMatchers.withId(R.id.etemail))
             .perform(ViewActions.typeText("zeref123@gmail.com"))
 

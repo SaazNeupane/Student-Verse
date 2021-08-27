@@ -77,12 +77,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Title"
-                android:textSize="15dp"
+                android:textSize="14dp"
                 android:layout_gravity="center_vertical"
                 android:layout_margin="5dp"
                 android:textColor="@color/white"
                 android:fontFamily="@font/opensanssemibold"
-                android:justificationMode="inter_word"/>
+                android:maxLines="2"
+                android:justificationMode="inter_word"
+                android:ellipsize="end"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -102,13 +104,13 @@
                         android:layout_gravity="center"/>
                     <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:text="View"
-                        android:textSize="16dp"
+                        android:textSize="14dp"
                         android:textStyle="bold"
                         android:textColor="@color/white"
-                        android:layout_marginTop="10dp"
-                        android:gravity="center"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="4dp"
                         android:fontFamily="@font/opensansregular"/>
                 </LinearLayout>
                 <LinearLayout
@@ -125,13 +127,13 @@
                         android:layout_gravity="center"/>
                     <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:text="Edit"
-                        android:textSize="16dp"
+                        android:textSize="14dp"
+                        android:layout_marginLeft="4dp"
                         android:textStyle="bold"
                         android:textColor="@color/white"
-                        android:layout_marginTop="10dp"
-                        android:gravity="center"
+                        android:gravity="center_vertical"
                         android:fontFamily="@font/opensansregular"/>
                 </LinearLayout>
                 <LinearLayout
@@ -148,13 +150,13 @@
                         android:layout_gravity="center"/>
                     <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:text="Delete"
-                        android:textSize="16dp"
+                        android:textSize="14dp"
+                        android:layout_marginLeft="4dp"
                         android:textStyle="bold"
                         android:textColor="@color/white"
-                        android:layout_marginTop="10dp"
-                        android:gravity="center"
+                        android:gravity="center_vertical"
                         android:fontFamily="@font/opensansregular"/>
                 </LinearLayout>
             </LinearLayout>
