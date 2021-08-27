@@ -50,7 +50,7 @@ class UserRepository:APIRequest() {
     //Seacrh User
     suspend fun searchuser(text:String): SearchUserResponse {
         return apiRequest {
-            userAPI.searchtag(text)
+            userAPI.searchuser(text)
         }
     }
 

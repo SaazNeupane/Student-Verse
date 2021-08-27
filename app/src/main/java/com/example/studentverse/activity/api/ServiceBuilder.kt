@@ -11,10 +11,10 @@ import com.google.gson.Gson
 
 
 object ServiceBuilder {
-        private const val BASE_URL =
-        "http://10.0.2.2:5000/"
 //        private const val BASE_URL =
-//        "http://localhost:5000/"
+//        "http://10.0.2.2:5000/"
+        private const val BASE_URL =
+        "http://localhost:5000/"
 //        private const val BASE_URL =
 //        "https://student-verse.herokuapp.com/"
 

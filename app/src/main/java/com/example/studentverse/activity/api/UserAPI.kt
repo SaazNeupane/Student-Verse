@@ -43,7 +43,7 @@ interface UserAPI {
 
     //Search User
     @GET("searchUser")
-    suspend fun searchtag(
+    suspend fun searchuser(
         @Query("name") text:String
     ):Response<SearchUserResponse>
 
