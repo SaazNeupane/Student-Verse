@@ -21,12 +21,37 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Chapters"
-            android:textSize="32dp"
+            android:textSize="25dp"
             android:layout_gravity="center_vertical"
             android:gravity="center"
             android:layout_margin="5dp"
             android:textColor="@color/grey"
             android:fontFamily="@font/opensansextrabold"/>
+        <TextView
+            android:id="@+id/tvctopicdesp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Description"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="5dp"
+            android:textSize="13sp"
+            android:fontFamily="@font/opensansregular"
+            android:textColor="@color/black"
+            android:justificationMode="inter_word"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chapters"
+            android:textSize="24dp"
+            android:layout_gravity="center_vertical"
+            android:gravity="left"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:textColor="@color/grey"
+            android:fontFamily="@font/blinkerbold"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvchapter"

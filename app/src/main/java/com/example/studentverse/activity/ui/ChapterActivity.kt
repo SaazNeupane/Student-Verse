@@ -22,6 +22,7 @@ class ChapterActivity : AppCompatActivity() {
 
     private lateinit var rvchapter: RecyclerView
     private lateinit var tvchapter: TextView
+    private lateinit var tvdescription: TextView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,9 +31,11 @@ class ChapterActivity : AppCompatActivity() {
 
         rvchapter=findViewById(R.id.rvchapter)
         tvchapter=findViewById(R.id.tvchapter)
+        tvdescription=findViewById(R.id.tvctopicdesp)
 
         val topic = intent.getParcelableExtra<Topic>("topic")!!
         tvchapter.text = "${topic.name}"
+        tvdescription.text = "${topic.description}"
         val subjectid = intent.getStringExtra("subjectid")!!
 
         CoroutineScope(Dispatchers.IO).launch {

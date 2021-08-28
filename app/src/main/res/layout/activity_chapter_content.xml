@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Title"
-            android:textSize="25dp"
+            android:textSize="21dp"
             android:gravity="center"
             android:layout_margin="5dp"
             android:textColor="@color/black"
@@ -30,10 +30,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Body"
-            android:textSize="20dp"
+            android:textSize="15dp"
             android:layout_margin="5dp"
             android:textColor="@color/black"
-            android:fontFamily="@font/opensanssemibold"
+            android:fontFamily="@font/opensansregular"
             android:justificationMode="inter_word"
             android:lineSpacingMultiplier="1.2"/>
 

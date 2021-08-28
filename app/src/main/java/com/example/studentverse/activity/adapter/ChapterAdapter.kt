@@ -61,6 +61,11 @@ class ChapterAdapter (
                         .putExtra("pchapter",chapter)
                     context.startActivity(intent)
                 }
+                holder.ivcontent.setOnClickListener {
+                    val intent = Intent(context, ChapterContentActivity::class.java)
+                        .putExtra("content",chapter)
+                    context.startActivity(intent)
+                }
             }
         }
     }
