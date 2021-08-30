@@ -44,7 +44,8 @@
                 android:textColorHint="@color/white"
                 android:textColor="@color/white"
                 android:textSize="18sp"
-                android:fontFamily="@font/blinkerregular"/>
+                android:fontFamily="@font/blinkerregular"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -64,7 +65,8 @@
                 android:textColorHint="@color/white"
                 android:textColor="@color/white"
                 android:textSize="18sp"
-                android:fontFamily="@font/blinkerregular"/>
+                android:fontFamily="@font/blinkerregular"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"

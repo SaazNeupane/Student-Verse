@@ -69,7 +69,7 @@
         </activity>
         <activity
             android:name=".activity.ui.SinglePostActivity"
-            android:noHistory="true" />
+            android:noHistory="true"/>
         <activity
             android:name=".activity.ui.AskQuestionActivity"
             android:launchMode="singleTask" />
