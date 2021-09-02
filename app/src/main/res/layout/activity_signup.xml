@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.ui.SignupActivity"
-    android:background="@color/brandcolor">
+    android:background="@color/brandcolor"
+    android:overScrollMode="never"
+    android:isScrollContainer="false">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -103,13 +105,24 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                android:hint="Email"
+                android:hint="Email (Enter Valid Email)"
                 android:textColorHint="@color/white"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:fontFamily="@font/blinkerregular"
                 android:inputType="textEmailAddress"/>
         </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="*Password must consist 6-15 characters, one uppercase, one number and a special character"
+            android:layout_margin="10dp"
+            android:textSize="13sp"
+            android:fontFamily="@font/opensansregular"
+            android:textColor="@color/white"
+            android:justificationMode="inter_word"
+            android:maxLines="2"
+            android:ellipsize="end"/>
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -171,4 +184,4 @@
     </LinearLayout>
 
 
-</ScrollView>
+</androidx.core.widget.NestedScrollView>

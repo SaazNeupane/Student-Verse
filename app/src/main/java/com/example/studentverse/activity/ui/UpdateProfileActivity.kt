@@ -231,8 +231,6 @@ class UpdateProfileActivity : AppCompatActivity() {
                     val response = userRepository.uploadImage( body)
                     if (response.success == true) {
                         withContext(Dispatchers.Main) {
-                            Toast.makeText(this@UpdateProfileActivity, "Uploaded", Toast.LENGTH_SHORT)
-                                .show()
                         }
                     }
                 } catch (ex: Exception) {
