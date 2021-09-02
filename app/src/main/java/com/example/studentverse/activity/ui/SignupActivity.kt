@@ -65,6 +65,7 @@ class SignupActivity : AppCompatActivity() {
                 try {
                     val userRepository = UserRepository()
                     val response = userRepository.userRegister(user)
+
                     if (response.success == true){
                         withContext(Dispatchers.Main){
                             showNotification("${response.message}")
@@ -78,8 +79,16 @@ class SignupActivity : AppCompatActivity() {
                             finish()
                         }
                     }
+                    if (response.success == false){
+                        withContext(Dispatchers.Main){
+                            println(response.error?.get(0)?.msg.toString())
+                            println(response.error)
+                            Toast.makeText(this@SignupActivity, (response.error?.get(0)?.msg), Toast.LENGTH_SHORT).show()
+                        }
+                    }
 
                 } catch (e: Exception){
+
                     withContext(Dispatchers.Main){
                         Toast.makeText(this@SignupActivity, "$e", Toast.LENGTH_SHORT).show()
                     }
