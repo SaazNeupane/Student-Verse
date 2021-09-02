@@ -25,6 +25,7 @@ import java.lang.Exception
 class TopicActivity : AppCompatActivity() {
 
     private lateinit var rvtopic: RecyclerView
+    private lateinit var tvtopic: TextView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,8 +33,10 @@ class TopicActivity : AppCompatActivity() {
         setContentView(R.layout.activity_topic)
 
         rvtopic=findViewById(R.id.rvtopic)
+        tvtopic=findViewById(R.id.topic)
 
         val intent = intent.getParcelableExtra<Subject>("subject")!!
+        tvtopic.text = "${intent.name}"
 
         CoroutineScope(Dispatchers.IO).launch {
             try {
@@ -42,7 +45,7 @@ class TopicActivity : AppCompatActivity() {
                 if (response.success == true) {
                     val topic = response.data!!
                     withContext(Dispatchers.Main) {
-                        val topicAdapter = TopicAdapter(topic,this@TopicActivity)
+                        val topicAdapter = TopicAdapter(topic,intent._id,this@TopicActivity)
                         rvtopic.adapter = topicAdapter
                         rvtopic.layoutManager= LinearLayoutManager(this@TopicActivity, LinearLayoutManager.VERTICAL,false)
                     }

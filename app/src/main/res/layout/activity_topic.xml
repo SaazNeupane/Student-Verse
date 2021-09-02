@@ -17,15 +17,16 @@
             android:layout_marginTop="10dp"/>
 
         <TextView
+            android:id="@+id/topic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Topic"
-            android:textSize="32dp"
+            android:textSize="25dp"
             android:layout_gravity="center_vertical"
             android:gravity="center"
             android:layout_margin="5dp"
             android:textColor="@color/grey"
-            android:fontFamily="@font/opensansextrabolditalic"/>
+            android:fontFamily="@font/opensansextrabold"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvtopic"

@@ -16,7 +16,7 @@ class DashboardUIInstrumentedTesting {
     @Test
     fun checkquestion() {
         ServiceBuilder.token =
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMDNjYjVmN2NhMTM1NDlkNGJhMjllOCIsImlhdCI6MTYyNzYzODg2MCwiZXhwIjoxNjMwMjMwODYwfQ.gR3xBHBCI4a1Banna8IlgfkS1cU1tzYHXGcD3WoUksc"
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxMDNjYjVmN2NhMTM1NDlkNGJhMjllOCIsImlhdCI6MTYzMDAzOTI0MiwiZXhwIjoxNjMyNjMxMjQyfQ.1QNMzdP3oWELkTKufuVVQuXu7sDnpjJaRF2wE_munQc"
 
         Thread.sleep(2000)
 

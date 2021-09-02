@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".activity.fragments.SearchFragment">
+    tools:context=".activity.fragment.SearchFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -75,6 +75,39 @@
             android:textSize="24sp"
             android:gravity="center_horizontal"
             android:layout_marginBottom="50dp"/>
+        <TextView
+            android:id="@+id/tvscount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="123 Questions"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="@color/brandcolor"
+            android:textSize="14sp"
+            android:layout_margin="5dp"
+            android:fontFamily="@font/blinkerregular"
+            android:visibility="gone" />
+        //Nothing
+        <TextView
+            android:id="@+id/ntf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Nothing Found!!!"
+            android:textColor="@color/black"
+            android:fontFamily="@font/opensansextrabolditalic"
+            android:textSize="27sp"
+            android:gravity="center_horizontal"
+            android:layout_marginBottom="50dp"
+            android:visibility="gone"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvsearch"
+            android:layout_margin="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:overScrollMode="never"
+            android:isScrollContainer="false"/>
 
     </LinearLayout>
 

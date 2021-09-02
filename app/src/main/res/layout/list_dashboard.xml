@@ -77,12 +77,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Title"
-                android:textSize="15dp"
+                android:textSize="14dp"
                 android:layout_gravity="center_vertical"
                 android:layout_margin="5dp"
                 android:textColor="@color/white"
                 android:fontFamily="@font/opensanssemibold"
-                android:justificationMode="inter_word"/>
+                android:justificationMode="inter_word"
+                android:maxLines="2"
+                android:ellipsize="end"/>
             <TextView
                 android:id="@+id/body"
                 android:layout_width="match_parent"

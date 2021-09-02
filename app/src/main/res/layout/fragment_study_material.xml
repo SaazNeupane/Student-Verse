@@ -24,17 +24,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Subjects"
-                android:textSize="27dp"
+                android:textSize="25dp"
                 android:layout_gravity="center_vertical"
                 android:gravity="center"
                 android:layout_margin="5dp"
                 android:textColor="@color/grey"
-                android:fontFamily="@font/opensansextrabolditalic"/>
+                android:fontFamily="@font/opensansbolditalic"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvsubjects"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:overScrollMode="never"
+                android:isScrollContainer="false"/>
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>

@@ -66,7 +66,7 @@ class CommentAdapter (
 
         val dateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
         val parsedDate: Date = dateFormat.parse(cmt.createdAt)
-        val print = SimpleDateFormat("MMM d, yyyy HH:mm")
+        val print = SimpleDateFormat("d MMM, yyyy")
         holder.ctime.text = "${print.format(parsedDate)}"
 
     }

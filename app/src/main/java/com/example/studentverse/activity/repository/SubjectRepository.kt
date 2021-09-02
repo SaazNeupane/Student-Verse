@@ -3,15 +3,12 @@ package com.example.studentverse.activity.repository
 import com.example.studentverse.activity.api.APIRequest
 import com.example.studentverse.activity.api.ServiceBuilder
 import com.example.studentverse.activity.api.SubjectAPI
-import com.example.studentverse.activity.response.AnswerResponse
-import com.example.studentverse.activity.response.ChapterResponse
-import com.example.studentverse.activity.response.SubjectResponse
-import com.example.studentverse.activity.response.TopicResponse
+import com.example.studentverse.activity.response.*
 
 class SubjectRepository:APIRequest() {
     private val subjectAPI = ServiceBuilder.buildService(SubjectAPI::class.java)
 
-    //Subjects
+    //All Subjects
     suspend fun allsubjects(): SubjectResponse {
         return apiRequest {
             subjectAPI.subject(ServiceBuilder.token!!)
@@ -25,10 +22,31 @@ class SubjectRepository:APIRequest() {
         }
     }
 
-    //Get Topic
-    suspend fun getchapter(id: String): ChapterResponse {
+    //Get Chapter
+    suspend fun getchapter(sid:String,tid: String): ChapterResponse {
         return apiRequest {
-            subjectAPI.getchapter(id)
+            subjectAPI.getchapter(sid,tid)
+        }
+    }
+
+    //Get Quiz
+    suspend fun getquiz(id:String): QuizResponse {
+        return apiRequest {
+            subjectAPI.getquiz(id)
+        }
+    }
+
+    //Add quiz score
+    suspend fun addscore(score:String, quizname:String,time: String):ScoreResponse{
+        return apiRequest {
+            subjectAPI.checkclient(ServiceBuilder.token!!,score,quizname,time)
+        }
+    }
+
+    //Get Past Paper
+    suspend fun getpastpaper(id:String): PastPaperResponse {
+        return apiRequest {
+            subjectAPI.getpastpaper(ServiceBuilder.token!!,id)
         }
     }
 }

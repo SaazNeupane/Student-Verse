@@ -4,31 +4,42 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/drawable/border.xml" value="0.2703125" />
-        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/drawable/bottomline.xml" value="0.22179487179487178" />
-        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/drawable/ic_baseline_arrow_circle_down_24.xml" value="0.2703125" />
-        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/drawable/shape.xml" value="0.22179487179487178" />
-        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/drawable/studymaterials.xml" value="0.22179487179487178" />
-        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/drawable/topbottomline.xml" value="0.22179487179487178" />
-        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/activity_ask_question.xml" value="0.2059071729957806" />
+        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/activity_ask_question.xml" value="0.20854700854700856" />
+        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/activity_change_password.xml" value="0.20854700854700856" />
         <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/activity_chapter.xml" value="0.20854700854700856" />
+        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/activity_chapter_content.xml" value="0.20854700854700856" />
         <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/activity_dashboard.xml" value="0.20854700854700856" />
-        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/activity_login.xml" value="0.2059071729957806" />
-        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/activity_single_post.xml" value="0.2059071729957806" />
+        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/activity_edit_question.xml" value="0.20854700854700856" />
+        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/activity_login.xml" value="0.264" />
+        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/activity_past_paper.xml" value="0.197008547008547" />
+        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/activity_quiz.xml" value="0.20854700854700856" />
+        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/activity_read_quiz.xml" value="0.20854700854700856" />
+        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/activity_signup.xml" value="0.20854700854700856" />
+        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/activity_single_post.xml" value="0.20854700854700856" />
         <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/activity_splash.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/activity_topic.xml" value="0.197008547008547" />
+        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/activity_topic.xml" value="0.20854700854700856" />
         <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/activity_update_profile.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/activity_user_profile.xml" value="0.20854700854700856" />
         <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/answerdesign.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/fragment_home.xml" value="0.20854700854700856" />
+        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/chapterdesign.xml" value="0.264" />
+        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/fragment_home.xml" value="0.2059071729957806" />
         <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/fragment_others.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/fragment_search.xml" value="0.20854700854700856" />
-        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/fragment_study_material.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/fragment_user.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/fragment_search.xml" value="0.2" />
+        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/fragment_study_material.xml" value="0.2059071729957806" />
+        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/fragment_user.xml" value="0.2" />
         <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/list_comment.xml" value="0.20854700854700856" />
-        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/list_dashboard.xml" value="0.2059071729957806" />
-        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/studymaterialdesign.xml" value="0.20854700854700856" />
+        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/list_dashboard.xml" value="0.20854700854700856" />
+        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/paperdesign.xml" value="0.20854700854700856" />
+        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/questiondesign.xml" value="0.20854700854700856" />
+        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/quizdesign.xml" value="0.20854700854700856" />
+        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/scoredesign.xml" value="0.20854700854700856" />
+        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/studymaterialdesign.xml" value="0.2059071729957806" />
+        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/studyquizdesign.xml" value="0.20854700854700856" />
         <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/topicdesign.xml" value="0.20854700854700856" />
-        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.13020833333333334" />
-        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/menu/option.xml" value="0.26145833333333335" />
+        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/layout/userdesign.xml" value="0.20854700854700856" />
+        <entry key="..\:/Users/saazn/AndroidStudioProjects/StudentVerse-Andriod/app/src/main/res/menu/gallery_camera.xml" value="0.20854700854700856" />
+        <entry key="app/src/main/res/layout/activity_single_post.xml" value="0.19791666666666666" />
+        <entry key="app/src/main/res/layout/fragment_search.xml" value="0.16666666666666666" />
       </map>
     </option>
   </component>

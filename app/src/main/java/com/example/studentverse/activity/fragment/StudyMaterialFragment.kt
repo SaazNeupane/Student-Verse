@@ -9,9 +9,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.studentverse.R
-import com.example.studentverse.activity.adapter.QuestionAdapter
 import com.example.studentverse.activity.adapter.SubjectAdapter
-import com.example.studentverse.activity.repository.QuestionRepository
 import com.example.studentverse.activity.repository.SubjectRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -45,7 +43,7 @@ class StudyMaterialFragment : Fragment() {
                 if (response.success == true) {
                     val subject = response.data!!
                     withContext(Dispatchers.Main) {
-                        val subjectAdapter = SubjectAdapter(subject,context!!)
+                        val subjectAdapter = SubjectAdapter(subject,requireContext())
                         rvsubjects.adapter = subjectAdapter
                         rvsubjects.layoutManager= LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false)
                     }

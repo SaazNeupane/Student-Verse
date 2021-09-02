@@ -9,39 +9,17 @@
     <LinearLayout
         android:id="@+id/llsubject"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:background="@drawable/shape"
         android:gravity="center">
         <ImageView
             android:id="@+id/adimage"
-            android:layout_width="wrap_content"
-            android:layout_height="150dp"
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
             android:src="@drawable/blogo"
             android:layout_margin="1dp"
             android:background="@color/white"
             android:gravity="center"/>
     </LinearLayout>
-
-<!--    <androidx.cardview.widget.CardView-->
-<!--        android:id="@+id/cardview"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_gravity="center"-->
-<!--        android:elevation="3dp"-->
-<!--        android:layout_margin="4dp"-->
-<!--        app:cardUseCompatPadding="true">-->
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:orientation="vertical">-->
-<!--            <ImageView-->
-<!--                android:id="@+id/ivImage"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="130dp"-->
-<!--                android:scaleType="fitXY"-->
-<!--                android:adjustViewBounds="true"-->
-<!--                android:src="@drawable/blogo" />-->
-<!--        </LinearLayout>-->
-<!--    </androidx.cardview.widget.CardView>-->
 
 </LinearLayout>

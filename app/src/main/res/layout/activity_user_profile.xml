@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.ui.UserProfileActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/visitusername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/brandcolor"
+                android:text="Welcome, User"
+                android:gravity="center_horizontal"
+                android:fontFamily="@font/blinkerbold"
+                android:textSize="30sp"
+                android:layout_margin="15dp"/>
+        </LinearLayout>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profileimage"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:src="@drawable/profileicon"
+            android:layout_gravity="center_horizontal"
+            app:civ_border_width="2dp"
+            app:civ_border_color="@color/black"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal">
+            <TextView
+                android:id="@+id/vname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/brandcolor"
+                android:text="Name: "
+                android:fontFamily="@font/blinkersemibold"
+                android:textSize="17sp"
+                android:layout_margin="10dp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal">
+            <TextView
+                android:id="@+id/vmobile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/brandcolor"
+                android:text="Mobile: "
+                android:fontFamily="@font/blinkerregular"
+                android:textSize="15sp"
+                android:layout_margin="10dp"/>
+            <TextView
+                android:id="@+id/vemail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/brandcolor"
+                android:text="Email: "
+                android:fontFamily="@font/blinkerregular"
+                android:textSize="15sp"
+                android:layout_margin="10dp"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/brandcolor"
+            android:text="Question Asked"
+            android:fontFamily="@font/blinkerbold"
+            android:textSize="25sp"
+            android:layout_margin="10dp"/>
+
+        //Nothing
+        <TextView
+            android:id="@+id/ntf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Nothing Found!!!"
+            android:textColor="@color/black"
+            android:fontFamily="@font/opensansextrabolditalic"
+            android:textSize="27sp"
+            android:gravity="center_horizontal"
+            android:layout_marginBottom="50dp"
+            android:visibility="gone"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvotherques"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:overScrollMode="never"
+            android:isScrollContainer="false"/>
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

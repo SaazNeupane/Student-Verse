@@ -72,7 +72,7 @@ class LoginActivity : AppCompatActivity() {
                     startActivity(
                         Intent(
                             this@LoginActivity,
-                            DashboardActivity::class.java
+                            PermissionActivity::class.java
                         )
                     )
                     finish()

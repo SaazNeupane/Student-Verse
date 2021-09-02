@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.ui.QuizActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:src="@drawable/blogo"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/quiztopic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Quiz"
+            android:textSize="27dp"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:layout_margin="5dp"
+            android:textColor="@color/grey"
+            android:fontFamily="@font/opensansextrabold"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="*Attempt all question. It's a one time attempt you cannot change the answer or do anything once you have submitted. You can compare your answer with Study Quiz Page and view score from your dashboard. GOOD LUCK!!"
+            android:textSize="13dp"
+            android:layout_margin="5dp"
+            android:textColor="@color/grey"
+            android:fontFamily="@font/opensansregular"
+            android:justificationMode="inter_word"/>
+
+        <Chronometer
+            android:id="@+id/timer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Timer"
+            android:textSize="15dp"
+            android:layout_gravity="center_vertical"
+            android:gravity="end"
+            android:layout_margin="5dp"
+            android:textColor="@color/grey"
+            android:fontFamily="@font/opensansbold"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvquiz"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:overScrollMode="never"
+            android:isScrollContainer="false"/>
+        //Button
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnquiz"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:background="@drawable/buttoncornerbrand"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/blinkerbold"
+            android:layout_margin="15dp"/>
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>
