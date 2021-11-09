@@ -5,6 +5,7 @@ import com.example.studentverse.activity.api.ServiceBuilder
 import com.example.studentverse.activity.api.UserAPI
 import com.example.studentverse.activity.model.User
 import com.example.studentverse.activity.response.*
+import okhttp3.MultipartBody
 
 class UserRepository:APIRequest() {
     private val userAPI = ServiceBuilder.buildService(UserAPI::class.java)
@@ -49,8 +50,25 @@ class UserRepository:APIRequest() {
     //Seacrh User
     suspend fun searchuser(text:String): SearchUserResponse {
         return apiRequest {
-            userAPI.searchtag(text)
+            userAPI.searchuser(text)
         }
     }
+
+    //Upload Photo
+    suspend fun uploadImage(body: MultipartBody.Part)
+            : ImageResponse {
+        return apiRequest {
+            userAPI.uploadImage(ServiceBuilder.token!!, body)
+        }
+    }
+
+    //Update Password
+    suspend fun changepassword(password:String, newPassword:String):UpdateResponse{
+        return apiRequest {
+            userAPI.updatepassword(ServiceBuilder.token!!,password,newPassword)
+        }
+    }
+
+
 
 }

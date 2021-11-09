@@ -24,7 +24,6 @@ class SignupActivity : AppCompatActivity() {
     private lateinit var etfname: EditText
     private lateinit var etlname: EditText
     private lateinit var etmobile: EditText
-    private lateinit var etaddress: EditText
     private lateinit var etemail: EditText
     private lateinit var etpassword: EditText
     private lateinit var etrepassword: EditText
@@ -37,7 +36,6 @@ class SignupActivity : AppCompatActivity() {
         etfname = findViewById(R.id.etfname)
         etlname = findViewById(R.id.etlname)
         etmobile = findViewById(R.id.etmobile)
-        etaddress = findViewById(R.id.etaddress)
         etemail = findViewById(R.id.etemail)
         etpassword = findViewById(R.id.etpassword)
         etrepassword = findViewById(R.id.etrepassword)
@@ -53,7 +51,6 @@ class SignupActivity : AppCompatActivity() {
         val fname = etfname.text.toString()
         val lname = etlname.text.toString()
         val mobile = etmobile.text.toString()
-        val address = etaddress.text.toString()
         val email = etemail.text.toString()
         val password = etpassword.text.toString()
         val repassword = etrepassword.text.toString()
@@ -63,11 +60,12 @@ class SignupActivity : AppCompatActivity() {
             etrepassword.requestFocus()
         }
         else{
-            val user = User(fname = fname,lname = lname, mobile = mobile, address=address, email = email, password = password)
+            val user = User(fname = fname,lname = lname, mobile = mobile, email = email, password = password)
             CoroutineScope(Dispatchers.IO).launch {
                 try {
                     val userRepository = UserRepository()
                     val response = userRepository.userRegister(user)
+
                     if (response.success == true){
                         withContext(Dispatchers.Main){
                             showNotification("${response.message}")
@@ -81,8 +79,16 @@ class SignupActivity : AppCompatActivity() {
                             finish()
                         }
                     }
+                    if (response.success == false){
+                        withContext(Dispatchers.Main){
+                            println(response.error?.get(0)?.msg.toString())
+                            println(response.error)
+                            Toast.makeText(this@SignupActivity, (response.error?.get(0)?.msg), Toast.LENGTH_SHORT).show()
+                        }
+                    }
 
                 } catch (e: Exception){
+
                     withContext(Dispatchers.Main){
                         Toast.makeText(this@SignupActivity, "$e", Toast.LENGTH_SHORT).show()
                     }
@@ -110,11 +116,6 @@ class SignupActivity : AppCompatActivity() {
             etmobile.requestFocus()
             flag = false
         }
-        else if(TextUtils.isEmpty(etaddress.text)){
-            etaddress.setError("Please enter your Address")
-            etaddress.requestFocus()
-            flag = false
-        }
         else if(TextUtils.isEmpty(etemail.text)){
             etemail.setError("Please enter your Email Address")
             etemail.requestFocus()
@@ -132,7 +133,6 @@ class SignupActivity : AppCompatActivity() {
         etfname.text.clear()
         etlname.text.clear()
         etmobile.text.clear()
-        etaddress.text.clear()
         etemail.text.clear()
         etpassword.text.clear()
         etrepassword.text.clear()

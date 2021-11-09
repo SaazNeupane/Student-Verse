@@ -63,7 +63,7 @@ class SplashActivity : AppCompatActivity() {
                     startActivity(
                         Intent(
                             this@SplashActivity,
-                            DashboardActivity::class.java
+                            PermissionActivity::class.java
                         )
                     )
                     finish()

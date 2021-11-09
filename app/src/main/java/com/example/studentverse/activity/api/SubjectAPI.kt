@@ -1,9 +1,6 @@
 package com.example.studentverse.activity.api
 
-import com.example.studentverse.activity.response.ChapterResponse
-import com.example.studentverse.activity.response.PostResponse
-import com.example.studentverse.activity.response.SubjectResponse
-import com.example.studentverse.activity.response.TopicResponse
+import com.example.studentverse.activity.response.*
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -15,28 +12,39 @@ interface SubjectAPI {
         @Header("Authorization") token : String,
     ): Response<SubjectResponse>
 
-    //Get Answer
+    //Get Topic
     @GET("topic")
     suspend fun gettopic(
         @Query("subjectID") studentID:String
     ):Response<TopicResponse>
 
-    //Get Answer
+    //Get Chapter
     @GET("chapter/{subject}/{topic}")
     suspend fun getchapter(
         @Path("subject") sid: String,
         @Path("topic") tid: String,
     ):Response<ChapterResponse>
 
-    //Search Question
-    @GET("searchPost")
-    suspend fun searchquestion(
-        @Query("question") text:String
-    ):Response<PostResponse>
+    //Get Quiz
+    @GET("quiz/{chapterid}")
+    suspend fun getquiz(
+        @Path("chapterid") id: String,
+    ):Response<QuizResponse>
 
-    //Search Tags
-    @GET("searchTag")
-    suspend fun searchtag(
-        @Query("tags") text:String
-    ):Response<PostResponse>
+    //Add Score
+    @FormUrlEncoded
+    @POST("score")
+    suspend fun checkclient(
+        @Header("Authorization") token : String,
+        @Field("score") score: String,
+        @Field("quizname") quizname: String,
+        @Field("time") time: String
+    ):Response<ScoreResponse>
+
+    //Get Past Paper
+    @GET("paper/{chapterid}")
+    suspend fun getpastpaper(
+        @Header("Authorization") token : String,
+        @Path("chapterid") id: String,
+    ):Response<PastPaperResponse>
 }

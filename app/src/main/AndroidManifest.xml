@@ -5,6 +5,9 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -15,16 +18,46 @@
         android:theme="@style/Theme.StudentVerse"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".activity.ui.ChapterActivity"
+            android:name=".activity.ui.PastPaperActivity"
             android:exported="true" />
+        <activity
+            android:name=".activity.ui.ReadQuizActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.ui.PermissionActivity"
+            android:exported="true"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".activity.ui.UserProfileActivity"
+            android:exported="true"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".activity.ui.EditQuestionActivity"
+            android:exported="true"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".activity.ui.ChapterContentActivity"
+            android:exported="true"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".activity.ui.ChangePasswordActivity"
+            android:exported="true"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".activity.ui.QuizActivity"
+            android:exported="true"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".activity.ui.ChapterActivity"
+            android:exported="true"
+            android:launchMode="singleTask" />
         <activity
             android:name=".activity.ui.TopicActivity"
             android:exported="true"
             android:launchMode="singleTask" />
         <activity
             android:name=".activity.ui.UpdateProfileActivity"
-            android:exported="true"
-            android:launchMode="singleTask" />
+            android:exported="true" />
         <activity
             android:name=".activity.ui.SplashActivity"
             android:exported="true">
@@ -36,13 +69,13 @@
         </activity>
         <activity
             android:name=".activity.ui.SinglePostActivity"
-            android:noHistory="true" />
+            android:noHistory="true"/>
         <activity
             android:name=".activity.ui.AskQuestionActivity"
             android:launchMode="singleTask" />
         <activity
             android:name=".activity.ui.DashboardActivity"
-            android:launchMode="singleTask"/>
+            android:launchMode="singleTask" />
         <activity
             android:name=".activity.ui.LoginActivity"
             android:launchMode="singleTask" />

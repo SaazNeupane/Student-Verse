@@ -13,19 +13,44 @@ import com.example.studentverse.activity.response.*
 class QuestionRepository:APIRequest() {
     private val postAPI = ServiceBuilder.buildService(PostAPI::class.java)
 
-    //question
+    //All question
     suspend fun allquestion(): PostResponse {
         return apiRequest {
             postAPI.post(ServiceBuilder.token!!)
         }
     }
 
-    //Add Ad
+    //Add Question
     suspend fun addpost(post: Post):AddPostResponse{
         return apiRequest {
             postAPI.addAd(
                 ServiceBuilder.token!!,post
             )
+        }
+    }
+
+    //Update Post
+    suspend fun updatepost(id:String, title:String, body:String, tags:List<String> ):PostResponse{
+        return apiRequest {
+            postAPI.updatepost(
+                ServiceBuilder.token!!,id,title,body,tags
+            )
+        }
+    }
+
+    //Delete Post
+    suspend fun deletepost(id:String):PostResponse{
+        return apiRequest {
+            postAPI.deletepost(
+                ServiceBuilder.token!!,id
+            )
+        }
+    }
+
+    //Single question
+    suspend fun singlepost(id: String): ViewResponse {
+        return apiRequest {
+            postAPI.singlepost(id)
         }
     }
 
@@ -63,6 +88,7 @@ class QuestionRepository:APIRequest() {
         }
     }
 
+    //DownVote
     suspend fun downvote(vote: Vote) : VoteResponse {
         return apiRequest {
             postAPI.downvote(
@@ -71,11 +97,47 @@ class QuestionRepository:APIRequest() {
         }
     }
 
+    //Unvote
     suspend fun unvote(vote: Vote) : VoteResponse {
         return apiRequest {
             postAPI.unvote(
                 ServiceBuilder.token!!,vote
             )
+        }
+    }
+
+    //Seacrh Question
+    suspend fun searchquestion(text:String): PostResponse {
+        return apiRequest {
+            postAPI.searchquestion(text)
+        }
+    }
+
+    //Seacrh Tags
+    suspend fun searchtag(text:String): PostResponse {
+        return apiRequest {
+            postAPI.searchtag(text)
+        }
+    }
+
+    //User Own Question
+    suspend fun myquestions(): PostResponse {
+        return apiRequest {
+            postAPI.myquestions(ServiceBuilder.token!!)
+        }
+    }
+
+    //Other's question
+    suspend fun otherpost(id: String): PostResponse {
+        return apiRequest {
+            postAPI.otherpost(ServiceBuilder.token!!,id)
+        }
+    }
+
+    //User Score
+    suspend fun myscore(): FetchScoreResponse {
+        return apiRequest {
+            postAPI.myscore(ServiceBuilder.token!!)
         }
     }
 }

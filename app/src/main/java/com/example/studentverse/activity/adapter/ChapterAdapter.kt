@@ -5,12 +5,13 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.studentverse.R
 import com.example.studentverse.activity.model.Chapter
-import com.example.studentverse.activity.ui.ChapterActivity
+import com.example.studentverse.activity.ui.*
 
 class ChapterAdapter (
     private val listchapter: ArrayList<Chapter>,
@@ -18,6 +19,10 @@ class ChapterAdapter (
 ): RecyclerView.Adapter<ChapterAdapter.ChapterHolder>(){
     class ChapterHolder(view: View): RecyclerView.ViewHolder(view){
         val tvchaptername: TextView = view.findViewById(R.id.tvchaptername)
+        val ivcontent: ImageView = view.findViewById(R.id.ivreadcontent)
+        val ivquiz: ImageView = view.findViewById(R.id.ivtakequiz)
+        val ivstudyquiz: ImageView = view.findViewById(R.id.ivstudyquiz)
+        val ivpast: ImageView = view.findViewById(R.id.ivpastpaper)
         val llchapter: LinearLayout = view.findViewById(R.id.llchapter)
         val llccontent: LinearLayout = view.findViewById(R.id.llccontent)
     }
@@ -41,6 +46,26 @@ class ChapterAdapter (
             }
             else{
                 holder.llccontent.visibility = View.VISIBLE
+                holder.ivquiz.setOnClickListener {
+                    val intent = Intent(context, QuizActivity::class.java)
+                        .putExtra("chapter",chapter)
+                    context.startActivity(intent)
+                }
+                holder.ivstudyquiz.setOnClickListener {
+                    val intent = Intent(context, ReadQuizActivity::class.java)
+                        .putExtra("chapter",chapter)
+                    context.startActivity(intent)
+                }
+                holder.ivpast.setOnClickListener {
+                    val intent = Intent(context, PastPaperActivity::class.java)
+                        .putExtra("pchapter",chapter)
+                    context.startActivity(intent)
+                }
+                holder.ivcontent.setOnClickListener {
+                    val intent = Intent(context, ChapterContentActivity::class.java)
+                        .putExtra("content",chapter)
+                    context.startActivity(intent)
+                }
             }
         }
     }

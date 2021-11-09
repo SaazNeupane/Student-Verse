@@ -2,6 +2,7 @@ package com.example.studentverse.activity.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -20,6 +21,8 @@ import java.lang.Exception
 class ChapterActivity : AppCompatActivity() {
 
     private lateinit var rvchapter: RecyclerView
+    private lateinit var tvchapter: TextView
+    private lateinit var tvdescription: TextView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,8 +30,12 @@ class ChapterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_chapter)
 
         rvchapter=findViewById(R.id.rvchapter)
+        tvchapter=findViewById(R.id.tvchapter)
+        tvdescription=findViewById(R.id.tvctopicdesp)
 
         val topic = intent.getParcelableExtra<Topic>("topic")!!
+        tvchapter.text = "${topic.name}"
+        tvdescription.text = "${topic.description}"
         val subjectid = intent.getStringExtra("subjectid")!!
 
         CoroutineScope(Dispatchers.IO).launch {

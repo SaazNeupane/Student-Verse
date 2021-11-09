@@ -57,7 +57,6 @@ class AskQuestionActivity : AppCompatActivity() {
                 if (response.success == true){
                         withContext(Dispatchers.Main){
                             showNotification("${response.message}")
-                            DashboardActivity().finishAndRemoveTask()
                             startActivity(
                                 Intent(
                                     this@AskQuestionActivity,

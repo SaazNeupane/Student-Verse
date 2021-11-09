@@ -2,6 +2,7 @@ package com.example.studentverse.activity.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -58,7 +59,7 @@ class AnswerAdapter(
         holder.tvscore.text = answer.score.toString()
         val dateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
         val parsedDate: Date = dateFormat.parse(answer.createdAt)
-        val print = SimpleDateFormat("MMM d, yyyy HH:mm")
+        val print = SimpleDateFormat("d MMM, yyyy")
         holder.tvatime.text = "${print.format(parsedDate)}"
         val comments = answer.comment
         if (comments != null) {
@@ -133,8 +134,8 @@ class AnswerAdapter(
                                 downclicked = false
                             }
                             else{
-                                upclicked = true;
-                                downclicked = true;
+                                upclicked = true
+                                downclicked = true
                             }
                         }
                     }
@@ -156,8 +157,6 @@ class AnswerAdapter(
                 holder.tvscore.text = (holder.tvscore.text.toString().toInt() + 1).toString()
                 upclicked = false;
                 downclicked = true;
-                println("it is here 1")
-                println(answer._id)
                 val vote = Vote(answer = answer._id, post = question._id)
                 CoroutineScope(Dispatchers.IO).launch {
                     try{
@@ -187,8 +186,6 @@ class AnswerAdapter(
                 holder.tvscore.text = (holder.tvscore.text.toString().toInt() - 1).toString()
                 upclicked = true;
                 downclicked = true;
-                println("it is here 2")
-                println(answer._id)
                 val vote = Vote(answer = answer._id, post = question._id)
                 CoroutineScope(Dispatchers.IO).launch {
                     try {
@@ -231,9 +228,9 @@ class AnswerAdapter(
                         if (response.success == true){
                             withContext(Dispatchers.Main){
                                 Toast.makeText(context, "${response.message}", Toast.LENGTH_SHORT).show()
-                                val intent = Intent(context, SinglePostActivity::class.java)
-                                    .putExtra("post",question)
-                                context.startActivity(intent)
+//                                val intent = Intent(context, SinglePostActivity::class.java)
+//                                    .putExtra("post",question)
+//                                context.startActivity(intent)
                             }
                         }
                     }
@@ -261,9 +258,9 @@ class AnswerAdapter(
                             withContext(Dispatchers.Main) {
                                 Toast.makeText(context, "${response.message}", Toast.LENGTH_SHORT)
                                     .show()
-                                val intent = Intent(context, SinglePostActivity::class.java)
-                                    .putExtra("post",question)
-                                context.startActivity(intent)
+//                                val intent = Intent(context, SinglePostActivity::class.java)
+//                                    .putExtra("post",question)
+//                                context.startActivity(intent)
                             }
                         }
                     } catch (ex: Exception) {
@@ -281,33 +278,40 @@ class AnswerAdapter(
         }
 
         holder.btnccomment.setOnClickListener {
-            val comt = holder.etccomment.text.toString()
 
-            val comment = Comment(text = comt, answer = answer._id, question = question._id )
+            if(TextUtils.isEmpty(holder.etccomment.text)) {
+                holder.etccomment.error = "Please comment on answer"
+                holder.etccomment.requestFocus()
+            }
+            else{
 
-            CoroutineScope(Dispatchers.IO).launch {
-                try{
-                    val questionRepository = QuestionRepository()
-                    val response = questionRepository.addcomment(comment)
-                    if (response.success == true){
+                val comt = holder.etccomment.text.toString()
+
+                val comment = Comment(text = comt, answer = answer._id, question = question._id )
+
+                CoroutineScope(Dispatchers.IO).launch {
+                    try{
+                        val questionRepository = QuestionRepository()
+                        val response = questionRepository.addcomment(comment)
+                        if (response.success == true){
+                            withContext(Dispatchers.Main){
+                                Toast.makeText(context, "Comment Added", Toast.LENGTH_SHORT).show()
+                                val intent = Intent(context, SinglePostActivity::class.java)
+                                    .putExtra("post",question)
+                                context.startActivity(intent)
+                            }
+                        }
+                    }
+                    catch (ex: Exception){
                         withContext(Dispatchers.Main){
-                            Toast.makeText(context, "Comment Added", Toast.LENGTH_SHORT).show()
-                            val intent = Intent(context, SinglePostActivity::class.java)
-                                .putExtra("post",question)
-                            context.startActivity(intent)
+                            Toast.makeText(context,
+                                ex.toString(),
+                                Toast.LENGTH_SHORT)
+                                .show()
                         }
                     }
                 }
-                catch (ex: Exception){
-                    withContext(Dispatchers.Main){
-                        Toast.makeText(context,
-                            ex.toString(),
-                            Toast.LENGTH_SHORT)
-                            .show()
-                    }
-                }
             }
-
         }
     }
 

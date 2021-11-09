@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:orientation="vertical"
+    android:background="@drawable/bottomline">
+
+    <TextView
+        android:id="@+id/tvpaperquestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Question"
+        android:textSize="18sp"
+        android:fontFamily="@font/opensansbold"
+        android:textColor="@color/black"
+        android:layout_margin="5dp"
+        android:justificationMode="inter_word"/>
+
+    <TextView
+        android:id="@+id/tvpastyear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Year"
+        android:textSize="15sp"
+        android:fontFamily="@font/opensansbold"
+        android:textColor="@color/black"
+        android:layout_margin="5dp"
+        android:gravity="right"
+        android:justificationMode="inter_word"/>
+
+    //Nothing
+    <TextView
+        android:id="@+id/ntf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="Nothing Found!!!"
+        android:textColor="@color/black"
+        android:fontFamily="@font/opensansextrabolditalic"
+        android:textSize="27sp"
+        android:gravity="center_horizontal"
+        android:layout_marginBottom="50dp"
+        android:visibility="gone"/>
+
+</LinearLayout>

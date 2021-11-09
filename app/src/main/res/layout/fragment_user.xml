@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".activity.fragments.UserFragment">
-    <ScrollView
+    tools:context=".activity.fragment.UserFragment">
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <LinearLayout
@@ -91,6 +91,65 @@
                     android:backgroundTint="@color/red"
                     android:textSize="16sp"/>
             </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/brandcolor"
+                android:text="My Questions"
+                android:fontFamily="@font/blinkerbold"
+                android:textSize="25sp"
+                android:layout_margin="10dp"/>
+
+            <TextView
+                android:id="@+id/ntf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="Nothing Found!!!"
+                android:textColor="@color/black"
+                android:fontFamily="@font/opensansextrabolditalic"
+                android:textSize="27sp"
+                android:gravity="center_horizontal"
+                android:layout_marginBottom="50dp"
+                android:visibility="gone"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvmyques"
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:overScrollMode="never"
+                android:isScrollContainer="false"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/brandcolor"
+                android:text="My Quiz Score"
+                android:fontFamily="@font/blinkerbold"
+                android:textSize="25sp"
+                android:layout_margin="10dp"/>
+            <TextView
+                android:id="@+id/ntf2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="Nothing Found!!!"
+                android:textColor="@color/black"
+                android:fontFamily="@font/opensansextrabolditalic"
+                android:textSize="27sp"
+                android:gravity="center_horizontal"
+                android:layout_marginBottom="50dp"
+                android:visibility="gone"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvquizscore"
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:overScrollMode="never"
+                android:isScrollContainer="false"/>
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 </FrameLayout>

@@ -8,17 +8,11 @@ import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.typeText
 import androidx.test.espresso.assertion.ViewAssertions
-import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers
-import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
-import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.filters.LargeTest
-import com.example.studentverse.activity.api.ServiceBuilder
-import com.example.studentverse.activity.fragments.SearchFragment
-import com.example.studentverse.activity.ui.DashboardActivity
+import com.example.studentverse.activity.fragment.SearchFragment
 import org.junit.Before
-import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
@@ -37,7 +31,7 @@ class SearchInstrumentedTesting {
 
     @Test
     fun searchTest(){
-        onView(withId(R.id.etsearch)).perform(typeText("Java"))
+        onView(withId(R.id.etsearch)).perform(typeText("light"))
 
         Espresso.closeSoftKeyboard()
 

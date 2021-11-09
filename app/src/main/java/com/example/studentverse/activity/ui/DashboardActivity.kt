@@ -1,12 +1,14 @@
 package com.example.studentverse.activity.ui
 
+import android.app.AlertDialog
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.studentverse.R
 import com.example.studentverse.activity.fragment.StudyMaterialFragment
-import com.example.studentverse.activity.fragments.HomeFragment
-import com.example.studentverse.activity.fragments.SearchFragment
-import com.example.studentverse.activity.fragments.UserFragment
+import com.example.studentverse.activity.fragment.HomeFragment
+import com.example.studentverse.activity.fragment.SearchFragment
+import com.example.studentverse.activity.fragment.UserFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class DashboardActivity : AppCompatActivity(){
@@ -69,6 +71,27 @@ class DashboardActivity : AppCompatActivity(){
                 else -> false
             }
         }
+    }
+
+    override fun onBackPressed() {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Are you Sure?")
+        //set message for alert dialog
+        builder.setMessage("You wanna quit the app?")
+        builder.setIcon(R.drawable.alert)
+
+        //performing positive action
+        builder.setPositiveButton("Yes"){ _, _ ->
+            finish()
+        }
+        //performing negative action
+        builder.setNegativeButton("No"){ _, _ ->
+        }
+        // Create the AlertDialog
+        val alertDialog: AlertDialog = builder.create()
+        // Set other dialog properties
+        alertDialog.setCancelable(false)
+        alertDialog.show()
     }
 
 }

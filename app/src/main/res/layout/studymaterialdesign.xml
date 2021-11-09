@@ -15,7 +15,7 @@
         <ImageView
             android:id="@+id/adimage"
             android:layout_width="match_parent"
-            android:layout_height="180dp"
+            android:layout_height="170dp"
             android:src="@drawable/blogo"
             android:layout_margin="1dp"
             android:background="@color/white"
